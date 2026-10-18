@@ -225,7 +225,7 @@
 <div class="wrap">
 
   <div class="hero">
-    <img src="images/maintenance.jpg" alt="天然石のメンテナンス｜01 浄化・ブレスレットゴム交換 3,000円（税込）／02 浄化・ゴム交換・石バージョンアップ 10,000円〜（税込）／レターパック（青）でお送りください。中に返送用のレターパック（赤または青）を入れてお送りください。" width="1122" height="1402">
+    <img src="images/maintenance.jpg" alt="大切な天然石を、いつも最高の状態で。天然石のメンテナンス" width="1122" height="500">
   </div>
 
   <p class="greeting" id="greeting"></p>
@@ -245,7 +245,7 @@
       <div class="form-group">
         <div class="choices">
           <label class="choice">
-            <input type="radio" name="menu" value="ゴム交換（浄化付き）" required>
+            <input type="radio" name="menu" value="ゴム交換（浄化付き）¥3,000" data-key="rubber" required>
             <span class="dot"></span>
             <span class="choice-body">
               <span class="choice-name">ゴム交換</span><br>
@@ -254,34 +254,34 @@
             <span class="choice-price">¥3,000<br><small>（税込）</small></span>
           </label>
           <label class="choice">
-            <input type="radio" name="menu" value="サイズ直し">
+            <input type="radio" name="menu" value="サイズ直し（浄化・ゴム交換付き）¥3,000〜 要相談" data-key="size">
             <span class="dot"></span>
             <span class="choice-body">
               <span class="choice-name">サイズ直し</span><br>
-              <span class="choice-desc">ゴム交換代＋α</span>
+              <span class="choice-desc">浄化＋ゴム交換＋サイズ調整</span>
             </span>
-            <span class="choice-price">要相談</span>
+            <span class="choice-price">¥3,000〜<br><small>（要相談）</small></span>
           </label>
           <label class="choice">
-            <input type="radio" name="menu" value="バージョンアップ（浄化・ゴム交換付き）">
+            <input type="radio" name="menu" value="石バージョンアップ" data-key="upgrade">
             <span class="dot"></span>
             <span class="choice-body">
               <span class="choice-name">石バージョンアップ</span><br>
-              <span class="choice-desc">浄化＋ゴム交換＋ご希望や状態に合わせて石をグレードアップ</span>
+              <span class="choice-desc">石代・ゴム交換代・浄化代込み<br>ご希望や状態に合わせて石をグレードアップ</span>
             </span>
-            <span class="choice-price">¥10,000〜<br><small>（税込）</small></span>
+            <span class="choice-price">¥7,500〜<br><small>（税込）</small></span>
           </label>
           <label class="choice">
-            <input type="radio" name="menu" value="浄化のみ">
+            <input type="radio" name="menu" value="浄化のみ ¥1,000" data-key="cleanse">
             <span class="dot"></span>
             <span class="choice-body">
               <span class="choice-name">浄化のみ</span><br>
               <span class="choice-desc">天然石のエネルギーをリセット</span>
             </span>
-            <span class="choice-price">要相談</span>
+            <span class="choice-price">¥1,000<br><small>（税込）</small></span>
           </label>
           <label class="choice">
-            <input type="radio" name="menu" value="その他">
+            <input type="radio" name="menu" value="その他（要相談）" data-key="other">
             <span class="dot"></span>
             <span class="choice-body">
               <span class="choice-name">その他</span><br>
@@ -291,6 +291,38 @@
           </label>
         </div>
         <p class="field-error">メニューを選択してください</p>
+      </div>
+
+      <div class="form-group hidden" id="courseGroup">
+        <span class="group-label">バージョンアップのコース<span class="required">必須</span></span>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="course" value="¥7,500コース">
+            <span class="dot"></span>
+            <span class="choice-body"><span class="choice-name">¥7,500 コース</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="course" value="¥9,600コース">
+            <span class="dot"></span>
+            <span class="choice-body"><span class="choice-name">¥9,600 コース</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="course" value="¥19,700コース">
+            <span class="dot"></span>
+            <span class="choice-body"><span class="choice-name">¥19,700 コース</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="course" value="それ以上をご希望（要相談）">
+            <span class="dot"></span>
+            <span class="choice-body">
+              <span class="choice-name">それ以上をご希望</span><br>
+              <span class="choice-desc">内容によっては、新しくお作りするご提案をさせていただく場合がございます</span>
+            </span>
+            <span class="choice-price">要相談</span>
+          </label>
+        </div>
+        <p class="hint">いずれも石代・ゴム交換代・浄化代込み（税込）です。</p>
+        <p class="field-error">コースを選択してください</p>
       </div>
 
       <div class="form-group hidden" id="sizeGroup">
@@ -442,15 +474,17 @@
 
   // ── メニューに応じて入力欄を切り替え ──
   const detailPlaceholders = {
-    'サイズ直し': '例）きつくなってきたので少し大きくしたいです',
-    'バージョンアップ（浄化・ゴム交換付き）': '例）恋愛運を高めたい／ピンク系の石を足したい など、ご希望をご記入ください',
-    'その他': 'ご希望の内容をご記入ください',
+    size:    '例）きつくなってきたので少し大きくしたいです',
+    upgrade: '例）恋愛運を高めたい／ピンク系の石を足したい など、ご希望をご記入ください',
+    other:   'ご希望の内容をご記入ください',
   };
+  const menuKey = () => (form.querySelector('[name="menu"]:checked') || {dataset: {}}).dataset.key;
   form.querySelectorAll('[name="menu"]').forEach(radio => {
     radio.addEventListener('change', () => {
-      const menu = radio.value;
-      $('sizeGroup').classList.toggle('hidden', menu !== 'サイズ直し');
-      const detailRequired = menu === 'その他';
+      const menu = radio.dataset.key;
+      $('sizeGroup').classList.toggle('hidden', menu !== 'size');
+      $('courseGroup').classList.toggle('hidden', menu !== 'upgrade');
+      const detailRequired = menu === 'other';
       $('detailBadge').textContent = detailRequired ? '必須' : '任意';
       $('detailBadge').className = detailRequired ? 'required' : 'optional';
       $('detail').placeholder = detailPlaceholders[menu] || '例）ゴムが伸びてきました／石が欠けています など';
@@ -466,11 +500,12 @@
     form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
     const errors = [];
     const fail = el => errors.push(el.closest('.form-group'));
-    const menu = (form.querySelector('[name="menu"]:checked') || {}).value;
+    const menu = menuKey();
 
     if (!menu) fail(form.querySelector('[name="menu"]'));
-    if (menu === 'サイズ直し' && !$('wishSize').value.trim()) fail($('wishSize'));
-    if (menu === 'その他' && !$('detail').value.trim()) fail($('detail'));
+    if (menu === 'upgrade' && !form.querySelector('[name="course"]:checked')) fail(form.querySelector('[name="course"]'));
+    if (menu === 'size' && !$('wishSize').value.trim()) fail($('wishSize'));
+    if (menu === 'other' && !$('detail').value.trim()) fail($('detail'));
     ['name', 'phone', 'postal', 'address'].forEach(id => {
       if (!$(id).value.trim()) fail($(id));
     });
@@ -499,11 +534,15 @@
     btn.textContent = '送信中...';
     btn.disabled = true;
 
-    const menu = form.querySelector('[name="menu"]:checked').value;
+    const key = menuKey();
+    let menu = form.querySelector('[name="menu"]:checked').value;
+    if (key === 'upgrade') {
+      menu += ' ' + form.querySelector('[name="course"]:checked').value + '（石代・ゴム交換代・浄化代込み）';
+    }
     const data = {
       formType: 'maintenance',
       menu,
-      wishSize: menu === 'サイズ直し' ? $('wishSize').value.trim() : '',
+      wishSize: key === 'size' ? $('wishSize').value.trim() : '',
       detail:   $('detail').value.trim(),
       purchase: $('purchase').value.trim(),
       name:     $('name').value.trim(),

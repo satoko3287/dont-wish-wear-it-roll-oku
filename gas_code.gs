@@ -349,7 +349,7 @@ function testMaintenance() {
     postData: {
       contents: JSON.stringify({
         formType: 'maintenance',
-        menu:     'ゴム交換（浄化付き）',
+        menu:     'ゴム交換（浄化付き）¥3,000',
         detail:   'テスト送信です',
         name:     'テスト 花子',
         phone:    '090-0000-0000',
