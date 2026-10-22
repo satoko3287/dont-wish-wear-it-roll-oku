@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eterna Stone｜数秘リーディング×天然石 オーダーブレスレット</title>
-  <meta name="description" content="あなたの本来の流れを取り戻し、望む未来へと導く。数秘リーディング×天然石のオーダーブレスレット「Eterna Stone（エテルナストーン）」">
+  <title>DON'T WISH. WEAR IT＆ roll.-奥の間-｜数秘リーディング×天然石 オーダーブレスレット</title>
+  <meta name="description" content="あなたの本来の流れを取り戻し、望む未来へと導く。願うな。まとって、動き出せ。数秘リーディング×天然石のオーダーブレスレットとメンテナンス「DON'T WISH. WEAR IT＆ roll.-奥の間-」">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -117,6 +117,20 @@
       transition: all .3s;
     }
     .nav-cta:hover { background: rgba(201,169,110,.12); border-color: var(--gold); }
+    .nav-links { display: flex; gap: 10px; flex: none; }
+    .nav-logo { font-size: .95rem; letter-spacing: .12em; }
+    .nav-logo-sub { margin-left: 8px; font-family: 'Noto Serif JP', serif; font-size: .8em; letter-spacing: .1em; color: var(--gold); }
+    @media (max-width: 600px) {
+      nav { gap: 12px; }
+      .nav-logo { font-size: .72rem; letter-spacing: .06em; line-height: 1.4; }
+      .nav-logo-sub { display: block; margin-left: 0; }
+      .nav-cta { padding: 6px 10px; font-size: .62rem; letter-spacing: .08em; }
+      .nav-links { gap: 6px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons a { width: 240px; padding-left: 0; padding-right: 0; text-align: center; }
+      .scroll-hint { display: none !important; }
+    }
+    .nw { white-space: nowrap; }
 
     /* ─── HERO ────────────────────────────────── */
     #hero {
@@ -147,9 +161,9 @@
 
     .hero-en {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-size: clamp(2.3rem, 7.5vw, 5rem);
       font-weight: 300;
-      letter-spacing: .12em;
+      letter-spacing: .08em;
       color: var(--gold-light);
       line-height: 1;
       margin-bottom: 8px;
@@ -159,8 +173,27 @@
       font-size: clamp(1rem, 2.5vw, 1.4rem);
       letter-spacing: .4em;
       color: var(--gold);
-      margin-bottom: 40px;
+      margin: 16px 0 20px;
     }
+    .hero-tagline {
+      font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+      letter-spacing: .25em;
+      color: var(--text);
+      margin-bottom: 36px;
+    }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .btn-outline {
+      display: inline-block;
+      padding: 17px 44px;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-family: 'Noto Serif JP', serif;
+      font-size: .9rem;
+      letter-spacing: .2em;
+      text-decoration: none;
+      transition: background .3s;
+    }
+    .btn-outline:hover { background: rgba(201,169,110,.12); }
 
     .hero-copy {
       font-size: clamp(1rem, 2.2vw, 1.2rem);
@@ -502,7 +535,7 @@
     }
 
     .price-card::before {
-      content: '✦ Eterna Stone ✦';
+      content: '✦ 奥の間 ✦';
       position: absolute;
       top: -10px; left: 50%; transform: translateX(-50%);
       background: var(--dark-mid);
@@ -766,6 +799,30 @@
       line-height: 2.2;
     }
 
+    /* ─── MAINTENANCE ─────────────────────────── */
+    #maintenance { position: relative; z-index: 1; padding: 120px 0; border-top: 1px solid var(--dark-border); }
+    .maint-header { text-align: center; margin-bottom: 48px; }
+    .maint-header .section-label { margin-bottom: 16px; }
+    .maint-header .gold-line { margin-top: 24px; }
+    .maint-lead { text-align: center; color: var(--text-muted); margin-bottom: 48px; line-height: 2.1; }
+    .maint-list { max-width: 640px; margin: 0 auto; list-style: none; border-top: 1px solid var(--dark-border); }
+    .maint-item {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 20px 4px; border-bottom: 1px solid var(--dark-border);
+    }
+    .maint-name { color: var(--text); }
+    .maint-desc { display: block; font-size: .78rem; color: var(--text-muted); line-height: 1.7; margin-top: 2px; }
+    .maint-price { flex: none; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; text-align: right; line-height: 1.4; }
+    .maint-price small { display: block; font-family: 'Noto Serif JP', serif; font-size: .65rem; color: var(--text-muted); }
+    .maint-howto {
+      max-width: 640px; margin: 40px auto 0; padding: 24px 28px;
+      border: 1px solid var(--gold-dark); background: rgba(22,19,42,.7);
+      font-size: .88rem; line-height: 2;
+    }
+    .maint-howto-title { color: var(--gold); letter-spacing: .15em; margin-bottom: 6px; }
+    .maint-howto strong { color: var(--gold-light); font-weight: 400; }
+    .maint-cta { text-align: center; margin-top: 48px; }
+
     /* ─── FOOTER ──────────────────────────────── */
     footer {
       position: relative; z-index: 1;
@@ -780,6 +837,7 @@
       color: var(--gold-light);
       margin-bottom: 12px;
     }
+    .footer-logo-sub { font-family: 'Noto Serif JP', serif; font-size: .8em; letter-spacing: .15em; color: var(--gold); }
     .footer-tagline {
       font-size: .75rem;
       letter-spacing: .18em;
@@ -821,22 +879,29 @@
 
 <!-- ─── NAV ─── -->
 <nav>
-  <a class="nav-logo" href="#hero">ETERNA STONE</a>
-  <a class="nav-cta" href="#order">ORDER</a>
+  <a class="nav-logo" href="#hero"><span class="nw">DON'T WISH.</span> <span class="nw">WEAR IT＆ roll.</span><span class="nav-logo-sub">-奥の間-</span></a>
+  <div class="nav-links">
+    <a class="nav-cta" href="#order">ORDER</a>
+    <a class="nav-cta" href="#maintenance">MAINTENANCE</a>
+  </div>
 </nav>
 
 <!-- ─── HERO ─── -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-diamond" aria-hidden="true"></div>
-    <p class="hero-en">Eterna Stone</p>
-    <p class="hero-ja">エテルナストーン</p>
+    <p class="hero-en">DON'T WISH.<br>WEAR IT＆ roll.</p>
+    <p class="hero-ja">-奥の間-</p>
+    <p class="hero-tagline">願うな。まとって、動き出せ。</p>
     <p class="hero-copy">
       <strong>あなたの本来の流れを取り戻し、<br>望む未来へと導く──</strong><br>
       数秘リーディング × 天然石<br>
       あなただけのオーダーブレスレット
     </p>
-    <a href="#order" class="btn-primary">オーダーする</a>
+    <div class="hero-buttons">
+      <a href="#order" class="btn-primary">オーダーする</a>
+      <a href="#maintenance" class="btn-outline">メンテナンス</a>
+    </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
     <span>SCROLL</span>
@@ -849,7 +914,7 @@
   <div class="container">
     <p class="catchcopy-text fade-in">
       「選ぶのではなく、石があなたを選ぶ。」<br>
-      <span style="font-size:.9em; color: var(--gold-dark);">── Eterna Stone ──</span>
+      <span style="font-size:.9em; color: var(--gold-dark);">── 願うな。まとって、動き出せ。 ──</span>
     </p>
   </div>
 </section>
@@ -874,7 +939,7 @@
         まるで星座が夜空に輝くように、運命の光は、ずっとあなたを導いているのです。
       </p>
       <p>
-        <span class="highlight">Eterna Stone（エテルナストーン）</span>は、<br>
+        <span class="highlight">DON'T WISH. WEAR IT＆ roll. -奥の間-</span> は、<br>
         「あなたの本来の流れを取り戻し、望む未来へと導く存在」です。<br>
         数秘リーディングを通してあなた本来のエネルギーを見つけ出し、<br>
         最適な天然石とともにお届けします。
@@ -892,7 +957,7 @@
   <div class="container">
     <div class="feature-header fade-in">
       <p class="section-label">Features</p>
-      <h2 class="section-title">Eterna Stone が選ばれる理由</h2>
+      <h2 class="section-title">-奥の間- が選ばれる理由</h2>
       <span class="gold-line"></span>
     </div>
 
@@ -975,13 +1040,13 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item fade-in">
-        <img src="images/20260407102405.JPEG" alt="Eterna Stone ブレスレット作品">
+        <img src="images/20260407102405.JPEG" alt="-奥の間- ブレスレット作品">
       </div>
       <div class="gallery-item fade-in">
-        <img src="images/20260407102528.JPEG" alt="Eterna Stone ブレスレット作品">
+        <img src="images/20260407102528.JPEG" alt="-奥の間- ブレスレット作品">
       </div>
       <div class="gallery-item fade-in">
-        <img src="images/20260407102640.JPEG" alt="Eterna Stone ブレスレット作品">
+        <img src="images/20260407102640.JPEG" alt="-奥の間- ブレスレット作品">
       </div>
     </div>
   </div>
@@ -1225,12 +1290,59 @@
   </div>
 </section>
 
+<!-- ─── MAINTENANCE ─── -->
+<section id="maintenance">
+  <div class="container">
+    <div class="maint-header fade-in">
+      <p class="section-label">Maintenance</p>
+      <h2 class="section-title">天然石のメンテナンス</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <p class="maint-lead fade-in">
+      大切な天然石を、いつも最高の状態で。<br>
+      天然石のエネルギーをリセットし、<br>
+      美しさとパワーを取り戻します。
+    </p>
+
+    <ul class="maint-list fade-in">
+      <li class="maint-item">
+        <span class="maint-name">ゴム交換<span class="maint-desc">浄化＋新しいゴムに交換</span></span>
+        <span class="maint-price">¥3,000<small>（税込）</small></span>
+      </li>
+      <li class="maint-item">
+        <span class="maint-name">サイズ直し<span class="maint-desc">浄化＋ゴム交換＋サイズ調整</span></span>
+        <span class="maint-price">¥3,000〜<small>（要相談）</small></span>
+      </li>
+      <li class="maint-item">
+        <span class="maint-name">石バージョンアップ<span class="maint-desc">石代・ゴム交換代・浄化代込み<br>¥7,500／¥9,600／¥19,700 の3コース<br>それ以上をご希望の方はご相談ください</span></span>
+        <span class="maint-price">¥7,500〜<small>（税込）</small></span>
+      </li>
+      <li class="maint-item">
+        <span class="maint-name">浄化のみ<span class="maint-desc">天然石のエネルギーをリセット</span></span>
+        <span class="maint-price">¥1,000<small>（税込）</small></span>
+      </li>
+    </ul>
+
+    <div class="maint-howto fade-in">
+      <p class="maint-howto-title">ご利用方法</p>
+      ブレスレットを<strong>レターパック（青）</strong>でお送りください。<br>
+      中に<strong>返送用のレターパック（赤 または 青）</strong>を入れてお送りください。<br>
+      送り先は、お申し込み後にご案内いたします。
+    </div>
+
+    <div class="maint-cta fade-in">
+      <a href="maintenance.html" class="btn-primary">メンテナンスを申し込む</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── FOOTER ─── -->
 <footer>
-  <p class="footer-logo">Eterna Stone</p>
-  <p class="footer-tagline">運命の流れを取り戻すストーン</p>
+  <p class="footer-logo">DON'T WISH. WEAR IT＆ roll.<br><span class="footer-logo-sub">-奥の間-</span></p>
+  <p class="footer-tagline">願うな。まとって、動き出せ。</p>
   <span class="gold-line" style="margin-bottom:28px;"></span>
-  <p class="footer-copy">© 2025 Eterna Stone. All rights reserved.</p>
+  <p class="footer-copy">© 2026 DON'T WISH. WEAR IT＆ roll. -奥の間- All rights reserved.</p>
 </footer>
 
 <script>
