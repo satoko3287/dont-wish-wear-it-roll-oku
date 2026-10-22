@@ -776,7 +776,7 @@
     }
 
     /* ─── THANKS (hidden) ─────────────────────── */
-    #thanks {
+    #thanks, #maintThanks {
       display: none;
       max-width: 620px;
       margin: 0 auto;
@@ -785,43 +785,125 @@
       border: 1px solid var(--gold-dark);
       background: rgba(22,19,42,.7);
     }
-    #thanks .thanks-icon { font-size: 2.4rem; margin-bottom: 24px; }
-    #thanks h3 {
+    #thanks .thanks-icon, #maintThanks .thanks-icon { font-size: 2.4rem; margin-bottom: 24px; }
+    #thanks h3, #maintThanks h3 {
       font-size: 1.3rem;
       font-weight: 400;
       letter-spacing: .1em;
       color: var(--gold-light);
       margin-bottom: 20px;
     }
-    #thanks p {
+    #thanks p, #maintThanks p {
       font-size: .88rem;
       color: var(--text-muted);
       line-height: 2.2;
     }
 
     /* ─── MAINTENANCE ─────────────────────────── */
-    #maintenance { position: relative; z-index: 1; padding: 120px 0; border-top: 1px solid var(--dark-border); }
-    .maint-header { text-align: center; margin-bottom: 48px; }
-    .maint-header .section-label { margin-bottom: 16px; }
-    .maint-header .gold-line { margin-top: 24px; }
-    .maint-lead { text-align: center; color: var(--text-muted); margin-bottom: 48px; line-height: 2.1; }
-    .maint-list { max-width: 640px; margin: 0 auto; list-style: none; border-top: 1px solid var(--dark-border); }
+    #maintenance {
+      border-top: 1px solid var(--dark-border);
+      background: radial-gradient(ellipse at 50% 8%, rgba(80,40,140,.22) 0%, transparent 45%);
+    }
+    .maint-hero { text-align: center; padding: 120px 24px 80px; }
+    .maint-hero .section-label { margin-bottom: 20px; }
+    .maint-title {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 300;
+      letter-spacing: .18em;
+      line-height: 1.6;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+    }
+    .maint-catch {
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      letter-spacing: .2em;
+      color: var(--text);
+      margin: 32px 0 20px;
+    }
+    .maint-lead { color: var(--text-muted); line-height: 2.2; }
+
+    .maint-block { padding: 80px 24px; }
+    .maint-block-header { text-align: center; margin-bottom: 56px; }
+    .maint-block-header .section-label { margin-bottom: 16px; }
+    .maint-block-header .gold-line { margin-top: 24px; }
+
+    .maint-price-box {
+      max-width: 680px; margin: 0 auto;
+      border: 1px solid var(--gold-dark);
+      background: rgba(22,19,42,.7);
+      padding: 40px 36px 24px;
+      position: relative;
+    }
+    .maint-price-box::before {
+      content: '✦ MENU ✦';
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: var(--dark);
+      padding: 0 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .75rem; letter-spacing: .2em; color: var(--gold);
+      white-space: nowrap;
+    }
+    .maint-list { list-style: none; }
     .maint-item {
       display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-      padding: 20px 4px; border-bottom: 1px solid var(--dark-border);
+      padding: 20px 0; border-bottom: 1px solid var(--dark-border);
+      flex-wrap: wrap;
     }
-    .maint-name { color: var(--text); }
-    .maint-desc { display: block; font-size: .78rem; color: var(--text-muted); line-height: 1.7; margin-top: 2px; }
-    .maint-price { flex: none; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; text-align: right; line-height: 1.4; }
-    .maint-price small { display: block; font-family: 'Noto Serif JP', serif; font-size: .65rem; color: var(--text-muted); }
+    .maint-sub { flex-basis: 100%; }
+    .maint-item:last-child { border-bottom: none; }
+    .maint-name { flex: 1; min-width: 0; color: var(--gold-light); letter-spacing: .08em; }
+    .maint-desc { display: block; font-size: .78rem; color: var(--text-muted); line-height: 1.8; margin-top: 4px; letter-spacing: 0; }
+    .maint-price { flex: none; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-align: right; line-height: 1.3; }
+    .maint-price small { display: block; font-family: 'Noto Serif JP', serif; font-size: .62rem; color: var(--text-muted); }
+    .maint-courses { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .maint-courses span {
+      border: 1px solid var(--dark-border); padding: 2px 12px;
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold);
+    }
+    @media (max-width: 600px) {
+      .maint-price-box { padding: 36px 20px 16px; }
+      .maint-name { letter-spacing: .02em; }
+      .maint-price { font-size: 1.2rem; }
+    }
+
+    /* メンテナンスフォーム用 */
+    .form-group .radio-group.stack { flex-direction: column; gap: 10px; }
+    .form-group label.menu-option {
+      display: flex; align-items: center; gap: 14px;
+      margin: 0; padding: 16px 18px;
+      font-size: .9rem; letter-spacing: .05em; color: var(--text);
+    }
+    .menu-option .radio-text { flex: 1; min-width: 0; }
+    .menu-option .radio-desc { display: block; font-size: .72rem; color: var(--text-muted); letter-spacing: 0; line-height: 1.7; }
+    .menu-option .radio-price { flex: none; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--gold); text-align: right; line-height: 1.3; }
+    .menu-option .radio-price small { display: block; font-family: 'Noto Serif JP', serif; font-size: .6rem; color: var(--text-muted); }
+    .form-group label .optional { color: var(--text-muted); margin-left: 4px; font-size: .65rem; }
+    .form-group label.check-label {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin: 0; font-size: .85rem; letter-spacing: .05em; color: var(--text); cursor: pointer;
+    }
+    .form-group .check-label input {
+      width: 18px; height: 18px; margin-top: 4px; padding: 0; flex: none;
+      -webkit-appearance: auto; appearance: auto; accent-color: var(--gold);
+    }
+    .form-hint { font-size: .75rem; color: var(--text-muted); margin-top: 6px; }
     .maint-howto {
-      max-width: 640px; margin: 40px auto 0; padding: 24px 28px;
+      margin: 40px 0 24px; padding: 20px 24px;
       border: 1px solid var(--gold-dark); background: rgba(22,19,42,.7);
-      font-size: .88rem; line-height: 2;
+      font-size: .85rem; line-height: 2; color: var(--text-muted);
     }
-    .maint-howto-title { color: var(--gold); letter-spacing: .15em; margin-bottom: 6px; }
     .maint-howto strong { color: var(--gold-light); font-weight: 400; }
-    .maint-cta { text-align: center; margin-top: 48px; }
+    .is-hidden { display: none !important; }
+    .line-greeting, .line-friend {
+      max-width: 620px; margin: 0 auto 24px; padding: 14px 18px;
+      border: 1px solid var(--dark-border); background: rgba(22,19,42,.7);
+      font-size: .85rem; color: var(--gold-light); text-align: center;
+    }
+    .line-friend a {
+      display: inline-block; margin-top: 8px; padding: 6px 18px;
+      background: #06c755; color: #fff; text-decoration: none; border-radius: 999px; font-size: .8rem;
+    }
+    #maintThanks .btn-submit { margin-top: 28px; }
 
     /* ─── FOOTER ──────────────────────────────── */
     footer {
@@ -871,6 +953,7 @@
       .flow-step:not(:last-child)::after { left: 21px; }
     }
   </style>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 <body>
 
@@ -1292,47 +1375,322 @@
 
 <!-- ─── MAINTENANCE ─── -->
 <section id="maintenance">
-  <div class="container">
-    <div class="maint-header fade-in">
-      <p class="section-label">Maintenance</p>
-      <h2 class="section-title">天然石のメンテナンス</h2>
-      <span class="gold-line"></span>
-    </div>
 
+  <div class="maint-hero">
+    <div class="hero-diamond" aria-hidden="true"></div>
+    <p class="section-label">Maintenance</p>
+    <h2 class="maint-title">天然石の<br>メンテナンス</h2>
+    <span class="gold-line wide"></span>
+    <p class="maint-catch fade-in"><span class="nw">大切な天然石を、</span><span class="nw">いつも最高の状態で。</span></p>
     <p class="maint-lead fade-in">
-      大切な天然石を、いつも最高の状態で。<br>
       天然石のエネルギーをリセットし、<br>
       美しさとパワーを取り戻します。
     </p>
+  </div>
 
-    <ul class="maint-list fade-in">
-      <li class="maint-item">
-        <span class="maint-name">ゴム交換<span class="maint-desc">浄化＋新しいゴムに交換</span></span>
-        <span class="maint-price">¥3,000<small>（税込）</small></span>
-      </li>
-      <li class="maint-item">
-        <span class="maint-name">サイズ直し<span class="maint-desc">浄化＋ゴム交換＋サイズ調整</span></span>
-        <span class="maint-price">¥3,000〜<small>（要相談）</small></span>
-      </li>
-      <li class="maint-item">
-        <span class="maint-name">石バージョンアップ<span class="maint-desc">石代・ゴム交換代・浄化代込み<br>¥7,500／¥9,600／¥19,700 の3コース<br>それ以上をご希望の方はご相談ください</span></span>
-        <span class="maint-price">¥7,500〜<small>（税込）</small></span>
-      </li>
-      <li class="maint-item">
-        <span class="maint-name">浄化のみ<span class="maint-desc">天然石のエネルギーをリセット</span></span>
-        <span class="maint-price">¥1,000<small>（税込）</small></span>
-      </li>
-    </ul>
-
-    <div class="maint-howto fade-in">
-      <p class="maint-howto-title">ご利用方法</p>
-      ブレスレットを<strong>レターパック（青）</strong>でお送りください。<br>
-      中に<strong>返送用のレターパック（赤 または 青）</strong>を入れてお送りください。<br>
-      送り先は、お申し込み後にご案内いたします。
+  <!-- メンテナンス内容 -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-card fade-in">
+          <span class="feature-icon">🌿</span>
+          <h3>浄化</h3>
+          <p>身につけるうちに溜まった天然石のエネルギーをリセットし、本来の輝きを取り戻します。</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">📿</span>
+          <h3>ゴム交換</h3>
+          <p>新しいゴムに交換し、使いやすく整えます。サイズ直しもご相談いただけます。</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">💎</span>
+          <h3>石バージョンアップ</h3>
+          <p>ご希望や今の状態に合わせて、石をグレードアップいたします。</p>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="maint-cta fade-in">
-      <a href="maintenance.html" class="btn-primary">メンテナンスを申し込む</a>
+  <!-- 料金 -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="maint-block-header fade-in">
+        <p class="section-label">Price</p>
+        <h2 class="section-title">メンテナンス料金</h2>
+        <span class="gold-line"></span>
+      </div>
+
+      <div class="maint-price-box fade-in">
+        <ul class="maint-list">
+          <li class="maint-item">
+            <span class="maint-name">ゴム交換<span class="maint-desc">浄化＋新しいゴムに交換</span></span>
+            <span class="maint-price">¥3,000<small>（税込）</small></span>
+          </li>
+          <li class="maint-item">
+            <span class="maint-name">サイズ直し<span class="maint-desc">浄化＋ゴム交換＋サイズ調整</span></span>
+            <span class="maint-price">¥3,000〜<small>（要相談）</small></span>
+          </li>
+          <li class="maint-item">
+            <span class="maint-name">石バージョンアップ<span class="maint-desc">石代・ゴム交換代・浄化代込み</span></span>
+            <span class="maint-price">¥7,500〜<small>（税込）</small></span>
+            <span class="maint-sub">
+              <span class="maint-courses"><span>¥7,500</span><span>¥9,600</span><span>¥19,700</span></span>
+              <span class="maint-desc">の3コース（税込）からお選びいただけます。<br>それ以上をご希望の方はご相談ください。<br>新しくお作りするご提案をさせていただく場合もございます。</span>
+            </span>
+          </li>
+          <li class="maint-item">
+            <span class="maint-name">浄化のみ<span class="maint-desc">天然石のエネルギーをリセット</span></span>
+            <span class="maint-price">¥1,000<small>（税込）</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 流れ -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="maint-block-header fade-in">
+        <p class="section-label">Flow</p>
+        <h2 class="section-title">ご利用の流れ</h2>
+        <span class="gold-line"></span>
+      </div>
+
+      <div class="flow-steps">
+        <div class="flow-step fade-in">
+          <div class="flow-num">01</div>
+          <div class="flow-content">
+            <h3>フォームからお申し込み</h3>
+            <p>このページ下部のメンテナンスフォームから、ご希望のメニューを選んでお申し込みください。</p>
+          </div>
+        </div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">02</div>
+          <div class="flow-content">
+            <h3>送り先のご案内</h3>
+            <p>お申し込み後、LINEまたはメールにて、ブレスレットの送り先をご案内いたします。</p>
+          </div>
+        </div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">03</div>
+          <div class="flow-content">
+            <h3>レターパックで発送</h3>
+            <p>ブレスレットを<span style="color:var(--gold-light)">レターパック（青）</span>でお送りください。<br>中に<span style="color:var(--gold-light)">返送用のレターパック（赤 または 青）</span>を同封してください。</p>
+          </div>
+        </div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">04</div>
+          <div class="flow-content">
+            <h3>メンテナンス・ご返送</h3>
+            <p>心を込めてメンテナンスし、同封のレターパックでご返送いたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フォーム -->
+  <div class="maint-block" id="maintenance-form">
+    <div class="container">
+      <div class="form-header fade-in">
+        <p class="section-label">Maintenance Form</p>
+        <h2 class="section-title">メンテナンス申込フォーム</h2>
+        <span class="gold-line wide"></span>
+      </div>
+
+      <p class="line-greeting is-hidden" id="lineGreeting"></p>
+      <div class="line-friend is-hidden" id="lineFriend">
+        お申し込み後のご連絡はLINEでお送りします。<br>
+        まだの方は友だち追加をお願いいたします。<br>
+        <a href="https://line.me/R/ti/p/@736geidk">友だち追加する</a>
+      </div>
+
+      <div class="order-form">
+        <form id="maintForm" novalidate>
+
+          <p class="form-section-title">── ご希望のメニュー</p>
+
+          <div class="form-group">
+            <label>メニュー<span class="required">必須</span></label>
+            <div class="radio-group stack">
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="ゴム交換（浄化付き）¥3,000" data-key="rubber">
+                <span class="radio-dot"></span>
+                <span class="radio-text">ゴム交換<span class="radio-desc">浄化＋新しいゴムに交換</span></span>
+                <span class="radio-price">¥3,000<small>（税込）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="サイズ直し（浄化・ゴム交換付き）¥3,000〜 要相談" data-key="size">
+                <span class="radio-dot"></span>
+                <span class="radio-text">サイズ直し<span class="radio-desc">浄化＋ゴム交換＋サイズ調整</span></span>
+                <span class="radio-price">¥3,000〜<small>（要相談）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="石バージョンアップ" data-key="upgrade">
+                <span class="radio-dot"></span>
+                <span class="radio-text">石バージョンアップ<span class="radio-desc">石代・ゴム交換代・浄化代込み</span></span>
+                <span class="radio-price">¥7,500〜<small>（税込）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="浄化のみ ¥1,000" data-key="cleanse">
+                <span class="radio-dot"></span>
+                <span class="radio-text">浄化のみ<span class="radio-desc">天然石のエネルギーをリセット</span></span>
+                <span class="radio-price">¥1,000<small>（税込）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="その他（要相談）" data-key="other">
+                <span class="radio-dot"></span>
+                <span class="radio-text">その他<span class="radio-desc">ご要望欄に内容をご記入ください</span></span>
+                <span class="radio-price">要相談</span>
+              </label>
+            </div>
+            <p class="field-error">メニューを選択してください</p>
+          </div>
+
+          <div class="form-group is-hidden" id="mCourseGroup">
+            <label>バージョンアップのコース<span class="required">必須</span></label>
+            <div class="radio-group stack">
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="¥7,500コース">
+                <span class="radio-dot"></span>
+                <span class="radio-text">¥7,500 コース</span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="¥9,600コース">
+                <span class="radio-dot"></span>
+                <span class="radio-text">¥9,600 コース</span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="¥19,700コース">
+                <span class="radio-dot"></span>
+                <span class="radio-text">¥19,700 コース</span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="それ以上をご希望（要相談）">
+                <span class="radio-dot"></span>
+                <span class="radio-text">それ以上をご希望<span class="radio-desc">内容によっては、新しくお作りするご提案をさせていただく場合がございます</span></span>
+                <span class="radio-price">要相談</span>
+              </label>
+            </div>
+            <p class="form-hint">いずれも石代・ゴム交換代・浄化代込み（税込）です。</p>
+            <p class="field-error">コースを選択してください</p>
+          </div>
+
+          <div class="form-group is-hidden" id="mSizeGroup">
+            <label for="mWishSize">ご希望のサイズ<span class="required">必須</span></label>
+            <input type="text" id="mWishSize" placeholder="例）今より1cm大きく／内径16cm">
+            <p class="form-hint">分かる範囲で大丈夫です。手首まわりのサイズでもOKです。</p>
+            <p class="field-error">ご希望のサイズをご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mDetail">ご要望・ブレスレットの状態<span class="optional" id="mDetailBadge">任意</span></label>
+            <textarea id="mDetail" placeholder="例）ゴムが伸びてきました／石が欠けています など"></textarea>
+            <p class="field-error">ご要望をご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mPurchase">ご購入時期<span class="optional">任意</span></label>
+            <input type="text" id="mPurchase" placeholder="例）2025年春ごろ">
+          </div>
+
+          <p class="form-section-title">── お客様情報</p>
+
+          <div class="form-group">
+            <label for="mName">お名前<span class="required">必須</span></label>
+            <input type="text" id="mName" autocomplete="name" placeholder="例）山田 花子">
+            <p class="field-error">お名前をご記入ください</p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mPhone">電話番号<span class="required">必須</span></label>
+              <input type="tel" id="mPhone" autocomplete="tel" placeholder="例）090-0000-0000">
+              <p class="field-error">電話番号をご記入ください</p>
+            </div>
+            <div class="form-group">
+              <label for="mEmail">メールアドレス<span class="required" id="mEmailBadge">必須</span></label>
+              <input type="email" id="mEmail" autocomplete="email" placeholder="例）example@mail.com">
+              <p class="field-error">メールアドレスをご確認ください</p>
+            </div>
+          </div>
+
+          <p class="form-section-title">── 返送先</p>
+
+          <div class="form-group">
+            <label class="check-label">
+              <input type="checkbox" id="mSameName" checked>
+              上記のお名前に返送する
+            </label>
+          </div>
+
+          <div class="form-group is-hidden" id="mShipNameGroup">
+            <label for="mShipName">返送先のお名前<span class="required">必須</span></label>
+            <input type="text" id="mShipName" placeholder="例）山田 花子">
+            <p class="field-error">返送先のお名前をご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mPostal">郵便番号<span class="required">必須</span></label>
+            <input type="text" id="mPostal" inputmode="numeric" autocomplete="postal-code" placeholder="例）123-4567">
+            <p class="field-error">郵便番号をご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mAddress">ご住所<span class="required">必須</span></label>
+            <input type="text" id="mAddress" autocomplete="street-address" placeholder="都道府県からご記入ください">
+            <p class="field-error">ご住所をご記入ください</p>
+          </div>
+
+          <p class="form-section-title">── お支払い方法</p>
+
+          <div class="form-group">
+            <label>お支払い方法<span class="required">必須</span></label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="mPayment" value="銀行振込">
+                <span class="radio-dot"></span>
+                銀行振込
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="mPayment" value="PayPay">
+                <span class="radio-dot"></span>
+                PayPay
+              </label>
+            </div>
+            <p class="field-error">お支払い方法を選択してください</p>
+          </div>
+
+          <div class="maint-howto">
+            <strong>ご利用方法</strong><br>
+            ブレスレットを<strong>レターパック（青）</strong>でお送りください。<br>
+            中に<strong>返送用のレターパック（赤 または 青）</strong>を入れてお送りください。<br>
+            送り先は、お申し込み後にご案内いたします。
+          </div>
+
+          <div class="form-group">
+            <label class="check-label">
+              <input type="checkbox" id="mAgree">
+              上記のご利用方法を確認しました
+            </label>
+            <p class="field-error">ご確認のうえチェックを入れてください</p>
+          </div>
+
+          <button type="submit" class="btn-submit">メンテナンスを申し込む</button>
+        </form>
+
+        <div id="maintThanks">
+          <div class="thanks-icon">✦</div>
+          <h3>お申し込みありがとうございます</h3>
+          <p>
+            メンテナンスのお申し込みを受け付けました。<br>
+            ブレスレットの送り先など、今後のご案内を<br>
+            お送りいたしますので、しばらくお待ちください。<br><br>
+            大切な天然石を、心を込めてメンテナンスいたします。
+          </p>
+          <button type="button" class="btn-submit is-hidden" id="mCloseBtn">閉じる</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1445,6 +1803,158 @@
       alert('送信に失敗しました。しばらくしてからもう一度お試しください。');
     }
   });
+</script>
+
+<script>
+  // ═══ メンテナンス申込フォーム ═══
+  // LINE Developers の「LINEログイン」チャネルで作成した LIFF アプリの LIFF ID
+  // （LIFFのエンドポイントURLはこのページ https://satoko3287.github.io/dont-wish-wear-it-roll-oku/ ）
+  const LIFF_ID = '';
+
+  (() => {
+    const form = document.getElementById('maintForm');
+    const $ = id => document.getElementById(id);
+    let liffReady = false;
+    let lineLoggedIn = false;
+
+    // メールはLINEから開いた場合だけ任意（LINEで連絡できるため）
+    function setEmailRequired(required) {
+      $('mEmailBadge').textContent = required ? '必須' : '任意';
+      $('mEmailBadge').className = required ? 'required' : 'optional';
+    }
+
+    // ── LIFF（LINEの中で開いたとき） ──
+    async function initLiff() {
+      if (!LIFF_ID || !window.liff) return;
+      try {
+        await liff.init({ liffId: LIFF_ID });
+        liffReady = true;
+        if (liff.isInClient()) {
+          document.getElementById('maintenance-form').scrollIntoView({ block: 'start' });
+        }
+        if (!liff.isLoggedIn()) return;
+        lineLoggedIn = true;
+        setEmailRequired(false);
+
+        const profile = await liff.getProfile();
+        $('lineGreeting').textContent = `${profile.displayName} 様、ご利用ありがとうございます。`;
+        $('lineGreeting').classList.remove('is-hidden');
+        if (!$('mName').value) $('mName').value = profile.displayName;
+
+        const friendship = await liff.getFriendship();
+        if (!friendship.friendFlag) $('lineFriend').classList.remove('is-hidden');
+      } catch (err) {
+        console.warn('LIFF init error:', err);
+      }
+    }
+    initLiff();
+
+    // ── メニューに応じて入力欄を切り替え ──
+    const detailPlaceholders = {
+      size:    '例）きつくなってきたので少し大きくしたいです',
+      upgrade: '例）恋愛運を高めたい／ピンク系の石を足したい など、ご希望をご記入ください',
+      other:   'ご希望の内容をご記入ください',
+    };
+    const menuKey = () => (form.querySelector('[name="menu"]:checked') || { dataset: {} }).dataset.key;
+
+    form.querySelectorAll('[name="menu"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const key = radio.dataset.key;
+        $('mSizeGroup').classList.toggle('is-hidden', key !== 'size');
+        $('mCourseGroup').classList.toggle('is-hidden', key !== 'upgrade');
+        const detailRequired = key === 'other';
+        $('mDetailBadge').textContent = detailRequired ? '必須' : '任意';
+        $('mDetailBadge').className = detailRequired ? 'required' : 'optional';
+        $('mDetail').placeholder = detailPlaceholders[key] || '例）ゴムが伸びてきました／石が欠けています など';
+      });
+    });
+
+    $('mSameName').addEventListener('change', e => {
+      $('mShipNameGroup').classList.toggle('is-hidden', e.target.checked);
+    });
+
+    form.addEventListener('input', e => {
+      const group = e.target.closest('.form-group');
+      if (group) group.classList.remove('has-error');
+    });
+
+    // ── バリデーション ──
+    function validate() {
+      form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+      const errors = [];
+      const fail = el => errors.push(el.closest('.form-group'));
+      const key = menuKey();
+
+      if (!key) fail(form.querySelector('[name="menu"]'));
+      if (key === 'upgrade' && !form.querySelector('[name="course"]:checked')) fail(form.querySelector('[name="course"]'));
+      if (key === 'size' && !$('mWishSize').value.trim()) fail($('mWishSize'));
+      if (key === 'other' && !$('mDetail').value.trim()) fail($('mDetail'));
+      ['mName', 'mPhone', 'mPostal', 'mAddress'].forEach(id => {
+        if (!$(id).value.trim()) fail($(id));
+      });
+      const email = $('mEmail').value.trim();
+      if ((!email && !lineLoggedIn) || (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) fail($('mEmail'));
+      if (!$('mSameName').checked && !$('mShipName').value.trim()) fail($('mShipName'));
+      if (!form.querySelector('[name="mPayment"]:checked')) fail(form.querySelector('[name="mPayment"]'));
+      if (!$('mAgree').checked) fail($('mAgree'));
+
+      errors.forEach(g => g.classList.add('has-error'));
+      if (errors.length) errors[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return errors.length === 0;
+    }
+
+    // ── 送信 ──
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = '送信中...';
+      btn.disabled = true;
+
+      const key = menuKey();
+      let menu = form.querySelector('[name="menu"]:checked').value;
+      if (key === 'upgrade') {
+        menu += ' ' + form.querySelector('[name="course"]:checked').value + '（石代・ゴム交換代・浄化代込み）';
+      }
+      const data = {
+        formType: 'maintenance',
+        menu,
+        wishSize: key === 'size' ? $('mWishSize').value.trim() : '',
+        detail:   $('mDetail').value.trim(),
+        purchase: $('mPurchase').value.trim(),
+        name:     $('mName').value.trim(),
+        phone:    $('mPhone').value.trim(),
+        email:    $('mEmail').value.trim(),
+        shipName: $('mSameName').checked ? $('mName').value.trim() : $('mShipName').value.trim(),
+        postal:   $('mPostal').value.trim(),
+        address:  $('mAddress').value.trim(),
+        payment:  form.querySelector('[name="mPayment"]:checked').value,
+        // LINEのIDトークン（Apps Script側で本人確認し、受付メッセージを送るのに使う）
+        lineIdToken: lineLoggedIn ? (liff.getIDToken() || '') : '',
+      };
+
+      try {
+        await fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data),
+        });
+        form.style.display = 'none';
+        $('maintThanks').style.display = 'block';
+        if (liffReady && liff.isInClient()) {
+          $('mCloseBtn').classList.remove('is-hidden');
+          $('mCloseBtn').addEventListener('click', () => liff.closeWindow());
+        }
+        document.getElementById('maintenance-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        btn.textContent = 'メンテナンスを申し込む';
+        btn.disabled = false;
+        alert('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
+      }
+    });
+  })();
 </script>
 
 </body>
