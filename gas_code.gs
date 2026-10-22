@@ -1,5 +1,5 @@
 // =====================================================
-// Eterna Stone オーダーフォーム → Google スプレッドシート
+// DON'T WISH. WEAR IT＆ roll.-奥の間- 申込フォーム → Google スプレッドシート
 // =====================================================
 // 【使い方】
 // 1. Google スプレッドシートを新規作成する
@@ -115,7 +115,7 @@ function doPost(e) {
     ]);
 
     // ── 通知本文 ──────────────────────────────
-    const subject = '【Eterna Stone】新しいオーダーが届きました';
+    const subject = '【奥の間】新しいオーダーが届きました';
     const body = `
 新しいオーダーが届きました！
 スプレッドシートをご確認ください。
@@ -137,7 +137,7 @@ function doPost(e) {
 ■ お支払い方法：${data.payment || ''}
 ──────────────────────
 
-Eterna Stone 自動通知
+-奥の間- 自動通知
 `.trim();
 
     // ── LINE通知（失敗してもメール通知・スプレッドシート記録は続行）──
@@ -249,6 +249,8 @@ ${data.name || lineUser.name} 様
 
 送り先は、このLINEで改めてご案内いたします。
 ご不明点がございましたら、このトークでお気軽にお問い合わせください。
+
+DON'T WISH. WEAR IT＆ roll. -奥の間-
 `.trim());
     } catch (pushErr) {
       console.error('お客様への受付メッセージ送信エラー: ' + pushErr.message);
@@ -314,7 +316,7 @@ function pushLine(to, text) {
 
 // LINE通知のテスト（エディタで testLine を選んで ▶実行）
 function testLine() {
-  sendLine('【Eterna Stone】LINE通知のテストです。これが届いていれば設定完了です✨');
+  sendLine('【奥の間】LINE通知のテストです。これが届いていれば設定完了です✨');
   Logger.log('LINE送信OK');
 }
 
