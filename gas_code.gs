@@ -23,17 +23,18 @@
 // 7. 「デプロイ」→「デプロイを管理」→ ✏ 編集 → バージョン「新バージョン」→ デプロイ
 //    （※これをしないと修正が本番に反映されません。URLは変わりません）
 //
-// 【メンテナンス申込フォーム（maintenance.html / LIFF）の設定】
+// 【メンテナンス申込フォーム（トップページ下部 / LIFF）の設定】
 // 1. LINE Developers で、公式アカウントと同じプロバイダーに「LINEログイン」チャネルを作成
 //    （アプリタイプ：ウェブアプリ）
 // 2. 作成したチャネルの「チャネル基本設定」タブ
 //    →「リンクされたLINE公式アカウント」で公式アカウントを選ぶ
 //    → 上のほうの「チャネルID」（数字）をコピー
 // 3. 同じチャネルの「LIFF」タブ →「追加」
-//      サイズ：Full ／ エンドポイントURL：https://satoko3287.github.io/dont-wish-wear-it-roll/maintenance.html
+//      サイズ：Full ／ エンドポイントURL：https://satoko3287.github.io/dont-wish-wear-it-roll-oku/
 //      Scope：openid と profile にチェック ／ 友だち追加オプション：On (Aggressive)
-//    → 発行された「LIFF ID」を maintenance.html の LIFF_ID に設定
+//    → 発行された「LIFF ID」を index.html の LIFF_ID に設定
 //    → 「LIFF URL」（https://liff.line.me/...）をQRコードやリンクにしてお客様に渡す
+//      （LINEの中で開くと、自動でメンテナンス申込フォームまでスクロールします）
 // 4. スクリプト プロパティに以下を追加
 //      LINE_LOGIN_CHANNEL_ID = （2でコピーしたチャネルID）
 //    ※これがあると、お客様のLINEに「受付しました」のメッセージを自動で送ります
