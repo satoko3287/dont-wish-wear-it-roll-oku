@@ -546,6 +546,10 @@
       color: var(--gold);
     }
     .price-card { max-width: none; }
+    .price-grid .price-card { padding: 48px 20px 40px; }
+    .price-grid .price-amount { font-size: clamp(2.2rem, 4.2vw, 2.8rem); }
+    .price-grid .price-label { letter-spacing: .1em; }
+    .price-grid .price-includes li { font-size: .8rem; }
 
     .price-badge {
       display: inline-block;
@@ -1150,13 +1154,12 @@
       <div class="price-card fade-in">
         <p class="price-tier">梅 / STANDARD</p>
         <p class="price-label">ブレスレット制作のみ</p>
-        <p class="price-amount"><span>¥</span>12,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="price-amount"><span>¥</span>16,700<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
         <div class="price-divider"></div>
         <ul class="price-includes">
           <li>オーダーメイドブレスレット制作</li>
-          <li>天然石の個別選定・ご提案</li>
-          <li>専用ボックスへのパッキング</li>
+          <li>天然石の個別選定（並）</li>
           <li>送料（国内）</li>
         </ul>
       </div>
@@ -1166,14 +1169,13 @@
         <p class="price-tier">竹 / POPULAR</p>
         <div class="price-badge">一番人気 ★</div>
         <p class="price-label">ブレスレット＋数秘鑑定書</p>
-        <p class="price-amount"><span>¥</span>17,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="price-amount"><span>¥</span>21,000<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
         <div class="price-divider"></div>
         <ul class="price-includes">
-          <li>オーダーメイドブレスレット制作</li>
           <li>数秘鑑定書</li>
-          <li>天然石の個別選定・ご提案</li>
-          <li>専用ボックスへのパッキング</li>
+          <li>オーダーメイドブレスレット制作</li>
+          <li>天然石の個別選定（並・大粒）</li>
           <li>送料（国内）</li>
         </ul>
       </div>
@@ -1181,16 +1183,15 @@
       <!-- 松 -->
       <div class="price-card fade-in">
         <p class="price-tier">松 / PREMIUM</p>
-        <p class="price-label">ブレスレット＋鑑定書＋ギフトBOX</p>
-        <p class="price-amount"><span>¥</span>24,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="price-label">ブレスレット＋鑑定書＋石のメッセージカード</p>
+        <p class="price-amount"><span>¥</span>55,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
         <div class="price-divider"></div>
         <ul class="price-includes">
-          <li>オーダーメイドブレスレット制作</li>
-          <li>数秘鑑定書</li>
           <li>石のメッセージカード</li>
-          <li>特別ギフトBOX</li>
-          <li>天然石の個別選定・ご提案</li>
+          <li>数秘鑑定書</li>
+          <li>オーダーメイドブレスレット制作</li>
+          <li>天然石の個別選定（上）</li>
           <li>送料（国内）</li>
         </ul>
       </div>
@@ -1264,9 +1265,9 @@
           <label for="plan">ご希望のプラン<span class="required">必須</span></label>
           <select id="plan" name="plan" required>
             <option value="" disabled selected>お選びください</option>
-            <option>梅 / スタンダード ¥12,800〜（ブレスレット制作のみ）</option>
-            <option>竹 / おすすめ ¥17,800〜（ブレスレット＋数秘鑑定書）</option>
-            <option>松 / プレミアム ¥24,800〜（ブレスレット＋鑑定書＋ギフトBOX）</option>
+            <option>梅 / スタンダード ¥16,700〜（ブレスレット制作のみ）</option>
+            <option>竹 / 一番人気 ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
+            <option>松 / プレミアム ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
             <option>Exclusive / 超スペシャル ¥100,000〜（希少石・完全応相談）</option>
           </select>
           <p class="field-error">ご希望のプランを選択してください</p>
