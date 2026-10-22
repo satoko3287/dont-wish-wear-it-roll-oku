@@ -30,7 +30,7 @@
 //    →「リンクされたLINE公式アカウント」で公式アカウントを選ぶ
 //    → 上のほうの「チャネルID」（数字）をコピー
 // 3. 同じチャネルの「LIFF」タブ →「追加」
-//      サイズ：Full ／ エンドポイントURL：https://satoko3287.github.io/eterna-stone/maintenance.html
+//      サイズ：Full ／ エンドポイントURL：https://satoko3287.github.io/dont-wish-wear-it-roll/maintenance.html
 //      Scope：openid と profile にチェック ／ 友だち追加オプション：On (Aggressive)
 //    → 発行された「LIFF ID」を maintenance.html の LIFF_ID に設定
 //    → 「LIFF URL」（https://liff.line.me/...）をQRコードやリンクにしてお客様に渡す
