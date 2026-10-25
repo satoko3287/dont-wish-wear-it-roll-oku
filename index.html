@@ -494,6 +494,31 @@
       color: var(--gold-dark);
       margin-bottom: 20px;
     }
+    .exclusive-highlight {
+      margin: 4px 0 22px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--gold);
+      background: rgba(201,169,110,.08);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      letter-spacing: .06em;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+    .exclusive-gallery { grid-column: 1 / -1; border-top: 1px solid var(--dark-border); padding-top: 28px; }
+    .exclusive-gallery-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .8rem; letter-spacing: .25em; color: var(--gold);
+      text-align: center; margin-bottom: 16px;
+    }
+    .exclusive-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .exclusive-photos img {
+      display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover;
+      border: 1px solid var(--dark-border);
+    }
+    @media (max-width: 600px) {
+      .exclusive-photos { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    }
     .exclusive-left ul {
       list-style: none;
       display: flex; flex-wrap: wrap; gap: 8px 24px;
@@ -546,6 +571,7 @@
       color: var(--gold);
     }
     .price-card { max-width: none; }
+    .price-grid { max-width: 720px; }
     .price-grid .price-card { padding: 48px 20px 40px; }
     .price-grid .price-amount { font-size: clamp(2.2rem, 4.2vw, 2.8rem); }
     .price-grid .price-label { letter-spacing: .1em; }
@@ -818,6 +844,13 @@
       color: var(--gold-light);
       margin-bottom: 28px;
     }
+    .maint-title-sub {
+      display: block; margin-top: 6px;
+      font-size: .62em; letter-spacing: .14em; color: var(--gold);
+    }
+    .versionup-body { text-align: center; }
+    .sp-only { display: none; }
+    @media (max-width: 600px) { .sp-only { display: inline; } }
     .maint-catch {
       font-size: clamp(1rem, 2.4vw, 1.25rem);
       letter-spacing: .2em;
@@ -898,16 +931,19 @@
     }
     .maint-howto strong { color: var(--gold-light); font-weight: 400; }
     .is-hidden { display: none !important; }
-    .line-greeting, .line-friend {
-      max-width: 620px; margin: 0 auto 24px; padding: 14px 18px;
+    .line-box {
+      max-width: 620px; margin: 0 auto 24px; padding: 16px 18px;
       border: 1px solid var(--dark-border); background: rgba(22,19,42,.7);
-      font-size: .85rem; color: var(--gold-light); text-align: center;
+      font-size: .88rem; line-height: 1.9; color: var(--gold-light); text-align: center;
     }
-    .line-friend a {
-      display: inline-block; margin-top: 8px; padding: 6px 18px;
-      background: #06c755; color: #fff; text-decoration: none; border-radius: 999px; font-size: .8rem;
+    .line-box strong { color: #4cd787; font-weight: 500; }
+    .line-btn {
+      display: inline-block; margin-top: 10px; padding: 8px 24px;
+      background: #06c755; color: #fff !important; text-decoration: none; border-radius: 999px;
+      font-size: .88rem; letter-spacing: .08em;
     }
-    #maintThanks .btn-submit { margin-top: 28px; }
+    .thanks-line { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--dark-border); }
+    #maintThanks .btn-submit, #thanks .btn-submit { margin-top: 28px; }
 
     /* ─── FOOTER ──────────────────────────────── */
     footer {
@@ -955,6 +991,31 @@
       .flow-step { grid-template-columns: 44px 1fr; gap: 16px; }
       .flow-num { width: 44px; height: 44px; font-size: .9rem; }
       .flow-step:not(:last-child)::after { left: 21px; }
+    }
+
+    /* ─── スマホで文字を大きく ─── */
+    @media (max-width: 600px) {
+      html { font-size: 17px; }
+      .story-body, .story-body p { font-size: 1rem; }
+      .feature-card p, .flow-content p { font-size: .95rem; }
+      .price-label { font-size: .85rem; }
+      .price-includes li, .price-grid .price-includes li { font-size: .92rem; }
+      #price { padding-left: 8px; padding-right: 8px; }
+      .price-grid .price-card { padding: 44px 16px 36px; }
+      .price-note { font-size: .85rem; }
+      .exclusive-left .exclusive-sub { font-size: .88rem; }
+      .exclusive-left ul li { font-size: .92rem; }
+      .exclusive-consult { font-size: .82rem; }
+      .form-group label { font-size: .9rem; }
+      .form-group input, .form-group select, .form-group textarea { font-size: 1rem; }
+      .form-note { font-size: .9rem; }
+      .form-hint { font-size: .85rem; }
+      .radio-label { font-size: .95rem; }
+      .menu-option .radio-desc { font-size: .8rem; }
+      .maint-desc { font-size: .85rem; }
+      #thanks p, #maintThanks p { font-size: .95rem; }
+      .footer-tagline { font-size: .85rem; }
+      .footer-copy { font-size: .75rem; }
     }
   </style>
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
@@ -1062,7 +1123,7 @@
       <div class="feature-card fade-in">
         <span class="feature-icon">✨</span>
         <h3>丁寧な個別対応</h3>
-        <p>オーダー後はメールにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
+        <p>オーダー後は公式LINEにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
       </div>
     </div>
   </div>
@@ -1088,8 +1149,8 @@
       <div class="flow-step fade-in">
         <div class="flow-num">02</div>
         <div class="flow-content">
-          <h3>メールにてご連絡</h3>
-          <p>24時間以内にメールよりご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
+          <h3>公式LINEにてご連絡</h3>
+          <p>24時間以内に公式LINEよりご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
         </div>
       </div>
       <div class="flow-step fade-in">
@@ -1150,23 +1211,9 @@
 
     <div class="price-grid">
 
-      <!-- 梅 -->
-      <div class="price-card fade-in">
-        <p class="price-tier">梅 / STANDARD</p>
-        <p class="price-label">ブレスレット制作のみ</p>
-        <p class="price-amount"><span>¥</span>16,700<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
-        <p class="price-note">（税込・送料込）</p>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li>オーダーメイドブレスレット制作</li>
-          <li>天然石の個別選定（並）</li>
-          <li>送料（国内）</li>
-        </ul>
-      </div>
-
-      <!-- 竹（おすすめ） -->
+      <!-- POPULAR（おすすめ） -->
       <div class="price-card fade-in" style="border-color: var(--gold); background: rgba(30,25,55,.8);">
-        <p class="price-tier">竹 / POPULAR</p>
+        <p class="price-tier">POPULAR</p>
         <div class="price-badge">一番人気 ★</div>
         <p class="price-label">ブレスレット＋数秘鑑定書</p>
         <p class="price-amount"><span>¥</span>21,000<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
@@ -1175,14 +1222,14 @@
         <ul class="price-includes">
           <li>数秘鑑定書</li>
           <li>オーダーメイドブレスレット制作</li>
-          <li>天然石の個別選定（並・大粒）</li>
+          <li>天然石の個別選定（並質玉や大粒玉が入ります）</li>
           <li>送料（国内）</li>
         </ul>
       </div>
 
-      <!-- 松 -->
+      <!-- PREMIUM -->
       <div class="price-card fade-in">
-        <p class="price-tier">松 / PREMIUM</p>
+        <p class="price-tier">PREMIUM</p>
         <p class="price-label">ブレスレット＋鑑定書＋石のメッセージカード</p>
         <p class="price-amount"><span>¥</span>55,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
@@ -1191,7 +1238,7 @@
           <li>石のメッセージカード</li>
           <li>数秘鑑定書</li>
           <li>オーダーメイドブレスレット制作</li>
-          <li>天然石の個別選定（上）</li>
+          <li>天然石の個別選定（上質玉や大粒玉が入ります）</li>
           <li>送料（国内）</li>
         </ul>
       </div>
@@ -1203,11 +1250,10 @@
       <div class="exclusive-left">
         <h3>Exclusive</h3>
         <p class="exclusive-sub">経営者・起業家のための超スペシャルブレス</p>
+        <p class="exclusive-highlight"><span class="nw">希少石や大粒玉や</span><span class="nw">高級石や高品質な石等が</span><span class="nw">入ります。</span></p>
         <ul>
-          <li>希少・高品質な大玉・高級天然石を使用</li>
           <li>数秘鑑定書</li>
           <li>石のメッセージカード</li>
-          <li>最上級ギフトBOX</li>
           <li>完全オーダーメイド制作</li>
           <li>送料（国内）</li>
         </ul>
@@ -1216,10 +1262,21 @@
         <p class="exclusive-price"><span>¥</span>100,000<span style="font-size:.6em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="exclusive-consult">希少な石のため完全応相談</p>
       </div>
+      <div class="exclusive-gallery">
+        <p class="exclusive-gallery-label">Exclusive 制作例</p>
+        <div class="exclusive-photos">
+          <img src="images/exclusive-01.jpg" alt="Exclusive 制作例 ブレスレット1" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-02.jpg" alt="Exclusive 制作例 ブレスレット2" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-03.jpg" alt="Exclusive 制作例 ブレスレット3" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-04.jpg" alt="Exclusive 制作例 ブレスレット4" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-05.jpg" alt="Exclusive 制作例 ブレスレット5" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-06.jpg" alt="Exclusive 制作例 ブレスレット6" loading="lazy" width="900" height="900">
+        </div>
+      </div>
     </div>
 
     <p style="text-align:center; font-size:.82rem; color:var(--gold-light); line-height:2.2; margin-top:40px; font-weight:400;">
-      松竹梅で、石の種類やグレードが変わります。<br>
+      プランによって、石の種類やグレードが変わります。<br>
       <span style="color:var(--text-muted); font-size:.78rem;">ご自身のちょっと頑張れる金額にするのがおすすめです。</span>
     </p>
   </div>
@@ -1233,6 +1290,18 @@
       <h2 class="section-title">オーダーフォーム</h2>
       <span class="gold-line wide"></span>
     </div>
+
+      <div class="line-box line-open">
+        ご連絡は<strong>公式LINE</strong>で行います。<br>
+        LINEから申し込むと、その後のやり取りがスムーズです。<br>
+        <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=order">LINEで申し込む</a>
+      </div>
+      <p class="line-box line-greeting is-hidden"></p>
+      <div class="line-box line-friend is-hidden">
+        ご連絡は公式LINEでお送りします。<br>
+        まだの方は友だち追加をお願いいたします。<br>
+        <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+      </div>
 
     <div class="order-form fade-in">
       <form id="orderForm" novalidate>
@@ -1259,16 +1328,20 @@
         </div>
 
         <!-- ── オーダー内容 ── -->
+        <div class="form-group">
+          <label for="referrer">ご紹介者さまのお名前（任意）</label>
+          <input type="text" id="referrer" name="referrer" placeholder="ご紹介でお申し込みの方はご記入ください">
+        </div>
+
         <p class="form-section-title">── オーダー内容</p>
 
         <div class="form-group">
           <label for="plan">ご希望のプラン<span class="required">必須</span></label>
           <select id="plan" name="plan" required>
             <option value="" disabled selected>お選びください</option>
-            <option>梅 / スタンダード ¥16,700〜（ブレスレット制作のみ）</option>
-            <option>竹 / 一番人気 ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
-            <option>松 / プレミアム ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
-            <option>Exclusive / 超スペシャル ¥100,000〜（希少石・完全応相談）</option>
+            <option>POPULAR（一番人気） ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
+            <option>PREMIUM ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
+            <option>Exclusive ¥100,000〜（希少石・完全応相談）</option>
           </select>
           <p class="field-error">ご希望のプランを選択してください</p>
         </div>
@@ -1352,7 +1425,7 @@
         </div>
 
         <p class="form-note">
-          送信後、メールにて24時間以内にご連絡いたします。<br>
+          送信後、24時間以内に公式LINEよりご連絡いたします。<br>
           お問い合わせ・ご不明点もお気軽にどうぞ。
         </p>
 
@@ -1365,10 +1438,15 @@
         <h3>お申し込みありがとうございます</h3>
         <p>
           フォームのご送信を受け付けました。<br>
-          24時間以内にメールよりご連絡いたします。<br><br>
+          24時間以内に公式LINEよりご連絡いたします。<br><br>
           あなただけの特別なストーンが<br>
           新しい扉を開く力になりますように。
         </p>
+        <div class="thanks-line is-hidden">
+          <p>ご連絡は公式LINEでお送りします。<br>下のボタンから友だち追加し、<br>お名前をメッセージでお送りください。</p>
+          <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+        </div>
+        <button type="button" class="btn-submit is-hidden" id="oCloseBtn">閉じる</button>
       </div>
     </div>
   </div>
@@ -1379,14 +1457,46 @@
 
   <div class="maint-hero">
     <div class="hero-diamond" aria-hidden="true"></div>
-    <p class="section-label">Maintenance</p>
-    <h2 class="maint-title">天然石の<br>メンテナンス</h2>
+    <p class="section-label">Maintenance &amp; Version Up</p>
+    <h2 class="maint-title">天然石の<br>メンテナンス<span class="maint-title-sub">＆ バージョンアップ</span></h2>
     <span class="gold-line wide"></span>
     <p class="maint-catch fade-in"><span class="nw">大切な天然石を、</span><span class="nw">いつも最高の状態で。</span></p>
     <p class="maint-lead fade-in">
       天然石のエネルギーをリセットし、<br>
       美しさとパワーを取り戻します。
     </p>
+  </div>
+
+  <!-- バージョンアップのおはなし -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="maint-block-header fade-in">
+        <p class="section-label">Version Up</p>
+        <h2 class="section-title">あなたが変われば、<br>石も変わる。</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div class="story-body versionup-body fade-in">
+        <p>
+          <span class="nw">人は日々、変化し、</span><span class="nw">成長していきます。</span><br>
+          <span class="nw">新しい目標ができたとき。</span><br>
+          <span class="nw">大きな一歩を踏み出したとき。</span><br>
+          <span class="nw">環境や状況が変わったとき。</span>
+        </p>
+        <p>
+          <span class="nw">そのたびに、</span><span class="highlight"><span class="nw">今のあなたに寄り添う石も</span><span class="nw">変わっていきます。</span></span>
+        </p>
+        <p>
+          <span class="nw">今のあなたに合う石へ</span><span class="nw">入れ替えたり、</span><br>
+          <span class="nw">新しく必要になった石を</span><span class="nw">加えたりして、</span><br>
+          <span class="nw">ブレスレットを</span><span class="nw">「今のあなた」に</span><span class="nw">アップデートする。</span><br>
+          <span class="nw">それが、</span><span class="nw"><span class="highlight">石バージョンアップ</span>です。</span>
+        </p>
+        <p>
+          <span class="nw">これまでの石を活かしながら、</span><span class="nw">次のステージへ。</span><br>
+          <span class="nw">まとって、</span><span class="nw">また動き出しましょう。</span>
+        </p>
+      </div>
+    </div>
   </div>
 
   <!-- メンテナンス内容 -->
@@ -1417,7 +1527,7 @@
     <div class="container">
       <div class="maint-block-header fade-in">
         <p class="section-label">Price</p>
-        <h2 class="section-title">メンテナンス料金</h2>
+        <h2 class="section-title">メンテナンス・<br class="sp-only">バージョンアップ料金</h2>
         <span class="gold-line"></span>
       </div>
 
@@ -1469,7 +1579,7 @@
           <div class="flow-num">02</div>
           <div class="flow-content">
             <h3>送り先のご案内</h3>
-            <p>お申し込み後、LINEまたはメールにて、ブレスレットの送り先をご案内いたします。</p>
+            <p>お申し込み後、公式LINEにて、ブレスレットの送り先をご案内いたします。</p>
           </div>
         </div>
         <div class="flow-step fade-in">
@@ -1494,16 +1604,21 @@
   <div class="maint-block" id="maintenance-form">
     <div class="container">
       <div class="form-header fade-in">
-        <p class="section-label">Maintenance Form</p>
-        <h2 class="section-title">メンテナンス申込フォーム</h2>
+        <p class="section-label">Maintenance &amp; Version Up Form</p>
+        <h2 class="section-title">メンテナンス・<br class="sp-only">バージョンアップ<br>申込フォーム</h2>
         <span class="gold-line wide"></span>
       </div>
 
-      <p class="line-greeting is-hidden" id="lineGreeting"></p>
-      <div class="line-friend is-hidden" id="lineFriend">
-        お申し込み後のご連絡はLINEでお送りします。<br>
+      <div class="line-box line-open">
+        ご連絡は<strong>公式LINE</strong>で行います。<br>
+        LINEから申し込むと、その後のやり取りがスムーズです。<br>
+        <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=maintenance">LINEで申し込む</a>
+      </div>
+      <p class="line-box line-greeting is-hidden"></p>
+      <div class="line-box line-friend is-hidden">
+        ご連絡は公式LINEでお送りします。<br>
         まだの方は友だち追加をお願いいたします。<br>
-        <a href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+        <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
       </div>
 
       <div class="order-form">
@@ -1616,6 +1731,11 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label for="mReferrer">ご紹介者さまのお名前<span class="optional">任意</span></label>
+            <input type="text" id="mReferrer" placeholder="ご紹介でお申し込みの方はご記入ください">
+          </div>
+
           <p class="form-section-title">── 返送先</p>
 
           <div class="form-group">
@@ -1677,7 +1797,7 @@
             <p class="field-error">ご確認のうえチェックを入れてください</p>
           </div>
 
-          <button type="submit" class="btn-submit">メンテナンスを申し込む</button>
+          <button type="submit" class="btn-submit">申し込む</button>
         </form>
 
         <div id="maintThanks">
@@ -1689,6 +1809,11 @@
             お送りいたしますので、しばらくお待ちください。<br><br>
             大切な天然石を、心を込めてメンテナンスいたします。
           </p>
+          <div class="thanks-line is-hidden">
+            <p>ご連絡は公式LINEでお送りします。<br>下のボタンから友だち追加し、<br>お名前をメッセージでお送りください。</p>
+            <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+          </div>
+
           <button type="button" class="btn-submit is-hidden" id="mCloseBtn">閉じる</button>
         </div>
       </div>
@@ -1703,6 +1828,72 @@
   <span class="gold-line" style="margin-bottom:28px;"></span>
   <p class="footer-copy">© 2026 WEAR IT &amp; ROLL -奥の間- All rights reserved.</p>
 </footer>
+
+<script>
+  // ═══ LINE（LIFF）連携：オーダー・メンテナンス共通 ═══
+  // LINE Developers の「LINEログイン」チャネルで作成した LIFF アプリの LIFF ID
+  // （LIFFのエンドポイントURLはこのページ https://satoko3287.github.io/wear-it-and-roll-oku/ ）
+  // LIFF URL に ?form=order を付けるとオーダーフォーム、付けないとメンテナンスフォームを開く
+  const LIFF_ID = '2012194750-JGB6I5an';
+  const LINE_STATE = { ready: false, inClient: false, loggedIn: false };
+
+  function getLineIdToken() {
+    return LINE_STATE.loggedIn ? (liff.getIDToken() || '') : '';
+  }
+
+  // ?form=〇〇 を読み取る（LIFFの転送途中は liff.state の中に入っている）
+  function getFormParam() {
+    const params = new URLSearchParams(location.search);
+    if (params.get('form')) return params.get('form');
+    const state = params.get('liff.state');
+    if (state && state.includes('?')) return new URLSearchParams(state.split('?')[1]).get('form');
+    return null;
+  }
+
+  // LINEから開いたときはメールアドレスを任意にする（LINEで連絡できるため）
+  function setEmailOptional() {
+    const orderEmail = document.getElementById('email');
+    orderEmail.removeAttribute('required');
+    const badge = orderEmail.closest('.form-group').querySelector('label .required');
+    if (badge) { badge.textContent = '任意'; badge.className = 'optional'; }
+    const mBadge = document.getElementById('mEmailBadge');
+    mBadge.textContent = '任意';
+    mBadge.className = 'optional';
+  }
+
+  async function initLine() {
+    if (!LIFF_ID || !window.liff) return;
+    try {
+      await liff.init({ liffId: LIFF_ID });
+      LINE_STATE.ready = true;
+      LINE_STATE.inClient = liff.isInClient();
+      if (LINE_STATE.inClient) {
+        const target = getFormParam() === 'order' ? 'order' : 'maintenance-form';
+        document.getElementById(target).scrollIntoView({ block: 'start' });
+      }
+      if (!liff.isLoggedIn()) return;
+      LINE_STATE.loggedIn = true;
+      document.querySelectorAll('.line-open').forEach(el => el.classList.add('is-hidden'));
+      setEmailOptional();
+
+      const profile = await liff.getProfile();
+      document.querySelectorAll('.line-greeting').forEach(el => {
+        el.textContent = `${profile.displayName} 様、ご利用ありがとうございます。`;
+        el.classList.remove('is-hidden');
+      });
+      const mName = document.getElementById('mName');
+      if (!mName.value) mName.value = profile.displayName;
+
+      const friendship = await liff.getFriendship();
+      if (!friendship.friendFlag) {
+        document.querySelectorAll('.line-friend').forEach(el => el.classList.remove('is-hidden'));
+      }
+    } catch (err) {
+      console.warn('LIFF init error:', err);
+    }
+  }
+  initLine();
+</script>
 
 <script>
   // ── Intersection Observer for fade-in ──
@@ -1784,6 +1975,9 @@
       phone:    document.getElementById('phone').value,
       address:  document.getElementById('address').value,
       payment:  (document.querySelector('[name="payment"]:checked') || {}).value || '',
+      referrer: document.getElementById('referrer').value.trim(),
+      // LINEのIDトークン（Apps Script側で本人確認し、受付メッセージを送るのに使う）
+      lineIdToken: getLineIdToken(),
     };
 
     try {
@@ -1791,12 +1985,18 @@
         await fetch(GAS_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(data),
         });
       }
       this.style.display = 'none';
       document.getElementById('thanks').style.display = 'block';
+      if (!LINE_STATE.loggedIn) document.querySelector('#thanks .thanks-line').classList.remove('is-hidden');
+      if (LINE_STATE.inClient) {
+        const closeBtn = document.getElementById('oCloseBtn');
+        closeBtn.classList.remove('is-hidden');
+        closeBtn.addEventListener('click', () => liff.closeWindow());
+      }
       document.getElementById('order').scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       btn.textContent = 'オーダーを申し込む';
@@ -1808,47 +2008,9 @@
 
 <script>
   // ═══ メンテナンス申込フォーム ═══
-  // LINE Developers の「LINEログイン」チャネルで作成した LIFF アプリの LIFF ID
-  // （LIFFのエンドポイントURLはこのページ https://satoko3287.github.io/wear-it-and-roll-oku/ ）
-  const LIFF_ID = '2012194750-JGB6I5an';
-
   (() => {
     const form = document.getElementById('maintForm');
     const $ = id => document.getElementById(id);
-    let liffReady = false;
-    let lineLoggedIn = false;
-
-    // メールはLINEから開いた場合だけ任意（LINEで連絡できるため）
-    function setEmailRequired(required) {
-      $('mEmailBadge').textContent = required ? '必須' : '任意';
-      $('mEmailBadge').className = required ? 'required' : 'optional';
-    }
-
-    // ── LIFF（LINEの中で開いたとき） ──
-    async function initLiff() {
-      if (!LIFF_ID || !window.liff) return;
-      try {
-        await liff.init({ liffId: LIFF_ID });
-        liffReady = true;
-        if (liff.isInClient()) {
-          document.getElementById('maintenance-form').scrollIntoView({ block: 'start' });
-        }
-        if (!liff.isLoggedIn()) return;
-        lineLoggedIn = true;
-        setEmailRequired(false);
-
-        const profile = await liff.getProfile();
-        $('lineGreeting').textContent = `${profile.displayName} 様、ご利用ありがとうございます。`;
-        $('lineGreeting').classList.remove('is-hidden');
-        if (!$('mName').value) $('mName').value = profile.displayName;
-
-        const friendship = await liff.getFriendship();
-        if (!friendship.friendFlag) $('lineFriend').classList.remove('is-hidden');
-      } catch (err) {
-        console.warn('LIFF init error:', err);
-      }
-    }
-    initLiff();
 
     // ── メニューに応じて入力欄を切り替え ──
     const detailPlaceholders = {
@@ -1894,7 +2056,7 @@
         if (!$(id).value.trim()) fail($(id));
       });
       const email = $('mEmail').value.trim();
-      if ((!email && !lineLoggedIn) || (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) fail($('mEmail'));
+      if ((!email && !LINE_STATE.loggedIn) || (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) fail($('mEmail'));
       if (!$('mSameName').checked && !$('mShipName').value.trim()) fail($('mShipName'));
       if (!form.querySelector('[name="mPayment"]:checked')) fail(form.querySelector('[name="mPayment"]'));
       if (!$('mAgree').checked) fail($('mAgree'));
@@ -1931,8 +2093,9 @@
         postal:   $('mPostal').value.trim(),
         address:  $('mAddress').value.trim(),
         payment:  form.querySelector('[name="mPayment"]:checked').value,
+        referrer: $('mReferrer').value.trim(),
         // LINEのIDトークン（Apps Script側で本人確認し、受付メッセージを送るのに使う）
-        lineIdToken: lineLoggedIn ? (liff.getIDToken() || '') : '',
+        lineIdToken: getLineIdToken(),
       };
 
       try {
@@ -1944,13 +2107,14 @@
         });
         form.style.display = 'none';
         $('maintThanks').style.display = 'block';
-        if (liffReady && liff.isInClient()) {
+        if (!LINE_STATE.loggedIn) document.querySelector('#maintThanks .thanks-line').classList.remove('is-hidden');
+        if (LINE_STATE.inClient) {
           $('mCloseBtn').classList.remove('is-hidden');
           $('mCloseBtn').addEventListener('click', () => liff.closeWindow());
         }
         document.getElementById('maintenance-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } catch (err) {
-        btn.textContent = 'メンテナンスを申し込む';
+        btn.textContent = '申し込む';
         btn.disabled = false;
         alert('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
       }
