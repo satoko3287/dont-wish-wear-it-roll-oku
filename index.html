@@ -405,8 +405,8 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -426,6 +426,11 @@
       transition: transform .5s ease;
     }
     .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-hint { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 16px; }
+    @media (max-width: 600px) {
+      #gallery { padding-left: 8px; padding-right: 8px; }
+      .gallery-grid { gap: 6px; }
+    }
 
     /* ─── PRICE ───────────────────────────────── */
     #price {
@@ -511,15 +516,15 @@
       font-size: .8rem; letter-spacing: .25em; color: var(--gold);
       text-align: center; margin-bottom: 16px;
     }
-    .exclusive-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .exclusive-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .exclusive-photos img {
       display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover;
       border: 1px solid var(--dark-border);
     }
     @media (max-width: 600px) {
-      .exclusive-photos { gap: 6px; }
+      .exclusive-photos { grid-template-columns: repeat(2, 1fr); gap: 8px; }
     }
-    .exclusive-photos img { cursor: zoom-in; }
+    .exclusive-photos img, .gallery-item img { cursor: zoom-in; }
     .exclusive-gallery-hint { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 10px; }
 
     /* 写真の拡大表示 */
@@ -1199,20 +1204,45 @@
   <div class="container">
     <div class="gallery-header fade-in">
       <p class="section-label">Gallery</p>
-      <h2 class="section-title">作品ギャラリー</h2>
+      <h2 class="section-title">制作例</h2>
       <span class="gold-line"></span>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item fade-in">
-        <img src="images/20260407102405.JPEG" alt="-奥の間- ブレスレット作品">
+        <img src="images/20260407102405.JPEG" alt="-奥の間- ブレスレット制作例" loading="lazy">
       </div>
       <div class="gallery-item fade-in">
-        <img src="images/20260407102528.JPEG" alt="-奥の間- ブレスレット作品">
+        <img src="images/20260407102528.JPEG" alt="-奥の間- ブレスレット制作例" loading="lazy">
       </div>
       <div class="gallery-item fade-in">
-        <img src="images/20260407102640.JPEG" alt="-奥の間- ブレスレット作品">
+        <img src="images/20260407102640.JPEG" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-01.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-02.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-03.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-04.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-05.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-06.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-07.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-08.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
       </div>
     </div>
+    <p class="gallery-hint">写真をタップすると大きく表示されます</p>
   </div>
 </section>
 
@@ -1285,14 +1315,6 @@
           <img src="images/exclusive-02.jpg" alt="Exclusive 制作例 ブレスレット2" loading="lazy" width="900" height="900">
           <img src="images/exclusive-03.jpg" alt="Exclusive 制作例 ブレスレット3" loading="lazy" width="900" height="900">
           <img src="images/exclusive-04.jpg" alt="Exclusive 制作例 ブレスレット4" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-05.jpg" alt="Exclusive 制作例 ブレスレット5" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-06.jpg" alt="Exclusive 制作例 ブレスレット6" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-07.jpg" alt="Exclusive 制作例 ブレスレット7" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-08.jpg" alt="Exclusive 制作例 ブレスレット8" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-09.jpg" alt="Exclusive 制作例 ブレスレット9" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-10.jpg" alt="Exclusive 制作例 ブレスレット10" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-11.jpg" alt="Exclusive 制作例 ブレスレット11" loading="lazy" width="900" height="900">
-          <img src="images/exclusive-12.jpg" alt="Exclusive 制作例 ブレスレット12" loading="lazy" width="900" height="900">
         </div>
         <p class="exclusive-gallery-hint">写真をタップすると大きく表示されます</p>
       </div>
@@ -1937,10 +1959,10 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // ── 制作例の写真をタップで拡大 ──
+  // ── 制作例の写真（ギャラリー・Exclusive）をタップで拡大 ──
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
-  document.querySelectorAll('.exclusive-photos img').forEach(img => {
+  document.querySelectorAll('.exclusive-photos img, .gallery-item img').forEach(img => {
     img.addEventListener('click', () => {
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
