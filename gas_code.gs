@@ -58,6 +58,9 @@ const HEADERS = [
   '電話番号',
   '住所',
   'お支払い方法',
+  '紹介者',
+  'LINE名',
+  'LINEユーザーID',
 ];
 
 const MAINTENANCE_SHEET_NAME = 'メンテナンス';
@@ -77,7 +80,21 @@ const MAINTENANCE_HEADERS = [
   'お支払い方法',
   'LINE名',
   'LINEユーザーID',
+  '紹介者',
 ];
+
+// 1行目の見出しを用意する（新しい列が増えたときは見出しだけ書き足す）
+function ensureHeaders(sheet, headers, background, fontColor) {
+  const lastCol = sheet.getLastRow() === 0 ? 0 : sheet.getLastColumn();
+  if (lastCol >= headers.length) return;
+  sheet.getRange(1, lastCol + 1, 1, headers.length - lastCol)
+    .setValues([headers.slice(lastCol)]);
+  sheet.getRange(1, 1, 1, headers.length)
+    .setFontWeight('bold')
+    .setBackground(background)
+    .setFontColor(fontColor);
+  sheet.setFrozenRows(1);
+}
 
 function doPost(e) {
   try {
@@ -89,15 +106,10 @@ function doPost(e) {
     // オーダーは1枚目のシートに記録（メンテナンス用シートを追加しても変わらないように）
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
 
-    // 1行目にヘッダーがなければ追加
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(HEADERS);
-      sheet.getRange(1, 1, 1, HEADERS.length)
-        .setFontWeight('bold')
-        .setBackground('#1a1730')
-        .setFontColor('#c9a96e');
-      sheet.setFrozenRows(1);
-    }
+    ensureHeaders(sheet, HEADERS, '#1a1730', '#c9a96e');
+
+    // LINEのIDトークンを検証して、本人のLINEユーザーIDを取り出す（なりすまし防止）
+    const lineUser = verifyLineIdToken(data.lineIdToken);
 
     sheet.appendRow([
       new Date(),
@@ -113,6 +125,9 @@ function doPost(e) {
       data.phone    || '',
       data.address  || '',
       data.payment  || '',
+      data.referrer || '',
+      lineUser ? lineUser.name : '',
+      lineUser ? lineUser.userId : '',
     ]);
 
     // ── 通知本文 ──────────────────────────────
@@ -130,6 +145,8 @@ function doPost(e) {
 ■ サイズ：${data.size || ''}
 ■ 目的：${data.purpose || ''}
 ■ 石の方向性：${data.stone || '（記載なし）'}
+■ 紹介者：${data.referrer || '（なし）'}
+■ LINE名：${lineUser ? lineUser.name : '（LINE外から申込）'}
 ──────────────────────
 ■ 送り先お名前：${data.shipName || ''}
 ■ 郵便番号：${data.postal || ''}
@@ -155,6 +172,29 @@ function doPost(e) {
       console.error('メール通知エラー: ' + mailErr.message);
     }
 
+    // ── お客様のLINEへ受付メッセージ ──
+    if (lineUser) {
+      try {
+        pushLine(lineUser.userId, `
+${data.shipName || lineUser.name} 様
+
+オーダーのお申し込みありがとうございます。
+以下の内容で受け付けました。
+
+■ プラン：${data.plan || ''}
+■ サイズ：${data.size || ''}
+■ お支払い方法：${data.payment || ''}
+
+24時間以内に、このLINEにてご連絡いたします。
+数秘リーディングの詳細やご要望を、こちらのトークで丁寧にお伺いします。
+
+WEAR IT & ROLL -奥の間-
+`.trim());
+      } catch (pushErr) {
+        console.error('お客様への受付メッセージ送信エラー: ' + pushErr.message);
+      }
+    }
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -173,14 +213,7 @@ function handleMaintenance(data) {
   if (!sheet) {
     sheet = ss.insertSheet(MAINTENANCE_SHEET_NAME, ss.getNumSheets());
   }
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(MAINTENANCE_HEADERS);
-    sheet.getRange(1, 1, 1, MAINTENANCE_HEADERS.length)
-      .setFontWeight('bold')
-      .setBackground('#1f3460')
-      .setFontColor('#ffffff');
-    sheet.setFrozenRows(1);
-  }
+  ensureHeaders(sheet, MAINTENANCE_HEADERS, '#1f3460', '#ffffff');
 
   // LINEのIDトークンを検証して、本人のLINEユーザーIDを取り出す（なりすまし防止）
   const lineUser = verifyLineIdToken(data.lineIdToken);
@@ -200,6 +233,7 @@ function handleMaintenance(data) {
     data.payment  || '',
     lineUser ? lineUser.name : '',
     lineUser ? lineUser.userId : '',
+    data.referrer || '',
   ]);
 
   const subject = '【メンテナンス申込】新しいお申し込みが届きました';
@@ -208,6 +242,7 @@ function handleMaintenance(data) {
 ■ メニュー：${data.menu || ''}${data.wishSize ? '\n■ ご希望サイズ：' + data.wishSize : ''}
 ■ ご要望・状態：${data.detail || '（記載なし）'}
 ■ ご購入時期：${data.purchase || '（記載なし）'}
+■ 紹介者：${data.referrer || '（なし）'}
 ──────────────────────
 ■ お名前：${data.name || ''}
 ■ 電話番号：${data.phone || ''}
