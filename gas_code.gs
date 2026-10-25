@@ -1,5 +1,5 @@
 // =====================================================
-// WEAR IT & ROLL. -奥の間- 申込フォーム → Google スプレッドシート
+// WEAR IT & ROLL -奥の間- 申込フォーム → Google スプレッドシート
 // =====================================================
 // 【使い方】
 // 1. Google スプレッドシートを新規作成する
@@ -30,7 +30,7 @@
 //    →「リンクされたLINE公式アカウント」で公式アカウントを選ぶ
 //    → 上のほうの「チャネルID」（数字）をコピー
 // 3. 同じチャネルの「LIFF」タブ →「追加」
-//      サイズ：Full ／ エンドポイントURL：https://satoko3287.github.io/dont-wish-wear-it-roll-oku/
+//      サイズ：Full ／ エンドポイントURL：https://satoko3287.github.io/wear-it-and-roll-oku/
 //      Scope：openid と profile にチェック ／ 友だち追加オプション：On (Aggressive)
 //    → 発行された「LIFF ID」を index.html の LIFF_ID に設定
 //    → 「LIFF URL」（https://liff.line.me/...）をQRコードやリンクにしてお客様に渡す
@@ -251,7 +251,7 @@ ${data.name || lineUser.name} 様
 送り先は、このLINEで改めてご案内いたします。
 ご不明点がございましたら、このトークでお気軽にお問い合わせください。
 
-WEAR IT & ROLL. -奥の間-
+WEAR IT & ROLL -奥の間-
 `.trim());
     } catch (pushErr) {
       console.error('お客様への受付メッセージ送信エラー: ' + pushErr.message);
