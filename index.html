@@ -517,7 +517,23 @@
       border: 1px solid var(--dark-border);
     }
     @media (max-width: 600px) {
-      .exclusive-photos { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .exclusive-photos { gap: 6px; }
+    }
+    .exclusive-photos img { cursor: zoom-in; }
+    .exclusive-gallery-hint { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 10px; }
+
+    /* 写真の拡大表示 */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      display: none; align-items: center; justify-content: center;
+      padding: 16px; background: rgba(5,4,10,.92);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 88vh; border: 1px solid var(--gold-dark); }
+    .lightbox-close {
+      position: absolute; top: 10px; right: 14px;
+      background: none; border: none; color: var(--gold-light);
+      font-size: 2.2rem; line-height: 1; cursor: pointer;
     }
     .exclusive-left ul {
       list-style: none;
@@ -1271,7 +1287,14 @@
           <img src="images/exclusive-04.jpg" alt="Exclusive 制作例 ブレスレット4" loading="lazy" width="900" height="900">
           <img src="images/exclusive-05.jpg" alt="Exclusive 制作例 ブレスレット5" loading="lazy" width="900" height="900">
           <img src="images/exclusive-06.jpg" alt="Exclusive 制作例 ブレスレット6" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-07.jpg" alt="Exclusive 制作例 ブレスレット7" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-08.jpg" alt="Exclusive 制作例 ブレスレット8" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-09.jpg" alt="Exclusive 制作例 ブレスレット9" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-10.jpg" alt="Exclusive 制作例 ブレスレット10" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-11.jpg" alt="Exclusive 制作例 ブレスレット11" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-12.jpg" alt="Exclusive 制作例 ブレスレット12" loading="lazy" width="900" height="900">
         </div>
+        <p class="exclusive-gallery-hint">写真をタップすると大きく表示されます</p>
       </div>
     </div>
 
@@ -1821,6 +1844,12 @@
   </div>
 </section>
 
+<!-- 写真の拡大表示 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+  <button type="button" class="lightbox-close" aria-label="閉じる">×</button>
+  <img alt="">
+</div>
+
 <!-- ─── FOOTER ─── -->
 <footer>
   <p class="footer-logo">WEAR IT &amp; ROLL<br><span class="footer-logo-sub">-奥の間-</span></p>
@@ -1907,6 +1936,20 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── 制作例の写真をタップで拡大 ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.exclusive-photos img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  const closeLightbox = () => lightbox.classList.remove('open');
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
   // ── Stagger cards ──
   document.querySelectorAll('.feature-grid .feature-card').forEach((card, i) => {
