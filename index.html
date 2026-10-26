@@ -24,6 +24,7 @@
     }
 
     html { scroll-behavior: smooth; }
+    section, #maintenance-form { scroll-margin-top: 72px; }
 
     body {
       background: var(--dark);
@@ -1915,6 +1916,31 @@
     mBadge.className = 'optional';
   }
 
+  // フォームの見出しが上のメニューに隠れない位置までスクロールする
+  function scrollToElement(selector) {
+    const el = document.querySelector(selector);
+    const navH = document.querySelector('nav').offsetHeight;
+    const y = el.getBoundingClientRect().top + window.scrollY - navH - 16;
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, Math.max(0, y));
+    root.style.scrollBehavior = '';
+  }
+
+  // 文字や画像の読み込みで位置がずれるので、読み込み後にも合わせ直す
+  // （お客様が自分でスクロールし始めたら、それ以降は動かさない）
+  function alignToForm(selector) {
+    let userScrolled = false;
+    const stop = () => { userScrolled = true; };
+    ['touchstart', 'wheel', 'keydown'].forEach(ev => window.addEventListener(ev, stop, { once: true, passive: true }));
+    const align = () => { if (!userScrolled) scrollToElement(selector); };
+    align();
+    if (document.fonts) document.fonts.ready.then(align);
+    if (document.readyState !== 'complete') window.addEventListener('load', align, { once: true });
+    setTimeout(align, 800);
+    setTimeout(align, 2000);
+  }
+
   async function initLine() {
     if (!LIFF_ID || !window.liff) return;
     try {
@@ -1922,8 +1948,7 @@
       LINE_STATE.ready = true;
       LINE_STATE.inClient = liff.isInClient();
       if (LINE_STATE.inClient) {
-        const target = getFormParam() === 'order' ? 'order' : 'maintenance-form';
-        document.getElementById(target).scrollIntoView({ block: 'start' });
+        alignToForm(getFormParam() === 'order' ? '#order .form-header' : '#maintenance-form .form-header');
       }
       if (!liff.isLoggedIn()) return;
       LINE_STATE.loggedIn = true;
