@@ -1888,7 +1888,7 @@
   // ═══ LINE（LIFF）連携：オーダー・メンテナンス共通 ═══
   // LINE Developers の「LINEログイン」チャネルで作成した LIFF アプリの LIFF ID
   // （LIFFのエンドポイントURLはこのページ https://satoko3287.github.io/wear-it-and-roll-oku/ ）
-  // LIFF URL に ?form=order を付けるとオーダーフォーム、付けないとメンテナンスフォームを開く
+  // LIFF URL に ?form=order でオーダーフォーム、?form=maintenance（またはLINE内で指定なし）でメンテナンスフォームを開く
   const LIFF_ID = '2012194750-JGB6I5an';
   const LINE_STATE = { ready: false, inClient: false, loggedIn: false };
 
@@ -1941,15 +1941,27 @@
     setTimeout(align, 2000);
   }
 
+  const FORM_SELECTORS = {
+    order: '#order .form-header',
+    maintenance: '#maintenance-form .form-header',
+  };
+  let formAligned = false;
+  function openForm(name) {
+    if (formAligned || !FORM_SELECTORS[name]) return;
+    formAligned = true;
+    alignToForm(FORM_SELECTORS[name]);
+  }
+
   async function initLine() {
+    // ?form=order / ?form=maintenance 付きで開いたときは、LINEの外（ブラウザ）でもそのフォームを表示
+    openForm(getFormParam());
     if (!LIFF_ID || !window.liff) return;
     try {
       await liff.init({ liffId: LIFF_ID });
       LINE_STATE.ready = true;
       LINE_STATE.inClient = liff.isInClient();
-      if (LINE_STATE.inClient) {
-        alignToForm(getFormParam() === 'order' ? '#order .form-header' : '#maintenance-form .form-header');
-      }
+      // LINEの中で開いたときは、指定がなければメンテナンスフォームを表示
+      if (LINE_STATE.inClient) openForm(getFormParam() || 'maintenance');
       if (!liff.isLoggedIn()) return;
       LINE_STATE.loggedIn = true;
       document.querySelectorAll('.line-open').forEach(el => el.classList.add('is-hidden'));
