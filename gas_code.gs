@@ -44,6 +44,33 @@
 // ★ 通知メールの送り先（自分のメールアドレスに変更してください）
 const NOTIFY_EMAIL = 'life.is.sweet.satoko@gmail.com';
 
+// お客様に届く受付メールの差出人名と署名
+const SHOP_NAME = 'WEAR IT & ROLL -奥の間-';
+const MAIL_SIGNATURE = `
+──────────────────────
+WEAR IT & ROLL -奥の間-
+まとって、さあ行こう
+
+ホームページ：https://satoko3287.github.io/wear-it-and-roll-oku/
+公式LINE：https://line.me/R/ti/p/@546copgu
+──────────────────────`;
+
+// お客様へ受付メールを送る（メールアドレスの入力がある場合のみ。返信は NOTIFY_EMAIL に届く）
+function sendCustomerMail(to, subject, body) {
+  if (!to || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) return;
+  try {
+    MailApp.sendEmail({
+      to: to,
+      subject: subject,
+      body: body + '\n' + MAIL_SIGNATURE,
+      name: SHOP_NAME,
+      replyTo: NOTIFY_EMAIL,
+    });
+  } catch (err) {
+    console.error('お客様への受付メール送信エラー: ' + err.message);
+  }
+}
+
 const HEADERS = [
   '受付日時',
   '旧姓お名前（ひらがな）',
@@ -195,6 +222,27 @@ WEAR IT & ROLL -奥の間-
       }
     }
 
+    // ── お客様へ受付メール ──
+    sendCustomerMail(data.email, `【${SHOP_NAME}】オーダーのお申し込みを受け付けました`, `
+${data.shipName || data.kana || ''} 様
+
+この度は、${SHOP_NAME} にオーダーのお申し込みをいただき、誠にありがとうございます。
+以下の内容で受け付けました。
+
+■ プラン：${data.plan || ''}
+■ サイズ：${data.size || ''}
+■ 目的：${data.purpose || ''}
+■ 石の方向性：${data.stone || '（記載なし）'}
+■ お届け先：〒${data.postal || ''} ${data.address || ''}　${data.shipName || ''} 様
+■ お支払い方法：${data.payment || ''}
+
+24時間以内に、${lineUser ? '公式LINE' : 'このメールアドレス宛て'}にご連絡いたします。
+数秘リーディングの詳細やご要望を、丁寧にお伺いします。
+
+ご不明点がございましたら、このメールにご返信ください。
+※お心当たりのない場合は、お手数ですがこのメールを破棄してください。
+`.trim());
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -292,6 +340,28 @@ WEAR IT & ROLL -奥の間-
       console.error('お客様への受付メッセージ送信エラー: ' + pushErr.message);
     }
   }
+
+  // お客様へ受付メール
+  sendCustomerMail(data.email, `【${SHOP_NAME}】メンテナンスのお申し込みを受け付けました`, `
+${data.name || ''} 様
+
+この度は、${SHOP_NAME} にメンテナンスのお申し込みをいただき、誠にありがとうございます。
+以下の内容で受け付けました。
+
+■ メニュー：${data.menu || ''}${data.wishSize ? '\n■ ご希望サイズ：' + data.wishSize : ''}
+■ ご要望・状態：${data.detail || '（記載なし）'}
+■ 返送先：〒${data.postal || ''} ${data.address || ''}　${data.shipName || ''} 様
+■ お支払い方法：${data.payment || ''}
+
+【お送りいただく方法】
+ブレスレットをレターパック（青）でお送りください。
+中に返送用のレターパック（赤 または 青）を入れてお送りください。
+
+送り先は、${lineUser ? '公式LINEにて' : 'このメールアドレス宛てに'}改めてご案内いたします。
+
+ご不明点がございましたら、このメールにご返信ください。
+※お心当たりのない場合は、お手数ですがこのメールを破棄してください。
+`.trim());
 
   return ContentService
     .createTextOutput(JSON.stringify({ status: 'success' }))
