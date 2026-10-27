@@ -1056,6 +1056,12 @@
       color: var(--gold-dark);
       margin-bottom: 32px;
     }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 16px; }
+    .footer-links a { font-size: .8rem; color: var(--gold); text-decoration: none; letter-spacing: .05em; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-company { font-size: .75rem; color: var(--text-muted); margin-bottom: 8px; letter-spacing: .08em; }
+    .form-consent { text-align: center; font-size: .78rem; color: var(--text-muted); margin: 0 0 14px; line-height: 1.8; }
+    .form-consent a { color: var(--gold-light); }
     .footer-copy {
       font-size: .72rem;
       color: var(--text-muted);
@@ -1108,6 +1114,8 @@
       #thanks p, #maintThanks p { font-size: .95rem; }
       .footer-tagline { font-size: .85rem; }
       .footer-copy { font-size: .75rem; }
+      .footer-links a { font-size: .9rem; }
+      .form-consent { font-size: .85rem; }
     }
   </style>
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
@@ -1674,6 +1682,7 @@
           お問い合わせ・ご不明点もお気軽にどうぞ。
         </p>
 
+        <p class="form-consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>・<a href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a>をご確認のうえ、お申し込みください。</p>
         <button type="submit" class="btn-submit">オーダーを申し込む</button>
       </form>
 
@@ -2056,6 +2065,7 @@
             それ以外の方はご入力の<strong class="note-strong">メールアドレス</strong>へご連絡いたします。
           </p>
 
+          <p class="form-consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>・<a href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a>をご確認のうえ、お申し込みください。</p>
           <button type="submit" class="btn-submit">申し込む</button>
         </form>
 
@@ -2092,6 +2102,11 @@
   <p class="footer-logo">WEAR IT &amp; ROLL<br><span class="footer-logo-sub">-奥の間-</span></p>
   <p class="footer-tagline">まとって、さあ行こう</p>
   <span class="gold-line" style="margin-bottom:28px;"></span>
+  <div class="footer-links">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  <p class="footer-company">運営：合同会社みにはな</p>
   <p class="footer-copy">© 2026 WEAR IT &amp; ROLL -奥の間- All rights reserved.</p>
 </footer>
 
