@@ -433,6 +433,50 @@
       .gallery-grid { gap: 6px; }
     }
 
+    /* ─── VOICE（お客様の声） ─────────────────── */
+    #voice { padding: 100px 24px; }
+    .voice-header { text-align: center; margin-bottom: 56px; }
+    .voice-header .section-label { margin-bottom: 16px; }
+    .voice-header .gold-line { margin-top: 24px; }
+    .voice-grid { column-count: 2; column-gap: 24px; max-width: 900px; margin: 0 auto; }
+    .voice-card {
+      break-inside: avoid; display: inline-block; width: 100%;
+      margin-bottom: 24px; padding: 34px 30px 24px;
+      border: 1px solid var(--dark-border);
+      background: rgba(22,19,42,.6);
+      position: relative;
+    }
+    .voice-card::before {
+      content: '“';
+      position: absolute; top: 4px; left: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.6rem; line-height: 1; color: var(--gold-dark);
+    }
+    .voice-head {
+      font-size: 1rem; line-height: 1.8; letter-spacing: .05em;
+      color: var(--gold-light); margin: 6px 0 14px;
+    }
+    .voice-body p { font-size: .86rem; line-height: 2; color: var(--text-muted); margin-bottom: .9em; }
+    .voice-tag {
+      display: inline-block; margin-top: 4px; padding: 2px 12px;
+      border: 1px solid var(--gold-dark); color: var(--gold);
+      font-size: .72rem; letter-spacing: .08em;
+    }
+    .voice-more-wrap { text-align: center; margin-top: 16px; }
+    .voice-more-btn { font-family: 'Noto Serif JP', serif; background: transparent; cursor: pointer; }
+    .voice-note { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 32px; line-height: 1.8; }
+    @media (max-width: 700px) {
+      .voice-grid { column-count: 1; }
+    }
+    @media (max-width: 600px) {
+      #voice { padding-left: 8px; padding-right: 8px; }
+      .voice-card { padding: 30px 20px 20px; }
+      .voice-head { font-size: 1.05rem; }
+      .voice-body p { font-size: .95rem; }
+      .voice-tag { font-size: .8rem; }
+      .voice-note { font-size: .82rem; }
+    }
+
     /* ─── PRICE ───────────────────────────────── */
     #price {
       padding: 100px 24px;
@@ -1275,6 +1319,121 @@
   </div>
 </section>
 
+<!-- ─── VOICE（お客様の声） ─── -->
+<section id="voice">
+  <div class="container">
+    <div class="voice-header fade-in">
+      <p class="section-label">Voice</p>
+      <h2 class="section-title">お客様の声</h2>
+      <span class="gold-line"></span>
+    </div>
+    <div class="voice-grid">
+      <article class="voice-card fade-in">
+        <p class="voice-head">「より良い状態へ向かうために必要な石」を選んでくれる</p>
+        <div class="voice-body">
+          <p>オリジナル製作では、まず今の状態を丁寧に見てくれて、「より良い状態へ向かうために必要な石」を選んでくれます。その人のエネルギーに合わせて強度も調整してくれるので、石にのまれてしまうことも、逆に弱すぎて効果を感じられないということもありません。</p>
+          <p>石の組み方にもこだわりがあり、配置によってシンボル的な意味を持たせ、より効果を高めてくれることも。</p>
+          <p>実際に身につけてみて、私は翌日に変化を感じました。トラウマに関連するような出来事が起き、それをきっかけに内観が深まり、原因に気づくことができて、最終的にはフラットな状態に戻ることができました。つけている時とそうでない時の違いも感じます。</p>
+          <p>そして何より、石ひとつひとつをとても大切に、愛情を持って扱っているのが伝わってくるので、こちらも愛着が湧いてきますし、安心して任せられます。</p>
+        </div>
+        <p class="voice-tag">オーダーブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">宇宙的なエネルギーで守ってもらっているような感覚</p>
+        <div class="voice-body">
+          <p>太陽系惑星のブレスは、装着してすぐに石の色が変わり、現在も色の変化は続いています。感覚的に、宇宙的な（岩系の）エネルギーで守ってもらっているような感覚です。</p>
+          <p>十字架ブレスは、元々持ち合わせていた神秘的な宇宙のエネルギーを、装着することで安定させてくれている感覚があります。愛と調和など、柔らかで温かい女神系な感覚です。</p>
+          <p>恋愛ブレスは色が変わってきました。十字架ブレスとの相性がよいです。女性性のエネルギーが増して、ゆったりとしたペースで過ごすようになり、愛でる気持ちが増したように思います。</p>
+        </div>
+        <p class="voice-tag">太陽系惑星・十字架・恋愛ブレス</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">これまでつけたブレスレットの中で、最も心地よい</p>
+        <div class="voice-body">
+          <p>これまでつけたブレスレットの中で、最も心地よく、しっくりきて、エネルギーが高まってくるのを感じました！</p>
+          <p>さらに、内なる自信が強固になってきて、パフォーマンスが上がっているのが実感できます。デザインもとても気に入っていて、見ているだけで癒されてきます。大切に使わせていただきます。</p>
+        </div>
+        <p class="voice-tag">オーダーブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">お会いしていないのに、とっても私らしい</p>
+        <div class="voice-body">
+          <p>ブレスレット、とっても私らしくて、お会いしていないのにすごいなぁと思いました！</p>
+          <p>数秘セッションも的にズバリと当たって、自分で感じていることを色濃く確信させてくれるようで、震えました。素敵な石ちゃんとの出会いをありがとうございました。可愛がります。</p>
+        </div>
+        <p class="voice-tag">数秘セッション・ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">「今つけるタイミングだ！」と感じた時に</p>
+        <div class="voice-body">
+          <p>以前購入したブレスレットが、今までエネルギーが強くて、つけるタイミングではなく、My神棚に飾ってお参りしていました。</p>
+          <p>ずっとビジネスの10万円のご成約が決まらなかったのですが、「今つけるタイミングだ！」といった時につけたら、即ご成約が決まるということがありました。確信度が持てるというのが良かったです。</p>
+        </div>
+        <p class="voice-tag">ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">石達はずっと私のところにいた感覚</p>
+        <div class="voice-body">
+          <p>数秘セッションを受けてから、まだ2週間しか経っていないなんて驚きです。石達はずっと私のところにいた感覚です。私にピッタリの石を選んでくださったからだと思います。</p>
+          <p>石達への愛情が伝わってきて、そういう気持ちに触れる時、私も幸せを感じることができました。数秘とタロットカードでトータルで見てくださるアドバイスが的確でわかりやすく、一歩前に進めました。</p>
+        </div>
+        <p class="voice-tag">数秘セッション・ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">金運ブレスが家に来てから3日後に</p>
+        <div class="voice-body">
+          <p>金運ブレスが家に来てから3日後の今日、1万円の臨時収入がありました。ずっと放置していた叔母の遺品を、このタイミングで売ったら3万円になったので、家族で山分けに。</p>
+          <p>効果すごすぎませんか？どんな魔法を使ったんですか（笑）</p>
+        </div>
+        <p class="voice-tag">金運ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">心の拠り所になっています</p>
+        <div class="voice-body">
+          <p>1月末に、エアバッグが開くほどの車の事故にあいました。禊ぎ塩をいただいてから、車のグローブボックスとトランクに入れていたのもあるせいか、持ち歩きの石さんたちが守ってくれたのか。診断は打ち身で済み、翌日から出勤できています。なにかに守られたのは確かな気がします。</p>
+          <p>心の拠り所になっています！あとは、変な人からのコンタクトがなくなりました（笑）それも石の効果なのかも！</p>
+        </div>
+        <p class="voice-tag">ブレスレット・お守りの石</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">本当にかわいくて大のお気に入り</p>
+        <div class="voice-body">
+          <p>オーダーメイドのパワーストーンブレス、本当にかわいくて大のお気に入り！選ぶのを助けてもらったサクラアゲートたちも、毎晩一緒に寝てサポートしてくれています。</p>
+          <p>豊富な知識と才能に、助けられたり、背中を押してもらったり。いつもありがとう。</p>
+        </div>
+        <p class="voice-tag">オーダーブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">石とその人に対する愛情が伝わってくる</p>
+        <div class="voice-body">
+          <p>石の話を始めたら、めちゃくちゃエナジーが出てきてびっくりしました！みんながそれぞれ選んでもらった石たちを次々出してきて、その顔がみんなうれしそうで。</p>
+          <p>石とその人に対するエネルギーが伝わって、みんなうれしくなっちゃうんだろうなと思いました。みんなのブレスレットを浄化している時も、すごく愛情を感じました。</p>
+        </div>
+        <p class="voice-tag">ブレスレット・浄化</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">石への愛や知識の深さにびっくり</p>
+        <div class="voice-body">
+          <p>ツアーで生まれて初めてタロットをひいてもらいました。ツアー中も細やかな女性的配慮と、仕切りの男前感！多才で驚きました。</p>
+          <p>今回作ってもらったブレスレットからも、石への愛や知識の深さにびっくりしています。これから、沢山の人に幸せを運ぶのだなぁと感じます。</p>
+        </div>
+        <p class="voice-tag">タロット・ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">出会えて本当によかった</p>
+        <div class="voice-body">
+          <p>ブレスレットを作ってもらって、数秘も見てもらって、すごくご縁に感謝です。出会えて本当によかった！</p>
+        </div>
+        <p class="voice-tag">数秘セッション・ブレスレット</p>
+      </article>
+    </div>
+    <div class="voice-more-wrap">
+      <button type="button" class="btn-outline voice-more-btn" id="voiceMoreBtn">もっと見る（6件）</button>
+    </div>
+    <p class="voice-note">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+  </div>
+</section>
+
 <!-- ─── PRICE ─── -->
 <section id="price">
   <div class="container">
@@ -2108,6 +2267,16 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── お客様の声：もっと見る ──
+  const voiceMoreBtn = document.getElementById('voiceMoreBtn');
+  voiceMoreBtn.addEventListener('click', () => {
+    document.querySelectorAll('.voice-more').forEach(el => {
+      el.classList.remove('is-hidden');
+      el.classList.add('visible');
+    });
+    voiceMoreBtn.parentElement.remove();
+  });
 
   // ── 制作例の写真（ギャラリー・Exclusive）をタップで拡大 ──
   const lightbox = document.getElementById('lightbox');
