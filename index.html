@@ -673,35 +673,51 @@
       display: flex; gap: 16px; flex-wrap: wrap;
     }
     .radio-label {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 12px;
       cursor: pointer;
       font-size: .88rem;
       color: var(--text-muted);
       padding: 12px 20px;
       border: 1px solid var(--dark-border);
       background: rgba(22,19,42,.8);
-      transition: border-color .3s, color .3s;
+      transition: border-color .2s, color .2s, background .2s, box-shadow .2s;
       flex: 1; min-width: 140px;
-    }
-    .radio-label:has(input:checked) {
-      border-color: var(--gold-dark);
-      color: var(--gold-light);
     }
     .radio-label input[type="radio"] { display: none; }
     .radio-dot {
-      width: 14px; height: 14px;
-      border: 1px solid var(--gold-dark);
+      width: 22px; height: 22px;
+      border: 2px solid var(--gold-dark);
       border-radius: 50%;
       flex-shrink: 0;
       position: relative;
-      transition: border-color .3s;
+      transition: border-color .2s, background .2s;
     }
-    .radio-label:has(input:checked) .radio-dot { border-color: var(--gold); }
+    /* 選んだボタン（.is-checked はJSで付与。:has() 非対応の端末向け） */
+    .radio-label.is-checked,
+    .radio-label:has(input:checked) {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(201,169,110,.18);
+      box-shadow: inset 0 0 0 1px var(--gold), 0 0 18px rgba(201,169,110,.2);
+    }
+    /* フォームの見出し用のlabelスタイルが選択ボタンに効かないように */
+    .form-group label.radio-label {
+      display: flex; margin-bottom: 0;
+      font-size: .95rem; letter-spacing: .05em; color: var(--text-muted);
+    }
+    .form-group label.radio-label.is-checked,
+    .form-group label.radio-label:has(input:checked) { color: var(--gold-light); }
+    .menu-option .radio-text { word-break: keep-all; overflow-wrap: anywhere; }
+    .menu-option .radio-desc { word-break: normal; }
+    .radio-label.is-checked .radio-dot,
+    .radio-label:has(input:checked) .radio-dot { border-color: var(--gold); background: var(--gold); }
+    .radio-label.is-checked .radio-dot::after,
     .radio-label:has(input:checked) .radio-dot::after {
-      content: '';
-      position: absolute; inset: 3px;
-      background: var(--gold);
-      border-radius: 50%;
+      content: '✓';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--dark);
+      font-size: 13px; font-weight: 700; line-height: 1;
     }
 
     .form-section-title {
@@ -965,6 +981,13 @@
       font-size: .88rem; letter-spacing: .08em;
     }
     .thanks-line { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--dark-border); }
+    .pc-show { display: none; }
+    html.is-pc .pc-show { display: block; }
+    html.is-pc .sp-show { display: none; }
+    .line-qr { display: block; margin: 14px auto 6px; width: 156px; height: 156px; border: 6px solid #fff; }
+    .line-qr-note { font-size: .82rem; color: var(--text); }
+    .line-alt { margin-top: 12px; font-size: .78rem; color: var(--text-muted); line-height: 1.8; }
+    .note-strong { color: var(--gold-light); font-weight: 400; }
     #maintThanks .btn-submit, #thanks .btn-submit { margin-top: 28px; }
 
     /* ─── FOOTER ──────────────────────────────── */
@@ -1023,6 +1046,8 @@
       .price-label { font-size: .85rem; }
       .price-includes li, .price-grid .price-includes li { font-size: .92rem; }
       #price { padding-left: 8px; padding-right: 8px; }
+      #order, #maintenance .maint-block { padding-left: 8px; padding-right: 8px; }
+      .form-group label.menu-option { padding: 14px 14px; gap: 12px; }
       .price-grid .price-card { padding: 44px 16px 36px; }
       .price-note { font-size: .85rem; }
       .exclusive-left .exclusive-sub { font-size: .88rem; }
@@ -1145,7 +1170,7 @@
       <div class="feature-card fade-in">
         <span class="feature-icon">✨</span>
         <h3>丁寧な個別対応</h3>
-        <p>オーダー後は公式LINEにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
+        <p>オーダー後は公式LINEまたはメールにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
       </div>
     </div>
   </div>
@@ -1171,8 +1196,8 @@
       <div class="flow-step fade-in">
         <div class="flow-num">02</div>
         <div class="flow-content">
-          <h3>公式LINEにてご連絡</h3>
-          <p>24時間以内に公式LINEよりご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
+          <h3>公式LINE・メールにてご連絡</h3>
+          <p>24時間以内に、公式LINE（LINE以外からのお申し込みはメール）にてご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
         </div>
       </div>
       <div class="flow-step fade-in">
@@ -1261,10 +1286,9 @@
 
     <div class="price-grid">
 
-      <!-- POPULAR（おすすめ） -->
-      <div class="price-card fade-in" style="border-color: var(--gold); background: rgba(30,25,55,.8);">
+      <!-- POPULAR -->
+      <div class="price-card fade-in">
         <p class="price-tier">POPULAR</p>
-        <div class="price-badge">一番人気 ★</div>
         <p class="price-label">ブレスレット＋数秘鑑定書</p>
         <p class="price-amount"><span>¥</span>21,000<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
@@ -1277,9 +1301,10 @@
         </ul>
       </div>
 
-      <!-- PREMIUM -->
-      <div class="price-card fade-in">
+      <!-- PREMIUM（一番人気） -->
+      <div class="price-card fade-in" style="border-color: var(--gold); background: rgba(30,25,55,.8);">
         <p class="price-tier">PREMIUM</p>
+        <div class="price-badge">一番人気 ★</div>
         <p class="price-label">ブレスレット＋鑑定書＋石のメッセージカード</p>
         <p class="price-amount"><span>¥</span>55,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
@@ -1342,8 +1367,15 @@
 
       <div class="line-box line-open">
         ご連絡は<strong>公式LINE</strong>で行います。<br>
-        LINEから申し込むと、その後のやり取りがスムーズです。<br>
-        <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=order">LINEで申し込む</a>
+        LINEから申し込むと、その後のやり取りがスムーズです。
+        <div class="sp-show">
+          <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=order">LINEで申し込む</a>
+        </div>
+        <div class="pc-show">
+          <img class="line-qr" src="images/qr-order.png" alt="LINEで申し込むためのQRコード" width="156" height="156">
+          <p class="line-qr-note">スマホのLINEでQRコードを読み取ると、<br>LINEからお申し込みいただけます。</p>
+        </div>
+        <p class="line-alt">LINEをお使いでない方・パソコンの方は、このまま下のフォームからお申し込みください（メールでご連絡いたします）。</p>
       </div>
       <p class="line-box line-greeting is-hidden"></p>
       <div class="line-box line-friend is-hidden">
@@ -1388,8 +1420,8 @@
           <label for="plan">ご希望のプラン<span class="required">必須</span></label>
           <select id="plan" name="plan" required>
             <option value="" disabled selected>お選びください</option>
-            <option>POPULAR（一番人気） ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
-            <option>PREMIUM ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
+            <option>POPULAR ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
+            <option>PREMIUM（一番人気） ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
             <option>Exclusive ¥100,000〜（希少石・完全応相談）</option>
           </select>
           <p class="field-error">ご希望のプランを選択してください</p>
@@ -1437,7 +1469,8 @@
         <div class="form-row">
           <div class="form-group">
             <label for="postal">郵便番号<span class="required">必須</span></label>
-            <input type="text" id="postal" name="postal" placeholder="000-0000" required>
+            <input type="text" id="postal" name="postal" placeholder="000-0000" inputmode="numeric" autocomplete="postal-code" required>
+            <p class="form-hint">入力すると住所が自動で入ります</p>
             <p class="field-error">郵便番号を入力してください</p>
           </div>
           <div class="form-group">
@@ -1449,7 +1482,7 @@
 
         <div class="form-group">
           <label for="address">住所<span class="required">必須</span></label>
-          <input type="text" id="address" name="address" placeholder="都道府県・市区町村・番地・建物名" required>
+          <input type="text" id="address" name="address" placeholder="都道府県・市区町村・番地・建物名" autocomplete="street-address" required>
           <p class="field-error">住所を入力してください</p>
         </div>
 
@@ -1474,7 +1507,9 @@
         </div>
 
         <p class="form-note">
-          送信後、24時間以内に公式LINEよりご連絡いたします。<br>
+          送信後、24時間以内にご連絡いたします。<br>
+          LINEからお申し込みの方は<strong class="note-strong">公式LINE</strong>へ、<br>
+          それ以外の方はご入力の<strong class="note-strong">メールアドレス</strong>へご連絡いたします。<br>
           お問い合わせ・ご不明点もお気軽にどうぞ。
         </p>
 
@@ -1487,12 +1522,13 @@
         <h3>お申し込みありがとうございます</h3>
         <p>
           フォームのご送信を受け付けました。<br>
-          24時間以内に公式LINEよりご連絡いたします。<br><br>
+          <span class="contact-line">24時間以内に公式LINEよりご連絡いたします。</span>
+          <span class="contact-mail is-hidden">ご入力のメールアドレスに受付メールをお送りします。<br>24時間以内にメールにてご連絡いたします。<br><small>※届かない場合は、迷惑メールフォルダもご確認ください。</small></span><br><br>
           あなただけの特別なストーンが<br>
           新しい扉を開く力になりますように。
         </p>
         <div class="thanks-line is-hidden">
-          <p>ご連絡は公式LINEでお送りします。<br>下のボタンから友だち追加し、<br>お名前をメッセージでお送りください。</p>
+          <p>公式LINEでのやり取りをご希望の方は、<br>友だち追加のうえ、お名前をメッセージでお送りください。</p>
           <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
         </div>
         <button type="button" class="btn-submit is-hidden" id="oCloseBtn">閉じる</button>
@@ -1628,7 +1664,7 @@
           <div class="flow-num">02</div>
           <div class="flow-content">
             <h3>送り先のご案内</h3>
-            <p>お申し込み後、公式LINEにて、ブレスレットの送り先をご案内いたします。</p>
+            <p>お申し込み後、公式LINEまたはメールにて、ブレスレットの送り先をご案内いたします。</p>
           </div>
         </div>
         <div class="flow-step fade-in">
@@ -1660,8 +1696,15 @@
 
       <div class="line-box line-open">
         ご連絡は<strong>公式LINE</strong>で行います。<br>
-        LINEから申し込むと、その後のやり取りがスムーズです。<br>
-        <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=maintenance">LINEで申し込む</a>
+        LINEから申し込むと、その後のやり取りがスムーズです。
+        <div class="sp-show">
+          <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=maintenance">LINEで申し込む</a>
+        </div>
+        <div class="pc-show">
+          <img class="line-qr" src="images/qr-maintenance.png" alt="LINEで申し込むためのQRコード" width="156" height="156">
+          <p class="line-qr-note">スマホのLINEでQRコードを読み取ると、<br>LINEからお申し込みいただけます。</p>
+        </div>
+        <p class="line-alt">LINEをお使いでない方・パソコンの方は、このまま下のフォームからお申し込みください（メールでご連絡いたします）。</p>
       </div>
       <p class="line-box line-greeting is-hidden"></p>
       <div class="line-box line-friend is-hidden">
@@ -1803,6 +1846,7 @@
           <div class="form-group">
             <label for="mPostal">郵便番号<span class="required">必須</span></label>
             <input type="text" id="mPostal" inputmode="numeric" autocomplete="postal-code" placeholder="例）123-4567">
+            <p class="form-hint">入力すると住所が自動で入ります</p>
             <p class="field-error">郵便番号をご記入ください</p>
           </div>
 
@@ -1846,6 +1890,11 @@
             <p class="field-error">ご確認のうえチェックを入れてください</p>
           </div>
 
+          <p class="form-note">
+            送信後、LINEからお申し込みの方は<strong class="note-strong">公式LINE</strong>へ、<br>
+            それ以外の方はご入力の<strong class="note-strong">メールアドレス</strong>へご連絡いたします。
+          </p>
+
           <button type="submit" class="btn-submit">申し込む</button>
         </form>
 
@@ -1855,11 +1904,12 @@
           <p>
             メンテナンスのお申し込みを受け付けました。<br>
             ブレスレットの送り先など、今後のご案内を<br>
-            お送りいたしますので、しばらくお待ちください。<br><br>
+            <span class="contact-line">公式LINEにて</span><span class="contact-mail is-hidden">メールにて</span>お送りいたしますので、しばらくお待ちください。<br>
+            <span class="contact-mail is-hidden">ご入力のメールアドレスに受付メールをお送りします。<br><small>※届かない場合は、迷惑メールフォルダもご確認ください。</small><br></span><br>
             大切な天然石を、心を込めてメンテナンスいたします。
           </p>
           <div class="thanks-line is-hidden">
-            <p>ご連絡は公式LINEでお送りします。<br>下のボタンから友だち追加し、<br>お名前をメッセージでお送りください。</p>
+            <p>公式LINEでのやり取りをご希望の方は、<br>友だち追加のうえ、お名前をメッセージでお送りください。</p>
             <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
           </div>
 
@@ -1891,6 +1941,66 @@
   // LIFF URL に ?form=order でオーダーフォーム、?form=maintenance（またはLINE内で指定なし）でメンテナンスフォームを開く
   const LIFF_ID = '2012194750-JGB6I5an';
   const LINE_STATE = { ready: false, inClient: false, loggedIn: false };
+
+  // スマホ以外（パソコン）では「LINEで申し込む」ボタンの代わりにQRコードを表示する
+  // （パソコンでLIFFのリンクを開いてもLINEアプリが起動しないため）
+  const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+  if (!IS_MOBILE) document.documentElement.classList.add('is-pc');
+
+  // 完了画面：LINE以外から申し込んだ方にはメールで連絡する旨を表示
+  function showMailContact(selector) {
+    const box = document.querySelector(selector);
+    box.querySelectorAll('.contact-line').forEach(el => el.classList.add('is-hidden'));
+    box.querySelectorAll('.contact-mail').forEach(el => el.classList.remove('is-hidden'));
+    box.querySelector('.thanks-line').classList.remove('is-hidden');
+  }
+
+  // 選んだボタンに印を付ける（:has() に対応していない端末でも分かるように）
+  function syncRadioLabels() {
+    document.querySelectorAll('.radio-label').forEach(label => {
+      label.classList.toggle('is-checked', !!label.querySelector('input:checked'));
+    });
+  }
+  document.addEventListener('change', e => { if (e.target.type === 'radio') syncRadioLabels(); });
+
+  // ── 郵便番号から住所を自動入力（zipcloud） ──
+  function lookupZip(zip) {
+    return new Promise(resolve => {
+      const cb = 'zipcb_' + Date.now() + '_' + Math.floor(Math.random() * 1e6);
+      const script = document.createElement('script');
+      const timer = setTimeout(() => { cleanup(); resolve(null); }, 6000);
+      function cleanup() { clearTimeout(timer); delete window[cb]; script.remove(); }
+      window[cb] = res => {
+        cleanup();
+        const r = res && res.results && res.results[0];
+        resolve(r ? r.address1 + r.address2 + r.address3 : null);
+      };
+      script.onerror = () => { cleanup(); resolve(null); };
+      script.src = `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}&callback=${cb}`;
+      document.head.appendChild(script);
+    });
+  }
+  function setupZipAutofill(postalId, addressId) {
+    const postal = document.getElementById(postalId);
+    const address = document.getElementById(addressId);
+    let lastAuto = '';
+    postal.addEventListener('input', async () => {
+      const zip = postal.value
+        .replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0))
+        .replace(/[^0-9]/g, '');
+      if (zip.length !== 7) return;
+      const addr = await lookupZip(zip);
+      // 自分で入力した住所は上書きしない
+      if (addr && (address.value.trim() === '' || address.value === lastAuto)) {
+        address.value = addr;
+        lastAuto = addr;
+        address.closest('.form-group').classList.remove('has-error');
+      }
+    });
+  }
+  setupZipAutofill('postal', 'address');
+  setupZipAutofill('mPostal', 'mAddress');
 
   function getLineIdToken() {
     return LINE_STATE.loggedIn ? (liff.getIDToken() || '') : '';
@@ -2096,7 +2206,7 @@
       }
       this.style.display = 'none';
       document.getElementById('thanks').style.display = 'block';
-      if (!LINE_STATE.loggedIn) document.querySelector('#thanks .thanks-line').classList.remove('is-hidden');
+      if (!LINE_STATE.loggedIn) showMailContact('#thanks');
       if (LINE_STATE.inClient) {
         const closeBtn = document.getElementById('oCloseBtn');
         closeBtn.classList.remove('is-hidden');
@@ -2212,7 +2322,7 @@
         });
         form.style.display = 'none';
         $('maintThanks').style.display = 'block';
-        if (!LINE_STATE.loggedIn) document.querySelector('#maintThanks .thanks-line').classList.remove('is-hidden');
+        if (!LINE_STATE.loggedIn) showMailContact('#maintThanks');
         if (LINE_STATE.inClient) {
           $('mCloseBtn').classList.remove('is-hidden');
           $('mCloseBtn').addEventListener('click', () => liff.closeWindow());
