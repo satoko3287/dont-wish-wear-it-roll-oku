@@ -573,6 +573,34 @@
     .exclusive-photos img, .gallery-item img { cursor: zoom-in; }
     .exclusive-gallery-hint { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 10px; }
 
+    /* メンテナンス：お客様の声を見る */
+    .maint-voice-cta { text-align: center; padding: 8px 24px 24px; }
+    .maint-voice-cta p { font-size: .85rem; color: var(--text-muted); margin-bottom: 14px; letter-spacing: .05em; }
+    .maint-voice-cta .btn-outline { font-family: 'Noto Serif JP', serif; background: transparent; cursor: pointer; }
+    .voice-modal {
+      position: fixed; inset: 0; z-index: 210;
+      background: var(--dark);
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(80,40,140,.25) 0%, transparent 55%);
+      overflow-y: auto; -webkit-overflow-scrolling: touch;
+      padding: 24px 16px;
+    }
+    .voice-modal[hidden] { display: none; }
+    .voice-modal-inner { position: relative; max-width: 720px; margin: 0 auto; padding: 48px 0 24px; }
+    .voice-modal .section-label { margin-bottom: 12px; }
+    .voice-modal .section-title { margin-bottom: 12px; }
+    .voice-modal .voice-note { margin: 0 0 28px; }
+    .voice-modal-list + .voice-note { margin: 8px 0 24px; }
+    .voice-modal .voice-card { display: block; }
+    .voice-modal-close {
+      position: fixed; top: 10px; right: 14px; z-index: 211;
+      width: 48px; height: 48px; border: 1px solid var(--gold-dark); border-radius: 50%;
+      background: rgba(9,8,15,.9); color: var(--gold-light);
+      font-size: 1.8rem; line-height: 1; cursor: pointer;
+    }
+    .voice-modal-foot { text-align: center; }
+    .voice-modal-foot .btn-outline { font-family: 'Noto Serif JP', serif; background: transparent; cursor: pointer; }
+    body.modal-open { overflow: hidden; }
+
     /* 写真の拡大表示 */
     .lightbox {
       position: fixed; inset: 0; z-index: 200;
@@ -1754,6 +1782,12 @@
     </div>
   </div>
 
+  <!-- お客様の声を見る -->
+  <div class="maint-voice-cta fade-in">
+    <p>実際にお使いいただいている方のご感想</p>
+    <button type="button" class="btn-outline" id="openVoiceModal">お客様の声を見る</button>
+  </div>
+
   <!-- メンテナンス内容 -->
   <div class="maint-block">
     <div class="container">
@@ -2091,6 +2125,19 @@
   </div>
 </section>
 
+<!-- お客様の声（メンテナンスのボタンから開く） -->
+<div class="voice-modal" id="voiceModal" role="dialog" aria-modal="true" aria-labelledby="voiceModalTitle" hidden>
+  <div class="voice-modal-inner">
+    <button type="button" class="voice-modal-close" aria-label="閉じる">×</button>
+    <p class="section-label">Voice</p>
+    <h2 class="section-title" id="voiceModalTitle">お客様の声</h2>
+    <p class="voice-note">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+    <div class="voice-modal-list"></div>
+    <p class="voice-note">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+    <div class="voice-modal-foot"><button type="button" class="btn-outline voice-modal-close2">閉じる</button></div>
+  </div>
+</div>
+
 <!-- 写真の拡大表示 -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
   <button type="button" class="lightbox-close" aria-label="閉じる">×</button>
@@ -2230,6 +2277,8 @@
   const FORM_SELECTORS = {
     order: '#order .form-header',
     maintenance: '#maintenance-form .form-header',
+    // メンテナンス・バージョンアップのトップ（題名）
+    'maintenance-top': '#maintenance .maint-hero .section-label',
   };
   let formAligned = false;
   function openForm(name) {
@@ -2239,8 +2288,9 @@
   }
 
   async function initLine() {
-    // ?form=order / ?form=maintenance 付きで開いたときは、LINEの外（ブラウザ）でもそのフォームを表示
-    openForm(getFormParam());
+    // ?form=order / ?form=maintenance / ?form=maintenance-top 付きで開いたときは、LINEの外（ブラウザ）でもその位置を表示
+    // #maintenance などのページ内リンクで開いたときも、読み込み後に位置を合わせ直す
+    openForm(getFormParam() || ({ '#maintenance': 'maintenance-top', '#maintenance-form': 'maintenance', '#order': 'order' })[location.hash]);
     if (!LIFF_ID || !window.liff) return;
     try {
       await liff.init({ liffId: LIFF_ID });
@@ -2294,6 +2344,34 @@
     });
     voiceMoreBtn.parentElement.remove();
   });
+
+  // ── メンテナンスの「お客様の声を見る」 ──
+  const voiceModal = document.getElementById('voiceModal');
+  const voiceModalList = voiceModal.querySelector('.voice-modal-list');
+  let voiceModalReturnFocus = null;
+  function openVoiceModal() {
+    if (!voiceModalList.children.length) {
+      document.querySelectorAll('#voice .voice-card').forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.remove('voice-more', 'is-hidden', 'fade-in');
+        voiceModalList.appendChild(clone);
+      });
+    }
+    voiceModalReturnFocus = document.activeElement;
+    voiceModal.hidden = false;
+    voiceModal.scrollTop = 0;
+    document.body.classList.add('modal-open');
+    voiceModal.querySelector('.voice-modal-close').focus();
+  }
+  function closeVoiceModal() {
+    voiceModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    if (voiceModalReturnFocus) voiceModalReturnFocus.focus();
+  }
+  document.getElementById('openVoiceModal').addEventListener('click', openVoiceModal);
+  voiceModal.querySelectorAll('.voice-modal-close, .voice-modal-close2').forEach(btn => btn.addEventListener('click', closeVoiceModal));
+  voiceModal.addEventListener('click', e => { if (e.target === voiceModal) closeVoiceModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !voiceModal.hidden) closeVoiceModal(); });
 
   // ── 制作例の写真（ギャラリー・Exclusive）をタップで拡大 ──
   const lightbox = document.getElementById('lightbox');

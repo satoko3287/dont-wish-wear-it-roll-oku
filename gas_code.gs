@@ -44,6 +44,9 @@
 // ★ 通知メールの送り先（自分のメールアドレスに変更してください）
 const NOTIFY_EMAIL = 'life.is.sweet.satoko@gmail.com';
 
+// お客様からのお問い合わせ先（受付メールの返信先・署名に表示）
+const CONTACT_EMAIL = '3287minihana@gmail.com';
+
 // お客様に届く受付メールの差出人名と署名
 const SHOP_NAME = 'WEAR IT & ROLL -奥の間-';
 const MAIL_SIGNATURE = `
@@ -51,11 +54,13 @@ const MAIL_SIGNATURE = `
 WEAR IT & ROLL -奥の間-
 まとって、さあ行こう
 
+運営：合同会社みにはな
+お問い合わせ：3287minihana@gmail.com
 ホームページ：https://satoko3287.github.io/wear-it-and-roll-oku/
 公式LINE：https://line.me/R/ti/p/@546copgu
 ──────────────────────`;
 
-// お客様へ受付メールを送る（メールアドレスの入力がある場合のみ。返信は NOTIFY_EMAIL に届く）
+// お客様へ受付メールを送る（メールアドレスの入力がある場合のみ。返信は CONTACT_EMAIL に届く）
 function sendCustomerMail(to, subject, body) {
   if (!to || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) return;
   try {
@@ -64,7 +69,7 @@ function sendCustomerMail(to, subject, body) {
       subject: subject,
       body: body + '\n' + MAIL_SIGNATURE,
       name: SHOP_NAME,
-      replyTo: NOTIFY_EMAIL,
+      replyTo: CONTACT_EMAIL,
     });
   } catch (err) {
     console.error('お客様への受付メール送信エラー: ' + err.message);
