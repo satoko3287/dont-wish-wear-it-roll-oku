@@ -433,6 +433,73 @@
       .gallery-grid { gap: 6px; }
     }
 
+    /* ─── QUICK（料金とお申し込み方法） ─────────── */
+    #quick { padding: 90px 24px 100px; background: linear-gradient(180deg, transparent, rgba(22,19,42,.55), transparent); }
+    .quick-header { text-align: center; margin-bottom: 44px; }
+    .quick-header .section-label { margin-bottom: 16px; }
+    .quick-header .gold-line { margin-top: 24px; }
+    .quick-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0 auto; }
+    .quick-plan {
+      position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 30px 16px 24px; text-align: center; text-decoration: none;
+      border: 1px solid var(--dark-border); background: rgba(22,19,42,.75);
+      transition: border-color .3s;
+    }
+    .quick-plan:hover { border-color: var(--gold-dark); }
+    .quick-plan.is-featured { border-color: var(--gold); background: rgba(30,25,55,.9); }
+    .quick-plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      padding: 2px 14px; white-space: nowrap;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--dark);
+      font-size: .72rem; letter-spacing: .12em; font-weight: 500;
+    }
+    .quick-plan-main { display: flex; flex-direction: column; gap: 6px; }
+    .quick-plan-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; letter-spacing: .22em; color: var(--gold); }
+    .quick-plan-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.7; }
+    .quick-plan-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); line-height: 1; white-space: nowrap; }
+    .quick-plan-price small { font-size: .55em; color: var(--text-muted); margin-left: 2px; }
+    .quick-note { text-align: center; font-size: .78rem; color: var(--text-muted); margin: 14px 0 44px; }
+    .quick-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0 auto 40px; }
+    .quick-steps li { display: flex; gap: 14px; align-items: flex-start; padding: 18px 16px; border-top: 1px solid var(--gold-dark); }
+    .quick-step-num {
+      flex: none; width: 34px; height: 34px; border: 1px solid var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold);
+    }
+    .quick-step-text { font-size: .8rem; color: var(--text-muted); line-height: 1.8; }
+    .quick-step-text strong { display: block; font-size: .95rem; font-weight: 400; color: var(--gold-light); margin-bottom: 2px; }
+    .quick-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+    .quick-line-btn { margin-top: 0; padding: 14px 48px; font-size: 1rem; }
+    .quick-qr img { display: block; margin: 0 auto 8px; width: 132px; height: 132px; border: 6px solid #fff; }
+    .quick-qr p { font-size: .8rem; color: var(--text); line-height: 1.8; }
+    .quick-form-btn { padding: 14px 40px; }
+    .quick-more { font-size: .85rem; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark); }
+    @media (max-width: 700px) {
+      #quick { padding: 70px 12px 80px; }
+      .quick-plans { grid-template-columns: 1fr; gap: 14px; }
+      .quick-plan { flex-direction: row; align-items: center; text-align: left; padding: 18px 18px; gap: 12px; }
+      .quick-plan.is-featured { padding-top: 24px; }
+      .quick-plan-badge { left: 18px; transform: none; }
+      .quick-plan-main { flex: 1; min-width: 0; gap: 2px; }
+      .quick-plan-name { font-size: 1.05rem; letter-spacing: .14em; }
+      .quick-plan-desc { font-size: .82rem; line-height: 1.6; }
+      .quick-plan-price { font-size: 1.7rem; }
+      .quick-note { font-size: .85rem; margin-bottom: 32px; }
+      .quick-steps { grid-template-columns: 1fr; gap: 0; margin-bottom: 32px; }
+      .quick-steps li { padding: 14px 6px; border-top: none; border-bottom: 1px solid var(--dark-border); }
+      .quick-step-text { font-size: .88rem; }
+      .quick-step-text strong { font-size: 1rem; }
+      .quick-line-btn, .quick-form-btn { width: 100%; max-width: 320px; }
+      .quick-cta .line-open { width: 100%; display: flex; justify-content: center; }
+    }
+
+    /* ブランドストーリー：続きを読む */
+    .story-more-wrap { text-align: center; margin: 0 !important; }
+    .story-more-btn {
+      background: none; border: none; border-bottom: 1px solid var(--gold-dark);
+      color: var(--gold); font-family: 'Noto Serif JP', serif; font-size: .9rem; cursor: pointer; padding: 2px 4px;
+    }
+
     /* ─── VOICE（お客様の声） ─────────────────── */
     #voice { padding: 100px 24px; }
     .voice-header { text-align: center; margin-bottom: 56px; }
@@ -1175,7 +1242,7 @@
       あなただけのオーダーブレスレット
     </p>
     <div class="hero-buttons">
-      <a href="#order" class="btn-primary">オーダーする</a>
+      <a href="#quick" class="btn-primary">料金・申込方法を見る</a>
       <a href="#maintenance" class="btn-outline">メンテナンス</a>
     </div>
   </div>
@@ -1185,123 +1252,66 @@
   </div>
 </section>
 
-<!-- ─── CATCHCOPY ─── -->
-<section id="catchcopy">
+<!-- ─── QUICK（料金とお申し込み方法） ─── -->
+<section id="quick">
   <div class="container">
-    <p class="catchcopy-text fade-in">
-      「選ぶのではなく、石があなたを選ぶ。」<br>
-      <span style="font-size:.9em; color: var(--gold-dark);">── まとって、さあ行こう ──</span>
-    </p>
-  </div>
-</section>
-
-<!-- ─── STORY ─── -->
-<section id="story">
-  <div class="container">
-    <div class="story-header fade-in">
-      <p class="section-label">Brand Story</p>
-      <h2 class="section-title">運命は、あなたを導く<br>光のようなもの</h2>
+    <div class="quick-header fade-in">
+      <p class="section-label">Price &amp; Order</p>
+      <h2 class="section-title">料金とお申し込み方法</h2>
       <span class="gold-line"></span>
     </div>
 
-    <div class="story-body fade-in">
-      <p>
-        生きていると、私たちは何度も「選択」を迫られます。<br>
-        どの道を進むべきか、何が自分にとって最善なのか──<br>
-        時には迷い、立ち止まり、不安に押しつぶされそうになることもあるでしょう。
-      </p>
-      <p>
-        しかし、すべての人の人生には<span class="highlight">「流れ」</span>があります。<br>
-        まるで星座が夜空に輝くように、運命の光は、ずっとあなたを導いているのです。
-      </p>
-      <p>
-        <span class="highlight">WEAR IT &amp; ROLL -奥の間-</span> は、<br>
-        「あなたの本来の流れを取り戻し、望む未来へと導く存在」です。<br>
-        数秘リーディングを通してあなた本来のエネルギーを見つけ出し、<br>
-        最適な天然石とともにお届けします。
-      </p>
-      <p>
-        それは、ただのアクセサリーではなく、<br>
-        <span class="highlight">あなたの人生をサポートする「特別なエネルギーツール」</span>なのです。
-      </p>
+    <div class="quick-plans fade-in">
+      <a class="quick-plan" href="#price">
+        <span class="quick-plan-main">
+          <span class="quick-plan-name">POPULAR</span>
+          <span class="quick-plan-desc">ブレスレット＋<span class="nw">数秘鑑定書</span></span>
+        </span>
+        <span class="quick-plan-price">¥21,000<small>〜</small></span>
+      </a>
+      <a class="quick-plan is-featured" href="#price">
+        <span class="quick-plan-badge">一番人気</span>
+        <span class="quick-plan-main">
+          <span class="quick-plan-name">PREMIUM</span>
+          <span class="quick-plan-desc">ブレスレット＋鑑定書＋<span class="nw">石のメッセージカード</span></span>
+        </span>
+        <span class="quick-plan-price">¥48,600<small>〜</small></span>
+      </a>
+      <a class="quick-plan" href="#price">
+        <span class="quick-plan-main">
+          <span class="quick-plan-name">Exclusive</span>
+          <span class="quick-plan-desc">希少石・大粒玉・<span class="nw">高品質な石で</span><span class="nw">完全オーダー</span></span>
+        </span>
+        <span class="quick-plan-price">¥154,000<small>〜</small></span>
+      </a>
     </div>
-  </div>
-</section>
+    <p class="quick-note">すべて税込・国内送料込みです。</p>
 
-<!-- ─── FEATURE ─── -->
-<section id="feature">
-  <div class="container">
-    <div class="feature-header fade-in">
-      <p class="section-label">Features</p>
-      <h2 class="section-title">-奥の間- が選ばれる理由</h2>
-      <span class="gold-line"></span>
-    </div>
+    <ol class="quick-steps fade-in">
+      <li>
+        <span class="quick-step-num">1</span>
+        <span class="quick-step-text"><strong>LINEかフォームから申し込む</strong>お名前・生年月日・ご希望を入力して送信</span>
+      </li>
+      <li>
+        <span class="quick-step-num">2</span>
+        <span class="quick-step-text"><strong>ヒアリング・お支払い</strong>24時間以内にご連絡。数秘をもとに石をご提案します</span>
+      </li>
+      <li>
+        <span class="quick-step-num">3</span>
+        <span class="quick-step-text"><strong>約2週間でお届け</strong>ご入金確認後、心を込めて制作します</span>
+      </li>
+    </ol>
 
-    <div class="feature-grid">
-      <div class="feature-card fade-in">
-        <span class="feature-icon">🔮</span>
-        <h3>数秘リーディング</h3>
-        <p>生年月日と名前から「あなたの本質的なエネルギー」を読み解き、今のあなたに最も必要な石を導き出します。</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-icon">💎</span>
-        <h3>天然石オーダー</h3>
-        <p>一つとして同じ石はありません。あなたのエネルギーと共鳴する、世界に一つだけのブレスレットをお作りします。</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-icon">✨</span>
-        <h3>丁寧な個別対応</h3>
-        <p>オーダー後は公式LINEまたはメールにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FLOW ─── -->
-<section id="flow">
-  <div class="container">
-    <div class="flow-header fade-in">
-      <p class="section-label">Order Flow</p>
-      <h2 class="section-title">ご注文の流れ</h2>
-      <span class="gold-line"></span>
-    </div>
-
-    <div class="flow-steps">
-      <div class="flow-step fade-in">
-        <div class="flow-num">01</div>
-        <div class="flow-content">
-          <h3>フォームからお申し込み</h3>
-          <p>このページ下部のオーダーフォームに、お名前・生年月日・ご希望などをご記入の上、送信してください。</p>
+    <div class="quick-cta fade-in">
+      <div class="line-open">
+        <a class="line-btn quick-line-btn sp-show" href="https://liff.line.me/2012194750-JGB6I5an?form=order">LINEで申し込む</a>
+        <div class="pc-show quick-qr">
+          <img src="images/qr-order.png" alt="LINEで申し込むためのQRコード" width="132" height="132">
+          <p>スマホのLINEで読み取ると<br>LINEからお申し込みいただけます</p>
         </div>
       </div>
-      <div class="flow-step fade-in">
-        <div class="flow-num">02</div>
-        <div class="flow-content">
-          <h3>公式LINE・メールにてご連絡</h3>
-          <p>24時間以内に、公式LINE（LINE以外からのお申し込みはメール）にてご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
-        </div>
-      </div>
-      <div class="flow-step fade-in">
-        <div class="flow-num">03</div>
-        <div class="flow-content">
-          <h3>石の選定・ご提案</h3>
-          <p>リーディング結果をもとに、今のあなたに最適な天然石の組み合わせをご提案します。</p>
-        </div>
-      </div>
-      <div class="flow-step fade-in">
-        <div class="flow-num">04</div>
-        <div class="flow-content">
-          <h3>お支払い・制作</h3>
-          <p>ご確認・お支払い後、心を込めて制作いたします。制作期間は約2週間を予定しています。</p>
-        </div>
-      </div>
-      <div class="flow-step fade-in">
-        <div class="flow-num">05</div>
-        <div class="flow-content">
-          <h3>お届け</h3>
-          <p>専用ボックスに入れて丁寧にお届けします。あなただけの運命のパートナーが手元に届きます。</p>
-        </div>
-      </div>
+      <a class="btn-outline quick-form-btn" href="#order">フォームから申し込む</a>
+      <a class="quick-more" href="#price">プランの詳しい内容を見る ›</a>
     </div>
   </div>
 </section>
@@ -1503,7 +1513,7 @@
         <p class="price-tier">PREMIUM</p>
         <div class="price-badge">一番人気 ★</div>
         <p class="price-label">ブレスレット＋鑑定書＋石のメッセージカード</p>
-        <p class="price-amount"><span>¥</span>55,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="price-amount"><span>¥</span>48,600<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="price-note">（税込・送料込）</p>
         <div class="price-divider"></div>
         <ul class="price-includes">
@@ -1531,7 +1541,7 @@
         </ul>
       </div>
       <div class="exclusive-right">
-        <p class="exclusive-price"><span>¥</span>100,000<span style="font-size:.6em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="exclusive-price"><span>¥</span>154,000<span style="font-size:.6em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
         <p class="exclusive-consult">希少な石のため完全応相談</p>
       </div>
       <div class="exclusive-gallery">
@@ -1618,8 +1628,8 @@
           <select id="plan" name="plan" required>
             <option value="" disabled selected>お選びください</option>
             <option>POPULAR ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
-            <option>PREMIUM（一番人気） ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
-            <option>Exclusive ¥100,000〜（希少石・完全応相談）</option>
+            <option>PREMIUM（一番人気） ¥48,600〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
+            <option>Exclusive ¥154,000〜（希少石・完全応相談）</option>
           </select>
           <p class="field-error">ご希望のプランを選択してください</p>
         </div>
@@ -1730,6 +1740,130 @@
           <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
         </div>
         <button type="button" class="btn-submit is-hidden" id="oCloseBtn">閉じる</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATCHCOPY ─── -->
+<section id="catchcopy">
+  <div class="container">
+    <p class="catchcopy-text fade-in">
+      「選ぶのではなく、石があなたを選ぶ。」<br>
+      <span style="font-size:.9em; color: var(--gold-dark);">── まとって、さあ行こう ──</span>
+    </p>
+  </div>
+</section>
+
+<!-- ─── STORY ─── -->
+<section id="story">
+  <div class="container">
+    <div class="story-header fade-in">
+      <p class="section-label">Brand Story</p>
+      <h2 class="section-title">運命は、あなたを導く<br>光のようなもの</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="story-body fade-in">
+      <p>
+        生きていると、私たちは何度も「選択」を迫られます。<br>
+        どの道を進むべきか、何が自分にとって最善なのか──<br>
+        時には迷い、立ち止まり、不安に押しつぶされそうになることもあるでしょう。
+      </p>
+      <p>
+        しかし、すべての人の人生には<span class="highlight">「流れ」</span>があります。<br>
+        まるで星座が夜空に輝くように、運命の光は、ずっとあなたを導いているのです。
+      </p>
+      <div class="story-more" id="storyMore" hidden>
+      <p>
+        <span class="highlight">WEAR IT &amp; ROLL -奥の間-</span> は、<br>
+        「あなたの本来の流れを取り戻し、望む未来へと導く存在」です。<br>
+        数秘リーディングを通してあなた本来のエネルギーを見つけ出し、<br>
+        最適な天然石とともにお届けします。
+      </p>
+      <p>
+        それは、ただのアクセサリーではなく、<br>
+        <span class="highlight">あなたの人生をサポートする「特別なエネルギーツール」</span>なのです。
+      </p>
+      </div>
+      <p class="story-more-wrap"><button type="button" class="story-more-btn" id="storyMoreBtn">続きを読む ›</button></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE ─── -->
+<section id="feature">
+  <div class="container">
+    <div class="feature-header fade-in">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">-奥の間- が選ばれる理由</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🔮</span>
+        <h3>数秘リーディング</h3>
+        <p>生年月日と名前から「あなたの本質的なエネルギー」を読み解き、今のあなたに最も必要な石を導き出します。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">💎</span>
+        <h3>天然石オーダー</h3>
+        <p>一つとして同じ石はありません。あなたのエネルギーと共鳴する、世界に一つだけのブレスレットをお作りします。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">✨</span>
+        <h3>丁寧な個別対応</h3>
+        <p>オーダー後は公式LINEまたはメールにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FLOW ─── -->
+<section id="flow">
+  <div class="container">
+    <div class="flow-header fade-in">
+      <p class="section-label">Order Flow</p>
+      <h2 class="section-title">ご注文の流れ</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step fade-in">
+        <div class="flow-num">01</div>
+        <div class="flow-content">
+          <h3>LINE・フォームからお申し込み</h3>
+          <p>LINE、またはこのページのオーダーフォームから、お名前・生年月日・ご希望などをご記入の上、送信してください。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">02</div>
+        <div class="flow-content">
+          <h3>公式LINE・メールにてご連絡</h3>
+          <p>24時間以内に、公式LINE（LINE以外からのお申し込みはメール）にてご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">03</div>
+        <div class="flow-content">
+          <h3>石の選定・ご提案</h3>
+          <p>リーディング結果をもとに、今のあなたに最適な天然石の組み合わせをご提案します。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">04</div>
+        <div class="flow-content">
+          <h3>お支払い・制作</h3>
+          <p>ご確認・お支払い後、心を込めて制作いたします。制作期間は約2週間を予定しています。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">05</div>
+        <div class="flow-content">
+          <h3>お届け</h3>
+          <p>専用ボックスに入れて丁寧にお届けします。あなただけの運命のパートナーが手元に届きます。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -2334,6 +2468,12 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── ブランドストーリー：続きを読む ──
+  document.getElementById('storyMoreBtn').addEventListener('click', e => {
+    document.getElementById('storyMore').hidden = false;
+    e.target.closest('.story-more-wrap').remove();
+  });
 
   // ── お客様の声：もっと見る ──
   const voiceMoreBtn = document.getElementById('voiceMoreBtn');
