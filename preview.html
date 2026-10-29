@@ -1,0 +1,2746 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>WEAR IT & ROLL -奥の間-｜数秘リーディング×天然石 オーダーブレスレット</title>
+  <meta name="description" content="あなたの本来の流れを取り戻し、望む未来へと導く。まとって、さあ行こう。数秘リーディング×天然石のオーダーブレスレットとメンテナンス「WEAR IT &amp; ROLL -奥の間-」">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #c9a96e;
+      --gold-light:  #e8d5a3;
+      --gold-dark:   #8a6e3e;
+      --dark:        #09080f;
+      --dark-mid:    #110f1e;
+      --dark-card:   #16132a;
+      --dark-border: #2a2445;
+      --text:        #e8e0d5;
+      --text-muted:  #9e96b0;
+    }
+
+    html { scroll-behavior: smooth; }
+    section, #maintenance-form { scroll-margin-top: 72px; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
+
+    /* ─── STARS ─────────────────────────────── */
+    .stars-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(80,40,140,.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(40,20,90,.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 80%, rgba(100,60,160,.12) 0%, transparent 50%);
+    }
+    .stars-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 30%, rgba(255,255,255,.9) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 10%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 45%, rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 50%, rgba(201,169,110,.9) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 65% 25%, rgba(201,169,110,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 78% 90%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5%  40%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 5%,  rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 92% 35%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 95%, rgba(255,255,255,.7) 0%, transparent 100%);
+    }
+
+    /* ─── LAYOUT ─────────────────────────────── */
+    section { position: relative; z-index: 1; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    .gold-line {
+      display: block; width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+    .gold-line.wide { width: 120px; }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .8rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.6;
+      letter-spacing: .06em;
+    }
+
+    /* ─── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(9,8,15,.95) 0%, transparent 100%);
+      backdrop-filter: blur(4px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: .2em;
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: .75rem;
+      letter-spacing: .15em;
+      color: var(--gold);
+      border: 1px solid var(--gold-dark);
+      padding: 8px 20px;
+      text-decoration: none;
+      transition: all .3s;
+    }
+    .nav-cta:hover { background: rgba(201,169,110,.12); border-color: var(--gold); }
+    .nav-links { display: flex; gap: 10px; flex: none; }
+    .nav-logo { font-size: .95rem; letter-spacing: .12em; }
+    .nav-logo-sub { margin-left: 8px; font-family: 'Noto Serif JP', serif; font-size: .8em; letter-spacing: .1em; color: var(--gold); }
+    @media (max-width: 600px) {
+      nav { gap: 12px; }
+      .nav-logo { font-size: .72rem; letter-spacing: .06em; line-height: 1.4; }
+      .nav-logo-sub { display: block; margin-left: 0; }
+      .nav-cta { padding: 6px 10px; font-size: .62rem; letter-spacing: .08em; }
+      .nav-links { gap: 6px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons a { width: 240px; padding-left: 0; padding-right: 0; text-align: center; }
+      .scroll-hint { display: none !important; }
+    }
+    .nw { white-space: nowrap; }
+
+    /* ─── HERO ────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background:
+        radial-gradient(ellipse at 50% 60%, rgba(80,40,140,.25) 0%, transparent 65%);
+    }
+    .hero-inner { max-width: 700px; }
+
+    .hero-diamond {
+      display: inline-block;
+      width: 52px; height: 52px;
+      border: 1px solid var(--gold-dark);
+      transform: rotate(45deg);
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero-diamond::after {
+      content: '✦';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%) rotate(-45deg);
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    .hero-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.3rem, 7.5vw, 5rem);
+      font-weight: 300;
+      letter-spacing: .08em;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .hero-ja {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: .4em;
+      color: var(--gold);
+      margin: 16px 0 20px;
+    }
+    .hero-tagline {
+      font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+      letter-spacing: .25em;
+      color: var(--text);
+      margin-bottom: 36px;
+    }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .btn-outline {
+      display: inline-block;
+      padding: 17px 44px;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-family: 'Noto Serif JP', serif;
+      font-size: .9rem;
+      letter-spacing: .2em;
+      text-decoration: none;
+      transition: background .3s;
+    }
+    .btn-outline:hover { background: rgba(201,169,110,.12); }
+
+    .hero-copy {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 2.1;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+    }
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 18px 52px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+      background-size: 200% 100%;
+      color: var(--dark);
+      font-family: 'Noto Serif JP', serif;
+      font-size: .9rem;
+      letter-spacing: .2em;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-position .5s, box-shadow .3s;
+      box-shadow: 0 4px 24px rgba(201,169,110,.2);
+    }
+    .btn-primary:hover {
+      background-position: 100% 0;
+      box-shadow: 0 6px 36px rgba(201,169,110,.35);
+    }
+
+    /* ─── SCROLL HINT ────────────────────────── */
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .scroll-hint span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .65rem;
+      letter-spacing: .3em;
+      color: var(--gold-dark);
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(180deg, var(--gold-dark), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ─── CATCHCOPY ───────────────────────────── */
+    #catchcopy {
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid var(--dark-border);
+      border-bottom: 1px solid var(--dark-border);
+      background: linear-gradient(180deg, transparent, rgba(22,19,42,.6), transparent);
+    }
+    .catchcopy-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      font-style: italic;
+      letter-spacing: .08em;
+      color: var(--gold-light);
+      line-height: 2;
+    }
+
+    /* ─── STORY ───────────────────────────────── */
+    #story { padding: 100px 24px; }
+
+    .story-header { text-align: center; margin-bottom: 64px; }
+    .story-header .section-label { margin-bottom: 16px; }
+    .story-header .gold-line { margin-top: 24px; }
+
+    .story-body {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: .95rem;
+      line-height: 2.2;
+    }
+    .story-body p { margin-bottom: 1.8em; }
+    .story-body .highlight {
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+
+    /* ─── FEATURE ─────────────────────────────── */
+    #feature {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, transparent, rgba(22,19,42,.5), transparent);
+    }
+    .feature-header { text-align: center; margin-bottom: 72px; }
+    .feature-header .section-label { margin-bottom: 16px; }
+    .feature-header .gold-line { margin-top: 24px; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      border: 1px solid var(--dark-border);
+      padding: 40px 32px;
+      text-align: center;
+      background: rgba(22,19,42,.5);
+      position: relative;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .feature-card:hover {
+      border-color: var(--gold-dark);
+      box-shadow: 0 0 32px rgba(201,169,110,.08);
+    }
+    .feature-card::before,
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .feature-card::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+    .feature-card::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      margin-bottom: 16px;
+      color: var(--gold-light);
+    }
+    .feature-card p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ─── FLOW ────────────────────────────────── */
+    #flow { padding: 100px 24px; }
+
+    .flow-header { text-align: center; margin-bottom: 72px; }
+    .flow-header .section-label { margin-bottom: 16px; }
+    .flow-header .gold-line { margin-top: 24px; }
+
+    .flow-steps {
+      max-width: 620px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 24px;
+      position: relative;
+    }
+    .flow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 27px; top: 56px; bottom: -8px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold-dark), transparent);
+    }
+
+    .flow-num {
+      width: 56px; height: 56px;
+      border: 1px solid var(--gold-dark);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      background: var(--dark-card);
+    }
+    .flow-content { padding: 12px 0 48px; }
+    .flow-content h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .flow-content p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ─── GALLERY ────────────────────────────── */
+    #gallery {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, transparent, rgba(22,19,42,.4), transparent);
+    }
+    .gallery-header { text-align: center; margin-bottom: 56px; }
+    .gallery-header .section-label { margin-bottom: 16px; }
+    .gallery-header .gold-line { margin-top: 24px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border: 1px solid var(--dark-border);
+      position: relative;
+      aspect-ratio: 1 / 1;
+      transition: border-color .3s;
+    }
+    .gallery-item:hover { border-color: var(--gold-dark); }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-hint { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 16px; }
+    @media (max-width: 600px) {
+      #gallery { padding-left: 8px; padding-right: 8px; }
+      .gallery-grid { gap: 6px; }
+    }
+
+    /* ─── QUICK（料金とお申し込み方法） ─────────── */
+    #quick { padding: 90px 24px 100px; background: linear-gradient(180deg, transparent, rgba(22,19,42,.55), transparent); }
+    .quick-header { text-align: center; margin-bottom: 44px; }
+    .quick-header .section-label { margin-bottom: 16px; }
+    .quick-header .gold-line { margin-top: 24px; }
+    .quick-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0 auto; }
+    .quick-plan {
+      position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 30px 16px 24px; text-align: center; text-decoration: none;
+      border: 1px solid var(--dark-border); background: rgba(22,19,42,.75);
+      transition: border-color .3s;
+    }
+    .quick-plan:hover { border-color: var(--gold-dark); }
+    .quick-plan.is-featured { border-color: var(--gold); background: rgba(30,25,55,.9); }
+    .quick-plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      padding: 2px 14px; white-space: nowrap;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--dark);
+      font-size: .72rem; letter-spacing: .12em; font-weight: 500;
+    }
+    .quick-plan-main { display: flex; flex-direction: column; gap: 6px; }
+    .quick-plan-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; letter-spacing: .22em; color: var(--gold); }
+    .quick-plan-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.7; }
+    .quick-plan-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); line-height: 1; white-space: nowrap; }
+    .quick-plan-price small { font-size: .55em; color: var(--text-muted); margin-left: 2px; }
+    .quick-note { text-align: center; font-size: .78rem; color: var(--text-muted); margin: 14px 0 44px; }
+    .quick-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0 auto 40px; }
+    .quick-steps li { display: flex; gap: 14px; align-items: flex-start; padding: 18px 16px; border-top: 1px solid var(--gold-dark); }
+    .quick-step-num {
+      flex: none; width: 34px; height: 34px; border: 1px solid var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold);
+    }
+    .quick-step-text { font-size: .8rem; color: var(--text-muted); line-height: 1.8; }
+    .quick-step-text strong { display: block; font-size: .95rem; font-weight: 400; color: var(--gold-light); margin-bottom: 2px; }
+    .quick-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+    .quick-line-btn { margin-top: 0; padding: 14px 48px; font-size: 1rem; }
+    .quick-qr img { display: block; margin: 0 auto 8px; width: 132px; height: 132px; border: 6px solid #fff; }
+    .quick-qr p { font-size: .8rem; color: var(--text); line-height: 1.8; }
+    .quick-form-btn { padding: 14px 40px; }
+    .quick-more { font-size: .85rem; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark); }
+    @media (max-width: 700px) {
+      #quick { padding: 70px 12px 80px; }
+      .quick-plans { grid-template-columns: 1fr; gap: 14px; }
+      .quick-plan { flex-direction: row; align-items: center; text-align: left; padding: 18px 18px; gap: 12px; }
+      .quick-plan.is-featured { padding-top: 24px; }
+      .quick-plan-badge { left: 18px; transform: none; }
+      .quick-plan-main { flex: 1; min-width: 0; gap: 2px; }
+      .quick-plan-name { font-size: 1.05rem; letter-spacing: .14em; }
+      .quick-plan-desc { font-size: .82rem; line-height: 1.6; }
+      .quick-plan-price { font-size: 1.7rem; }
+      .quick-note { font-size: .85rem; margin-bottom: 32px; }
+      .quick-steps { grid-template-columns: 1fr; gap: 0; margin-bottom: 32px; }
+      .quick-steps li { padding: 14px 6px; border-top: none; border-bottom: 1px solid var(--dark-border); }
+      .quick-step-text { font-size: .88rem; }
+      .quick-step-text strong { font-size: 1rem; }
+      .quick-line-btn, .quick-form-btn { width: 100%; max-width: 320px; }
+      .quick-cta .line-open { width: 100%; display: flex; justify-content: center; }
+    }
+
+    /* ブランドストーリー：続きを読む */
+    .story-more-wrap { text-align: center; margin: 0 !important; }
+    .story-more-btn {
+      background: none; border: none; border-bottom: 1px solid var(--gold-dark);
+      color: var(--gold); font-family: 'Noto Serif JP', serif; font-size: .9rem; cursor: pointer; padding: 2px 4px;
+    }
+
+    /* ─── VOICE（お客様の声） ─────────────────── */
+    #voice { padding: 100px 24px; }
+    .voice-header { text-align: center; margin-bottom: 56px; }
+    .voice-header .section-label { margin-bottom: 16px; }
+    .voice-header .gold-line { margin-top: 24px; }
+    .voice-grid { column-count: 2; column-gap: 24px; max-width: 900px; margin: 0 auto; }
+    .voice-card {
+      break-inside: avoid; display: inline-block; width: 100%;
+      margin-bottom: 24px; padding: 34px 30px 24px;
+      border: 1px solid var(--dark-border);
+      background: rgba(22,19,42,.6);
+      position: relative;
+    }
+    .voice-card::before {
+      content: '“';
+      position: absolute; top: 4px; left: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.6rem; line-height: 1; color: var(--gold-dark);
+    }
+    .voice-head {
+      font-size: 1rem; line-height: 1.8; letter-spacing: .05em;
+      color: var(--gold-light); margin: 6px 0 14px;
+    }
+    .voice-body p { font-size: .86rem; line-height: 2; color: var(--text-muted); margin-bottom: .9em; }
+    .voice-tag {
+      display: inline-block; margin-top: 4px; padding: 2px 12px;
+      border: 1px solid var(--gold-dark); color: var(--gold);
+      font-size: .72rem; letter-spacing: .08em;
+    }
+    .voice-more-wrap { text-align: center; margin-top: 16px; }
+    .voice-more-btn { font-family: 'Noto Serif JP', serif; background: transparent; cursor: pointer; }
+    .voice-note { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 32px; line-height: 1.8; }
+    .voice-header .voice-note-top { margin-top: 14px; }
+    @media (max-width: 700px) {
+      .voice-grid { column-count: 1; }
+    }
+    @media (max-width: 600px) {
+      #voice { padding-left: 8px; padding-right: 8px; }
+      .voice-card { padding: 30px 20px 20px; }
+      .voice-head { font-size: 1.05rem; }
+      .voice-body p { font-size: .95rem; }
+      .voice-tag { font-size: .8rem; }
+      .voice-note { font-size: .82rem; }
+    }
+
+    /* ─── PRICE ───────────────────────────────── */
+    #price {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, transparent, rgba(22,19,42,.5), transparent);
+    }
+    .price-header { text-align: center; margin-bottom: 64px; }
+    .price-header .section-label { margin-bottom: 16px; }
+    .price-header .gold-line { margin-top: 24px; }
+
+    .price-card {
+      max-width: 560px;
+      margin: 0 auto;
+      border: 1px solid var(--gold-dark);
+      padding: 56px 48px;
+      text-align: center;
+      background: rgba(22,19,42,.7);
+      position: relative;
+    }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Exclusive カード */
+    .price-card-exclusive {
+      grid-column: 1 / -1;
+      max-width: 900px;
+      margin: 32px auto 0;
+      border: 1px solid var(--gold);
+      padding: 48px 48px;
+      background: linear-gradient(135deg, rgba(30,22,55,.95), rgba(20,15,40,.95));
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 32px;
+    }
+    .price-card-exclusive::before {
+      content: '✦ SUPER SPECIAL ✦';
+      position: absolute;
+      top: -10px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      padding: 3px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .72rem;
+      letter-spacing: .25em;
+      color: var(--dark);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .exclusive-left h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      letter-spacing: .2em;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .exclusive-left .exclusive-sub {
+      font-size: .78rem;
+      letter-spacing: .12em;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+    .exclusive-highlight {
+      margin: 4px 0 22px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--gold);
+      background: rgba(201,169,110,.08);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      letter-spacing: .06em;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+    .exclusive-gallery { grid-column: 1 / -1; border-top: 1px solid var(--dark-border); padding-top: 28px; }
+    .exclusive-gallery-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .8rem; letter-spacing: .25em; color: var(--gold);
+      text-align: center; margin-bottom: 16px;
+    }
+    .exclusive-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .exclusive-photos img {
+      display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover;
+      border: 1px solid var(--dark-border);
+    }
+    @media (max-width: 600px) {
+      .exclusive-photos { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    }
+    .exclusive-photos img, .gallery-item img { cursor: zoom-in; }
+    .exclusive-gallery-hint { text-align: center; font-size: .75rem; color: var(--text-muted); margin-top: 10px; }
+
+    /* メンテナンス：お客様の声を見る */
+    .maint-voice-cta { text-align: center; padding: 8px 24px 24px; }
+    .maint-voice-cta p { font-size: .85rem; color: var(--text-muted); margin-bottom: 14px; letter-spacing: .05em; }
+    .maint-voice-cta .btn-outline { font-family: 'Noto Serif JP', serif; background: transparent; cursor: pointer; }
+    .voice-modal {
+      position: fixed; inset: 0; z-index: 210;
+      background: var(--dark);
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(80,40,140,.25) 0%, transparent 55%);
+      overflow-y: auto; -webkit-overflow-scrolling: touch;
+      padding: 24px 16px;
+    }
+    .voice-modal[hidden] { display: none; }
+    .voice-modal-inner { position: relative; max-width: 720px; margin: 0 auto; padding: 48px 0 24px; }
+    .voice-modal .section-label { margin-bottom: 12px; }
+    .voice-modal .section-title { margin-bottom: 12px; }
+    .voice-modal .voice-note { margin: 0 0 28px; }
+    .voice-modal-list + .voice-note { margin: 8px 0 24px; }
+    .voice-modal .voice-card { display: block; }
+    .voice-modal-close {
+      position: fixed; top: 10px; right: 14px; z-index: 211;
+      width: 48px; height: 48px; border: 1px solid var(--gold-dark); border-radius: 50%;
+      background: rgba(9,8,15,.9); color: var(--gold-light);
+      font-size: 1.8rem; line-height: 1; cursor: pointer;
+    }
+    .voice-modal-foot { text-align: center; }
+    .voice-modal-foot .btn-outline { font-family: 'Noto Serif JP', serif; background: transparent; cursor: pointer; }
+    body.modal-open { overflow: hidden; }
+
+    /* 写真の拡大表示 */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      display: none; align-items: center; justify-content: center;
+      padding: 16px; background: rgba(5,4,10,.92);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 88vh; border: 1px solid var(--gold-dark); }
+    .lightbox-close {
+      position: absolute; top: 10px; right: 14px;
+      background: none; border: none; color: var(--gold-light);
+      font-size: 2.2rem; line-height: 1; cursor: pointer;
+    }
+    .exclusive-left ul {
+      list-style: none;
+      display: flex; flex-wrap: wrap; gap: 8px 24px;
+    }
+    .exclusive-left ul li {
+      font-size: .82rem;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .exclusive-left ul li::before {
+      content: '✦';
+      position: absolute; left: 0;
+      color: var(--gold-dark);
+      font-size: .55rem;
+      top: 6px;
+    }
+    .exclusive-right {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .exclusive-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--gold-light);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .exclusive-price span { font-size: 1.1rem; color: var(--gold); }
+    .exclusive-consult {
+      font-size: .72rem;
+      color: var(--text-muted);
+      letter-spacing: .1em;
+      margin-top: 6px;
+    }
+    @media (max-width: 600px) {
+      .price-card-exclusive { grid-template-columns: 1fr; padding: 40px 24px; }
+      .exclusive-right { border-top: 1px solid var(--dark-border); padding-top: 24px; }
+    }
+
+    .price-card::before {
+      content: '✦ 奥の間 ✦';
+      position: absolute;
+      top: -10px; left: 50%; transform: translateX(-50%);
+      background: var(--dark-mid);
+      padding: 0 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .75rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+    }
+    .price-card { max-width: none; }
+    .price-grid { max-width: 720px; }
+    .price-grid .price-card { padding: 48px 20px 40px; }
+    .price-grid .price-amount { font-size: clamp(2.2rem, 4.2vw, 2.8rem); }
+    .price-grid .price-label { letter-spacing: .1em; }
+    .price-grid .price-includes li { font-size: .8rem; }
+
+    .price-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--dark);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .15em;
+      padding: 4px 14px;
+      margin-bottom: 12px;
+    }
+    .price-tier {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .72rem;
+      letter-spacing: .3em;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+
+    .price-label {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      color: var(--gold-light);
+      letter-spacing: .04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .price-amount span {
+      font-size: 1.2rem;
+      color: var(--gold);
+      vertical-align: super;
+      margin-right: 4px;
+    }
+    .price-note {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .price-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--dark-border), transparent);
+      margin: 32px 0;
+    }
+    .price-includes {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+    }
+    .price-includes li {
+      font-size: .85rem;
+      color: var(--text-muted);
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .price-includes li::before {
+      content: '✦';
+      position: absolute; left: 0;
+      color: var(--gold-dark);
+      font-size: .6rem;
+      top: 10px;
+    }
+
+    /* ─── RADIO ──────────────────────────────── */
+    .radio-group {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .radio-label {
+      display: flex; align-items: center; gap: 12px;
+      cursor: pointer;
+      font-size: .88rem;
+      color: var(--text-muted);
+      padding: 12px 20px;
+      border: 1px solid var(--dark-border);
+      background: rgba(22,19,42,.8);
+      transition: border-color .2s, color .2s, background .2s, box-shadow .2s;
+      flex: 1; min-width: 140px;
+    }
+    .radio-label input[type="radio"] { display: none; }
+    .radio-dot {
+      width: 22px; height: 22px;
+      border: 2px solid var(--gold-dark);
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      transition: border-color .2s, background .2s;
+    }
+    /* 選んだボタン（.is-checked はJSで付与。:has() 非対応の端末向け） */
+    .radio-label.is-checked,
+    .radio-label:has(input:checked) {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(201,169,110,.18);
+      box-shadow: inset 0 0 0 1px var(--gold), 0 0 18px rgba(201,169,110,.2);
+    }
+    /* フォームの見出し用のlabelスタイルが選択ボタンに効かないように */
+    .form-group label.radio-label {
+      display: flex; margin-bottom: 0;
+      font-size: .95rem; letter-spacing: .05em; color: var(--text-muted);
+    }
+    .form-group label.radio-label.is-checked,
+    .form-group label.radio-label:has(input:checked) { color: var(--gold-light); }
+    .menu-option .radio-text { word-break: keep-all; overflow-wrap: anywhere; }
+    .menu-option .radio-desc { word-break: normal; }
+    .radio-label.is-checked .radio-dot,
+    .radio-label:has(input:checked) .radio-dot { border-color: var(--gold); background: var(--gold); }
+    .radio-label.is-checked .radio-dot::after,
+    .radio-label:has(input:checked) .radio-dot::after {
+      content: '✓';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--dark);
+      font-size: 13px; font-weight: 700; line-height: 1;
+    }
+
+    .form-section-title {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      color: var(--gold-dark);
+      border-bottom: 1px solid var(--dark-border);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      margin-top: 40px;
+    }
+
+    /* ─── FORM ────────────────────────────────── */
+    #order {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, transparent, rgba(9,8,15,.8));
+    }
+    .form-header { text-align: center; margin-bottom: 64px; }
+    .form-header .section-label { margin-bottom: 16px; }
+    .form-header .gold-line.wide { margin-top: 24px; }
+
+    .order-form {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 28px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .78rem;
+      letter-spacing: .15em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .form-group label .required {
+      color: #c97a7a;
+      margin-left: 4px;
+      font-size: .65rem;
+    }
+    .field-error {
+      display: none;
+      font-size: .75rem;
+      color: #e08080;
+      margin-top: 7px;
+      padding-left: 4px;
+      letter-spacing: .05em;
+    }
+    .field-error::before { content: '⚠ '; }
+    .form-group.has-error input,
+    .form-group.has-error select,
+    .form-group.has-error textarea {
+      border-color: #c97a7a;
+      box-shadow: 0 0 12px rgba(200,100,100,.15);
+    }
+    .form-group.has-error .radio-label { border-color: #c97a7a; }
+    .form-group.has-error .field-error { display: block; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(22,19,42,.8);
+      border: 1px solid var(--dark-border);
+      color: var(--text);
+      padding: 14px 18px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: .9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color .3s, box-shadow .3s;
+      border-radius: 0;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-dark);
+      box-shadow: 0 0 16px rgba(201,169,110,.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a96e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .form-group select option { background: #16132a; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .form-note {
+      font-size: .8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 2;
+    }
+    .form-note a { color: var(--gold); }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+      background-size: 200% 100%;
+      color: var(--dark);
+      font-family: 'Noto Serif JP', serif;
+      font-size: .95rem;
+      letter-spacing: .25em;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background-position .5s, box-shadow .3s;
+      box-shadow: 0 4px 24px rgba(201,169,110,.2);
+    }
+    .btn-submit:hover {
+      background-position: 100% 0;
+      box-shadow: 0 6px 36px rgba(201,169,110,.35);
+    }
+
+    /* ─── THANKS (hidden) ─────────────────────── */
+    #thanks, #maintThanks {
+      display: none;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 64px 40px;
+      border: 1px solid var(--gold-dark);
+      background: rgba(22,19,42,.7);
+    }
+    #thanks .thanks-icon, #maintThanks .thanks-icon { font-size: 2.4rem; margin-bottom: 24px; }
+    #thanks h3, #maintThanks h3 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+    #thanks p, #maintThanks p {
+      font-size: .88rem;
+      color: var(--text-muted);
+      line-height: 2.2;
+    }
+
+    /* ─── MAINTENANCE ─────────────────────────── */
+    #maintenance {
+      border-top: 1px solid var(--dark-border);
+      background: radial-gradient(ellipse at 50% 8%, rgba(80,40,140,.22) 0%, transparent 45%);
+    }
+    .maint-hero { text-align: center; padding: 120px 24px 80px; }
+    .maint-hero .section-label { margin-bottom: 20px; }
+    .maint-title {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 300;
+      letter-spacing: .18em;
+      line-height: 1.6;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+    }
+    .maint-title-sub {
+      display: block; margin-top: 6px;
+      font-size: .62em; letter-spacing: .14em; color: var(--gold);
+    }
+    .versionup-body { text-align: center; }
+    .sp-only { display: none; }
+    @media (max-width: 600px) { .sp-only { display: inline; } }
+    .maint-catch {
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      letter-spacing: .2em;
+      color: var(--text);
+      margin: 32px 0 20px;
+    }
+    .maint-lead { color: var(--text-muted); line-height: 2.2; }
+
+    .maint-block { padding: 80px 24px; }
+    .maint-block-header { text-align: center; margin-bottom: 56px; }
+    .maint-block-header .section-label { margin-bottom: 16px; }
+    .maint-block-header .gold-line { margin-top: 24px; }
+
+    .maint-price-box {
+      max-width: 680px; margin: 0 auto;
+      border: 1px solid var(--gold-dark);
+      background: rgba(22,19,42,.7);
+      padding: 40px 36px 24px;
+      position: relative;
+    }
+    .maint-price-box::before {
+      content: '✦ MENU ✦';
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: var(--dark);
+      padding: 0 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .75rem; letter-spacing: .2em; color: var(--gold);
+      white-space: nowrap;
+    }
+    .maint-list { list-style: none; }
+    .maint-item {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--dark-border);
+      flex-wrap: wrap;
+    }
+    .maint-sub { flex-basis: 100%; }
+    .maint-item:last-child { border-bottom: none; }
+    .maint-name { flex: 1; min-width: 0; color: var(--gold-light); letter-spacing: .08em; }
+    .maint-desc { display: block; font-size: .78rem; color: var(--text-muted); line-height: 1.8; margin-top: 4px; letter-spacing: 0; }
+    .maint-price { flex: none; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-align: right; line-height: 1.3; }
+    .maint-price small { display: block; font-family: 'Noto Serif JP', serif; font-size: .62rem; color: var(--text-muted); }
+    .maint-courses { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .maint-courses span {
+      border: 1px solid var(--dark-border); padding: 2px 12px;
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold);
+    }
+    @media (max-width: 600px) {
+      .maint-price-box { padding: 36px 20px 16px; }
+      .maint-name { letter-spacing: .02em; }
+      .maint-price { font-size: 1.2rem; }
+    }
+
+    /* メンテナンスフォーム用 */
+    .form-group .radio-group.stack { flex-direction: column; gap: 10px; }
+    .form-group label.menu-option {
+      display: flex; align-items: center; gap: 14px;
+      margin: 0; padding: 16px 18px;
+      font-size: .9rem; letter-spacing: .05em; color: var(--text);
+    }
+    .menu-option .radio-text { flex: 1; min-width: 0; }
+    .menu-option .radio-desc { display: block; font-size: .72rem; color: var(--text-muted); letter-spacing: 0; line-height: 1.7; }
+    .menu-option .radio-price { flex: none; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--gold); text-align: right; line-height: 1.3; }
+    .menu-option .radio-price small { display: block; font-family: 'Noto Serif JP', serif; font-size: .6rem; color: var(--text-muted); }
+    .form-group label .optional { color: var(--text-muted); margin-left: 4px; font-size: .65rem; }
+    .form-group label.check-label {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin: 0; font-size: .85rem; letter-spacing: .05em; color: var(--text); cursor: pointer;
+    }
+    .form-group .check-label input {
+      width: 18px; height: 18px; margin-top: 4px; padding: 0; flex: none;
+      -webkit-appearance: auto; appearance: auto; accent-color: var(--gold);
+    }
+    .form-hint { font-size: .75rem; color: var(--text-muted); margin-top: 6px; }
+    .maint-howto {
+      margin: 40px 0 24px; padding: 20px 24px;
+      border: 1px solid var(--gold-dark); background: rgba(22,19,42,.7);
+      font-size: .85rem; line-height: 2; color: var(--text-muted);
+    }
+    .maint-howto strong { color: var(--gold-light); font-weight: 400; }
+    .is-hidden { display: none !important; }
+    .line-box {
+      max-width: 620px; margin: 0 auto 24px; padding: 16px 18px;
+      border: 1px solid var(--dark-border); background: rgba(22,19,42,.7);
+      font-size: .88rem; line-height: 1.9; color: var(--gold-light); text-align: center;
+    }
+    .line-box strong { color: #4cd787; font-weight: 500; }
+    .line-btn {
+      display: inline-block; margin-top: 10px; padding: 8px 24px;
+      background: #06c755; color: #fff !important; text-decoration: none; border-radius: 999px;
+      font-size: .88rem; letter-spacing: .08em;
+    }
+    .thanks-line { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--dark-border); }
+    .pc-show { display: none; }
+    html.is-pc .pc-show { display: block; }
+    html.is-pc .sp-show { display: none; }
+    .line-qr { display: block; margin: 14px auto 6px; width: 156px; height: 156px; border: 6px solid #fff; }
+    .line-qr-note { font-size: .82rem; color: var(--text); }
+    .line-alt { margin-top: 12px; font-size: .78rem; color: var(--text-muted); line-height: 1.8; }
+    .note-strong { color: var(--gold-light); font-weight: 400; }
+    #maintThanks .btn-submit, #thanks .btn-submit { margin-top: 28px; }
+
+    /* ─── FOOTER ──────────────────────────────── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--dark-border);
+      padding: 48px 24px 32px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: .25em;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .footer-logo-sub { font-family: 'Noto Serif JP', serif; font-size: .8em; letter-spacing: .15em; color: var(--gold); }
+    .footer-tagline {
+      font-size: .75rem;
+      letter-spacing: .18em;
+      color: var(--gold-dark);
+      margin-bottom: 32px;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 16px; }
+    .footer-links a { font-size: .8rem; color: var(--gold); text-decoration: none; letter-spacing: .05em; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-company { font-size: .75rem; color: var(--text-muted); margin-bottom: 8px; letter-spacing: .08em; }
+    .form-consent { text-align: center; font-size: .78rem; color: var(--text-muted); margin: 0 0 14px; line-height: 1.8; }
+    .form-consent a { color: var(--gold-light); }
+    .footer-copy {
+      font-size: .72rem;
+      color: var(--text-muted);
+      letter-spacing: .1em;
+    }
+
+    /* ─── FADE-IN ─────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .price-card { padding: 48px 28px; }
+      .flow-step { grid-template-columns: 44px 1fr; gap: 16px; }
+      .flow-num { width: 44px; height: 44px; font-size: .9rem; }
+      .flow-step:not(:last-child)::after { left: 21px; }
+    }
+
+    /* ─── スマホで文字を大きく ─── */
+    @media (max-width: 600px) {
+      html { font-size: 17px; }
+      .story-body, .story-body p { font-size: 1rem; }
+      .feature-card p, .flow-content p { font-size: .95rem; }
+      .price-label { font-size: .85rem; }
+      .price-includes li, .price-grid .price-includes li { font-size: .92rem; }
+      #price { padding-left: 8px; padding-right: 8px; }
+      #order, #maintenance .maint-block { padding-left: 8px; padding-right: 8px; }
+      .form-group label.menu-option { padding: 14px 14px; gap: 12px; }
+      .price-grid .price-card { padding: 44px 16px 36px; }
+      .price-note { font-size: .85rem; }
+      .exclusive-left .exclusive-sub { font-size: .88rem; }
+      .exclusive-left ul li { font-size: .92rem; }
+      .exclusive-consult { font-size: .82rem; }
+      .form-group label { font-size: .9rem; }
+      .form-group input, .form-group select, .form-group textarea { font-size: 1rem; }
+      .form-note { font-size: .9rem; }
+      .form-hint { font-size: .85rem; }
+      .radio-label { font-size: .95rem; }
+      .menu-option .radio-desc { font-size: .8rem; }
+      .maint-desc { font-size: .85rem; }
+      #thanks p, #maintThanks p { font-size: .95rem; }
+      .footer-tagline { font-size: .85rem; }
+      .footer-copy { font-size: .75rem; }
+      .footer-links a { font-size: .9rem; }
+      .form-consent { font-size: .85rem; }
+    }
+  </style>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+
+<!-- Stars background -->
+<div class="stars-bg" aria-hidden="true"></div>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a class="nav-logo" href="#hero"><span class="nw">WEAR IT &amp; ROLL</span><span class="nav-logo-sub">-奥の間-</span></a>
+  <div class="nav-links">
+    <a class="nav-cta" href="#order">ORDER</a>
+    <a class="nav-cta" href="#maintenance">MAINTENANCE</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-diamond" aria-hidden="true"></div>
+    <p class="hero-en"><span class="nw">WEAR IT</span> <span class="nw">&amp; ROLL</span></p>
+    <p class="hero-ja">-奥の間-</p>
+    <p class="hero-tagline">まとって、さあ行こう</p>
+    <p class="hero-copy">
+      <strong>あなたの本来の流れを取り戻し、<br>望む未来へと導く──</strong><br>
+      数秘リーディング × 天然石<br>
+      あなただけのオーダーブレスレット
+    </p>
+    <div class="hero-buttons">
+      <a href="#quick" class="btn-primary">料金・申込方法を見る</a>
+      <a href="#maintenance" class="btn-outline">メンテナンス</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── QUICK（料金とお申し込み方法） ─── -->
+<section id="quick">
+  <div class="container">
+    <div class="quick-header fade-in">
+      <p class="section-label">Price &amp; Order</p>
+      <h2 class="section-title">料金とお申し込み方法</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="quick-plans fade-in">
+      <a class="quick-plan" href="#price">
+        <span class="quick-plan-main">
+          <span class="quick-plan-name">POPULAR</span>
+          <span class="quick-plan-desc">ブレスレット＋<span class="nw">数秘鑑定書</span></span>
+        </span>
+        <span class="quick-plan-price">¥21,000<small>〜</small></span>
+      </a>
+      <a class="quick-plan is-featured" href="#price">
+        <span class="quick-plan-badge">一番人気</span>
+        <span class="quick-plan-main">
+          <span class="quick-plan-name">PREMIUM</span>
+          <span class="quick-plan-desc">ブレスレット＋鑑定書＋<span class="nw">石のメッセージカード</span></span>
+        </span>
+        <span class="quick-plan-price">¥55,800<small>〜</small></span>
+      </a>
+      <a class="quick-plan" href="#price">
+        <span class="quick-plan-main">
+          <span class="quick-plan-name">Exclusive</span>
+          <span class="quick-plan-desc">希少石・大粒玉・<span class="nw">高品質な石で</span><span class="nw">完全オーダー</span></span>
+        </span>
+        <span class="quick-plan-price">¥100,000<small>〜</small></span>
+      </a>
+    </div>
+    <p class="quick-note">すべて税込・国内送料込みです。</p>
+
+    <ol class="quick-steps fade-in">
+      <li>
+        <span class="quick-step-num">1</span>
+        <span class="quick-step-text"><strong>LINEかフォームから申し込む</strong>お名前・生年月日・ご希望を入力して送信</span>
+      </li>
+      <li>
+        <span class="quick-step-num">2</span>
+        <span class="quick-step-text"><strong>ヒアリング・お支払い</strong>24時間以内にご連絡。数秘をもとに石をご提案します</span>
+      </li>
+      <li>
+        <span class="quick-step-num">3</span>
+        <span class="quick-step-text"><strong>約2週間でお届け</strong>ご入金確認後、心を込めて制作します</span>
+      </li>
+    </ol>
+
+    <div class="quick-cta fade-in">
+      <div class="line-open">
+        <a class="line-btn quick-line-btn sp-show" href="https://liff.line.me/2012194750-JGB6I5an?form=order">LINEで申し込む</a>
+        <div class="pc-show quick-qr">
+          <img src="images/qr-order.png" alt="LINEで申し込むためのQRコード" width="132" height="132">
+          <p>スマホのLINEで読み取ると<br>LINEからお申し込みいただけます</p>
+        </div>
+      </div>
+      <a class="btn-outline quick-form-btn" href="#order">フォームから申し込む</a>
+      <a class="quick-more" href="#price">プランの詳しい内容を見る ›</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-in">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">制作例</h2>
+      <span class="gold-line"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="images/20260407102405.JPEG" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/20260407102528.JPEG" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/20260407102640.JPEG" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-01.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-02.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-03.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-04.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-05.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-06.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-07.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-08.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/works-09.jpg" alt="-奥の間- ブレスレット制作例" loading="lazy">
+      </div>
+    </div>
+    <p class="gallery-hint">写真をタップすると大きく表示されます</p>
+  </div>
+</section>
+
+<!-- ─── VOICE（お客様の声） ─── -->
+<section id="voice">
+  <div class="container">
+    <div class="voice-header fade-in">
+      <p class="section-label">Voice</p>
+      <h2 class="section-title">お客様の声</h2>
+      <p class="voice-note voice-note-top">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+      <span class="gold-line"></span>
+    </div>
+    <div class="voice-grid">
+      <article class="voice-card fade-in">
+        <p class="voice-head">「より良い状態へ向かうために必要な石」を選んでくれる</p>
+        <div class="voice-body">
+          <p>オリジナル製作では、まず今の状態を丁寧に見てくれて、「より良い状態へ向かうために必要な石」を選んでくれます。その人のエネルギーに合わせて強度も調整してくれるので、石にのまれてしまうことも、逆に弱すぎて効果を感じられないということもありません。</p>
+          <p>石の組み方にもこだわりがあり、配置によってシンボル的な意味を持たせ、より効果を高めてくれることも。</p>
+          <p>実際に身につけてみて、私は翌日に変化を感じました。トラウマに関連するような出来事が起き、それをきっかけに内観が深まり、原因に気づくことができて、最終的にはフラットな状態に戻ることができました。つけている時とそうでない時の違いも感じます。</p>
+          <p>そして何より、石ひとつひとつをとても大切に、愛情を持って扱っているのが伝わってくるので、こちらも愛着が湧いてきますし、安心して任せられます。</p>
+        </div>
+        <p class="voice-tag">オーダーブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">宇宙的なエネルギーで守ってもらっているような感覚</p>
+        <div class="voice-body">
+          <p>太陽系惑星のブレスは、装着してすぐに石の色が変わり、現在も色の変化は続いています。感覚的に、宇宙的な（岩系の）エネルギーで守ってもらっているような感覚です。</p>
+          <p>十字架ブレスは、元々持ち合わせていた神秘的な宇宙のエネルギーを、装着することで安定させてくれている感覚があります。愛と調和など、柔らかで温かい女神系な感覚です。</p>
+          <p>恋愛ブレスは色が変わってきました。十字架ブレスとの相性がよいです。女性性のエネルギーが増して、ゆったりとしたペースで過ごすようになり、愛でる気持ちが増したように思います。</p>
+        </div>
+        <p class="voice-tag">太陽系惑星・十字架・恋愛ブレス</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">これまでつけたブレスレットの中で、最も心地よい</p>
+        <div class="voice-body">
+          <p>これまでつけたブレスレットの中で、最も心地よく、しっくりきて、エネルギーが高まってくるのを感じました！</p>
+          <p>さらに、内なる自信が強固になってきて、パフォーマンスが上がっているのが実感できます。デザインもとても気に入っていて、見ているだけで癒されてきます。大切に使わせていただきます。</p>
+        </div>
+        <p class="voice-tag">オーダーブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">お会いしていないのに、とっても私らしい</p>
+        <div class="voice-body">
+          <p>ブレスレット、とっても私らしくて、お会いしていないのにすごいなぁと思いました！</p>
+          <p>数秘セッションも的にズバリと当たって、自分で感じていることを色濃く確信させてくれるようで、震えました。素敵な石ちゃんとの出会いをありがとうございました。可愛がります。</p>
+        </div>
+        <p class="voice-tag">数秘セッション・ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">「今つけるタイミングだ！」と感じた時に</p>
+        <div class="voice-body">
+          <p>以前購入したブレスレットが、今までエネルギーが強くて、つけるタイミングではなく、My神棚に飾ってお参りしていました。</p>
+          <p>ずっとビジネスの10万円のご成約が決まらなかったのですが、「今つけるタイミングだ！」といった時につけたら、即ご成約が決まるということがありました。確信度が持てるというのが良かったです。</p>
+        </div>
+        <p class="voice-tag">ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in">
+        <p class="voice-head">石達はずっと私のところにいた感覚</p>
+        <div class="voice-body">
+          <p>数秘セッションを受けてから、まだ2週間しか経っていないなんて驚きです。石達はずっと私のところにいた感覚です。私にピッタリの石を選んでくださったからだと思います。</p>
+          <p>石達への愛情が伝わってきて、そういう気持ちに触れる時、私も幸せを感じることができました。数秘とタロットカードでトータルで見てくださるアドバイスが的確でわかりやすく、一歩前に進めました。</p>
+        </div>
+        <p class="voice-tag">数秘セッション・ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">金運ブレスが家に来てから3日後に</p>
+        <div class="voice-body">
+          <p>金運ブレスが家に来てから3日後の今日、1万円の臨時収入がありました。ずっと放置していた叔母の遺品を、このタイミングで売ったら3万円になったので、家族で山分けに。</p>
+          <p>効果すごすぎませんか？どんな魔法を使ったんですか（笑）</p>
+        </div>
+        <p class="voice-tag">金運ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">心の拠り所になっています</p>
+        <div class="voice-body">
+          <p>1月末に、エアバッグが開くほどの車の事故にあいました。禊ぎ塩をいただいてから、車のグローブボックスとトランクに入れていたのもあるせいか、持ち歩きの石さんたちが守ってくれたのか。診断は打ち身で済み、翌日から出勤できています。なにかに守られたのは確かな気がします。</p>
+          <p>心の拠り所になっています！あとは、変な人からのコンタクトがなくなりました（笑）それも石の効果なのかも！</p>
+        </div>
+        <p class="voice-tag">ブレスレット・お守りの石</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">本当にかわいくて大のお気に入り</p>
+        <div class="voice-body">
+          <p>オーダーメイドのパワーストーンブレス、本当にかわいくて大のお気に入り！選ぶのを助けてもらったサクラアゲートたちも、毎晩一緒に寝てサポートしてくれています。</p>
+          <p>豊富な知識と才能に、助けられたり、背中を押してもらったり。いつもありがとう。</p>
+        </div>
+        <p class="voice-tag">オーダーブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">石とその人に対する愛情が伝わってくる</p>
+        <div class="voice-body">
+          <p>石の話を始めたら、めちゃくちゃエナジーが出てきてびっくりしました！みんながそれぞれ選んでもらった石たちを次々出してきて、その顔がみんなうれしそうで。</p>
+          <p>石とその人に対するエネルギーが伝わって、みんなうれしくなっちゃうんだろうなと思いました。みんなのブレスレットを浄化している時も、すごく愛情を感じました。</p>
+        </div>
+        <p class="voice-tag">ブレスレット・浄化</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">石への愛や知識の深さにびっくり</p>
+        <div class="voice-body">
+          <p>ツアーで生まれて初めてタロットをひいてもらいました。ツアー中も細やかな女性的配慮と、仕切りの男前感！多才で驚きました。</p>
+          <p>今回作ってもらったブレスレットからも、石への愛や知識の深さにびっくりしています。これから、沢山の人に幸せを運ぶのだなぁと感じます。</p>
+        </div>
+        <p class="voice-tag">タロット・ブレスレット</p>
+      </article>
+      <article class="voice-card fade-in voice-more is-hidden">
+        <p class="voice-head">出会えて本当によかった</p>
+        <div class="voice-body">
+          <p>ブレスレットを作ってもらって、数秘も見てもらって、すごくご縁に感謝です。出会えて本当によかった！</p>
+        </div>
+        <p class="voice-tag">数秘セッション・ブレスレット</p>
+      </article>
+    </div>
+    <div class="voice-more-wrap">
+      <button type="button" class="btn-outline voice-more-btn" id="voiceMoreBtn">もっと見る（6件）</button>
+    </div>
+    <p class="voice-note">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- ─── PRICE ─── -->
+<section id="price">
+  <div class="container">
+    <div class="price-header fade-in">
+      <p class="section-label">Price</p>
+      <h2 class="section-title">料金</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="price-grid">
+
+      <!-- POPULAR -->
+      <div class="price-card fade-in">
+        <p class="price-tier">POPULAR</p>
+        <p class="price-label">ブレスレット＋数秘鑑定書</p>
+        <p class="price-amount"><span>¥</span>21,000<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="price-note">（税込・送料込）</p>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li>数秘鑑定書</li>
+          <li>オーダーメイドブレスレット制作</li>
+          <li>天然石の個別選定（並質玉や大粒玉が入ります）</li>
+          <li>送料（国内）</li>
+        </ul>
+      </div>
+
+      <!-- PREMIUM（一番人気） -->
+      <div class="price-card fade-in" style="border-color: var(--gold); background: rgba(30,25,55,.8);">
+        <p class="price-tier">PREMIUM</p>
+        <div class="price-badge">一番人気 ★</div>
+        <p class="price-label">ブレスレット＋鑑定書＋石のメッセージカード</p>
+        <p class="price-amount"><span>¥</span>55,800<span style="font-size:.65em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="price-note">（税込・送料込）</p>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li>石のメッセージカード</li>
+          <li>数秘鑑定書</li>
+          <li>オーダーメイドブレスレット制作</li>
+          <li>天然石の個別選定（上質玉や大粒玉が入ります）</li>
+          <li>送料（国内）</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Exclusive -->
+    <div class="price-card-exclusive fade-in">
+      <div class="exclusive-left">
+        <h3>Exclusive</h3>
+        <p class="exclusive-sub">経営者・起業家のための超スペシャルブレス</p>
+        <p class="exclusive-highlight"><span class="nw">希少石や大粒玉や</span><span class="nw">高級石や高品質な石等が</span><span class="nw">入ります。</span></p>
+        <ul>
+          <li>数秘鑑定書</li>
+          <li>石のメッセージカード</li>
+          <li>完全オーダーメイド制作</li>
+          <li>送料（国内）</li>
+        </ul>
+      </div>
+      <div class="exclusive-right">
+        <p class="exclusive-price"><span>¥</span>100,000<span style="font-size:.6em; color:var(--text-muted); vertical-align:baseline; margin-left:4px;">〜</span></p>
+        <p class="exclusive-consult">希少な石のため完全応相談</p>
+      </div>
+      <div class="exclusive-gallery">
+        <p class="exclusive-gallery-label">Exclusive 制作例</p>
+        <div class="exclusive-photos">
+          <img src="images/exclusive-01.jpg" alt="Exclusive 制作例 ブレスレット1" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-02.jpg" alt="Exclusive 制作例 ブレスレット2" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-03.jpg" alt="Exclusive 制作例 ブレスレット3" loading="lazy" width="900" height="900">
+          <img src="images/exclusive-04.jpg" alt="Exclusive 制作例 ブレスレット4" loading="lazy" width="900" height="900">
+        </div>
+        <p class="exclusive-gallery-hint">写真をタップすると大きく表示されます</p>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-size:.82rem; color:var(--gold-light); line-height:2.2; margin-top:40px; font-weight:400;">
+      プランによって、石の種類やグレードが変わります。<br>
+      <span style="color:var(--text-muted); font-size:.78rem;">ご自身のちょっと頑張れる金額にするのがおすすめです。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ─── ORDER FORM ─── -->
+<section id="order">
+  <div class="container">
+    <div class="form-header fade-in">
+      <p class="section-label">Order</p>
+      <h2 class="section-title">オーダーフォーム</h2>
+      <span class="gold-line wide"></span>
+    </div>
+
+      <div class="line-box line-open">
+        ご連絡は<strong>公式LINE</strong>で行います。<br>
+        LINEから申し込むと、その後のやり取りがスムーズです。
+        <div class="sp-show">
+          <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=order">LINEで申し込む</a>
+        </div>
+        <div class="pc-show">
+          <img class="line-qr" src="images/qr-order.png" alt="LINEで申し込むためのQRコード" width="156" height="156">
+          <p class="line-qr-note">スマホのLINEでQRコードを読み取ると、<br>LINEからお申し込みいただけます。</p>
+        </div>
+        <p class="line-alt">LINEをお使いでない方・パソコンの方は、このまま下のフォームからお申し込みください（メールでご連絡いたします）。</p>
+      </div>
+      <p class="line-box line-greeting is-hidden"></p>
+      <div class="line-box line-friend is-hidden">
+        ご連絡は公式LINEでお送りします。<br>
+        まだの方は友だち追加をお願いいたします。<br>
+        <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+      </div>
+
+    <div class="order-form fade-in">
+      <form id="orderForm" novalidate>
+
+        <!-- ── ご本人情報 ── -->
+        <p class="form-section-title">── ご本人情報</p>
+
+        <div class="form-group">
+          <label for="kana">旧姓のお名前（ひらがな）<span class="required">必須</span></label>
+          <input type="text" id="kana" name="kana" placeholder="やまだ はなこ" required>
+          <p class="field-error">お名前（ひらがな）を入力してください</p>
+        </div>
+
+        <div class="form-group">
+          <label for="birthday">生年月日（西暦）<span class="required">必須</span></label>
+          <input type="date" id="birthday" name="birthday" required>
+          <p class="field-error">生年月日を選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">メールアドレス<span class="required">必須</span></label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" required>
+          <p class="field-error">メールアドレスを正しく入力してください</p>
+        </div>
+
+        <!-- ── オーダー内容 ── -->
+        <div class="form-group">
+          <label for="referrer">ご紹介者さまのお名前（任意）</label>
+          <input type="text" id="referrer" name="referrer" placeholder="ご紹介でお申し込みの方はご記入ください">
+        </div>
+
+        <p class="form-section-title">── オーダー内容</p>
+
+        <div class="form-group">
+          <label for="plan">ご希望のプラン<span class="required">必須</span></label>
+          <select id="plan" name="plan" required>
+            <option value="" disabled selected>お選びください</option>
+            <option>POPULAR ¥21,000〜（ブレスレット＋数秘鑑定書）</option>
+            <option>PREMIUM（一番人気） ¥55,800〜（ブレスレット＋鑑定書＋石のメッセージカード）</option>
+            <option>Exclusive ¥100,000〜（希少石・完全応相談）</option>
+          </select>
+          <p class="field-error">ご希望のプランを選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <label for="size">ご希望のサイズ（内径目安）<span class="required">必須</span></label>
+          <select id="size" name="size" required>
+            <option value="" disabled selected>お選びください</option>
+            <option>内径約 15cm</option>
+            <option>内径約 16cm（女性標準サイズ）</option>
+            <option>内径約 17cm</option>
+            <option>内径約 18cm（男性標準サイズ）</option>
+            <option>それ以上は要相談</option>
+          </select>
+          <p class="field-error">ご希望のサイズを選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <label for="purpose">ブレスレットの目的<span class="required">必須</span></label>
+          <select id="purpose" name="purpose" required>
+            <option value="" disabled selected>お選びください</option>
+            <option>日常のお守り・エネルギー調整として</option>
+            <option>新しいスタートへのサポートとして</option>
+            <option>大切な方へのギフトとして</option>
+            <option>その他</option>
+          </select>
+          <p class="field-error">ブレスレットの目的を選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <label for="stone">石の方向性でご希望があれば（任意）</label>
+          <textarea id="stone" name="stone" placeholder="例：落ち着いた色合いが好き、愛情運を高めたい、など。お気軽にお書きください。"></textarea>
+        </div>
+
+        <!-- ── お届け先 ── -->
+        <p class="form-section-title">── お届け先</p>
+
+        <div class="form-group">
+          <label for="shipName">送り先のお名前<span class="required">必須</span></label>
+          <input type="text" id="shipName" name="shipName" placeholder="山田 花子" required>
+          <p class="field-error">送り先のお名前を入力してください</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="postal">郵便番号<span class="required">必須</span></label>
+            <input type="text" id="postal" name="postal" placeholder="000-0000" inputmode="numeric" autocomplete="postal-code" required>
+            <p class="form-hint">入力すると住所が自動で入ります</p>
+            <p class="field-error">郵便番号を入力してください</p>
+          </div>
+          <div class="form-group">
+            <label for="phone">電話番号<span class="required">必須</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="090-0000-0000" required>
+            <p class="field-error">電話番号を入力してください</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">住所<span class="required">必須</span></label>
+          <input type="text" id="address" name="address" placeholder="都道府県・市区町村・番地・建物名" autocomplete="street-address" required>
+          <p class="field-error">住所を入力してください</p>
+        </div>
+
+        <!-- ── お支払い方法 ── -->
+        <p class="form-section-title">── お支払い方法</p>
+
+        <div class="form-group" id="paymentGroup">
+          <label>お支払い方法<span class="required">必須</span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="payment" value="銀行振込" required>
+              <span class="radio-dot"></span>
+              銀行振込
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment" value="PayPay">
+              <span class="radio-dot"></span>
+              PayPay
+            </label>
+          </div>
+          <p class="field-error">お支払い方法を選択してください</p>
+        </div>
+
+        <p class="form-note">
+          送信後、24時間以内にご連絡いたします。<br>
+          LINEからお申し込みの方は<strong class="note-strong">公式LINE</strong>へ、<br>
+          それ以外の方はご入力の<strong class="note-strong">メールアドレス</strong>へご連絡いたします。<br>
+          お問い合わせ・ご不明点もお気軽にどうぞ。
+        </p>
+
+        <p class="form-consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>・<a href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a>をご確認のうえ、お申し込みください。</p>
+        <button type="submit" class="btn-submit">オーダーを申し込む</button>
+      </form>
+
+      <!-- Thanks message -->
+      <div id="thanks">
+        <div class="thanks-icon">✦</div>
+        <h3>お申し込みありがとうございます</h3>
+        <p>
+          フォームのご送信を受け付けました。<br>
+          <span class="contact-line">24時間以内に公式LINEよりご連絡いたします。</span>
+          <span class="contact-mail is-hidden">ご入力のメールアドレスに受付メールをお送りします。<br>24時間以内にメールにてご連絡いたします。<br><small>※届かない場合は、迷惑メールフォルダもご確認ください。</small></span><br><br>
+          あなただけの特別なストーンが<br>
+          新しい扉を開く力になりますように。
+        </p>
+        <div class="thanks-line is-hidden">
+          <p>公式LINEでのやり取りをご希望の方は、<br>友だち追加のうえ、お名前をメッセージでお送りください。</p>
+          <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+        </div>
+        <button type="button" class="btn-submit is-hidden" id="oCloseBtn">閉じる</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATCHCOPY ─── -->
+<section id="catchcopy">
+  <div class="container">
+    <p class="catchcopy-text fade-in">
+      「選ぶのではなく、石があなたを選ぶ。」<br>
+      <span style="font-size:.9em; color: var(--gold-dark);">── まとって、さあ行こう ──</span>
+    </p>
+  </div>
+</section>
+
+<!-- ─── STORY ─── -->
+<section id="story">
+  <div class="container">
+    <div class="story-header fade-in">
+      <p class="section-label">Brand Story</p>
+      <h2 class="section-title">運命は、あなたを導く<br>光のようなもの</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="story-body fade-in">
+      <p>
+        生きていると、私たちは何度も「選択」を迫られます。<br>
+        どの道を進むべきか、何が自分にとって最善なのか──<br>
+        時には迷い、立ち止まり、不安に押しつぶされそうになることもあるでしょう。
+      </p>
+      <p>
+        しかし、すべての人の人生には<span class="highlight">「流れ」</span>があります。<br>
+        まるで星座が夜空に輝くように、運命の光は、ずっとあなたを導いているのです。
+      </p>
+      <div class="story-more" id="storyMore" hidden>
+      <p>
+        <span class="highlight">WEAR IT &amp; ROLL -奥の間-</span> は、<br>
+        「あなたの本来の流れを取り戻し、望む未来へと導く存在」です。<br>
+        数秘リーディングを通してあなた本来のエネルギーを見つけ出し、<br>
+        最適な天然石とともにお届けします。
+      </p>
+      <p>
+        それは、ただのアクセサリーではなく、<br>
+        <span class="highlight">あなたの人生をサポートする「特別なエネルギーツール」</span>なのです。
+      </p>
+      </div>
+      <p class="story-more-wrap"><button type="button" class="story-more-btn" id="storyMoreBtn">続きを読む ›</button></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE ─── -->
+<section id="feature">
+  <div class="container">
+    <div class="feature-header fade-in">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">-奥の間- が選ばれる理由</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🔮</span>
+        <h3>数秘リーディング</h3>
+        <p>生年月日と名前から「あなたの本質的なエネルギー」を読み解き、今のあなたに最も必要な石を導き出します。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">💎</span>
+        <h3>天然石オーダー</h3>
+        <p>一つとして同じ石はありません。あなたのエネルギーと共鳴する、世界に一つだけのブレスレットをお作りします。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">✨</span>
+        <h3>丁寧な個別対応</h3>
+        <p>オーダー後は公式LINEまたはメールにて丁寧にご対応いたします。ご希望や気になることをヒアリングし、最良の一点に仕上げます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FLOW ─── -->
+<section id="flow">
+  <div class="container">
+    <div class="flow-header fade-in">
+      <p class="section-label">Order Flow</p>
+      <h2 class="section-title">ご注文の流れ</h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step fade-in">
+        <div class="flow-num">01</div>
+        <div class="flow-content">
+          <h3>LINE・フォームからお申し込み</h3>
+          <p>LINE、またはこのページのオーダーフォームから、お名前・生年月日・ご希望などをご記入の上、送信してください。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">02</div>
+        <div class="flow-content">
+          <h3>公式LINE・メールにてご連絡</h3>
+          <p>24時間以内に、公式LINE（LINE以外からのお申し込みはメール）にてご連絡いたします。数秘リーディングの詳細やご要望を丁寧にヒアリングします。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">03</div>
+        <div class="flow-content">
+          <h3>石の選定・ご提案</h3>
+          <p>リーディング結果をもとに、今のあなたに最適な天然石の組み合わせをご提案します。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">04</div>
+        <div class="flow-content">
+          <h3>お支払い・制作</h3>
+          <p>ご確認・お支払い後、心を込めて制作いたします。制作期間は約2週間を予定しています。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">05</div>
+        <div class="flow-content">
+          <h3>お届け</h3>
+          <p>専用ボックスに入れて丁寧にお届けします。あなただけの運命のパートナーが手元に届きます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MAINTENANCE ─── -->
+<section id="maintenance">
+
+  <div class="maint-hero">
+    <div class="hero-diamond" aria-hidden="true"></div>
+    <p class="section-label">Maintenance &amp; Version Up</p>
+    <h2 class="maint-title">天然石の<br>メンテナンス<span class="maint-title-sub">＆ バージョンアップ</span></h2>
+    <span class="gold-line wide"></span>
+    <p class="maint-catch fade-in"><span class="nw">大切な天然石を、</span><span class="nw">いつも最高の状態で。</span></p>
+    <p class="maint-lead fade-in">
+      天然石のエネルギーをリセットし、<br>
+      美しさとパワーを取り戻します。
+    </p>
+  </div>
+
+  <!-- バージョンアップのおはなし -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="maint-block-header fade-in">
+        <p class="section-label">Version Up</p>
+        <h2 class="section-title">あなたが変われば、<br>石も変わる。</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div class="story-body versionup-body fade-in">
+        <p>
+          <span class="nw">人は日々、変化し、</span><span class="nw">成長していきます。</span><br>
+          <span class="nw">新しい目標ができたとき。</span><br>
+          <span class="nw">大きな一歩を踏み出したとき。</span><br>
+          <span class="nw">環境や状況が変わったとき。</span>
+        </p>
+        <p>
+          <span class="nw">そのたびに、</span><span class="highlight"><span class="nw">今のあなたに寄り添う石も</span><span class="nw">変わっていきます。</span></span>
+        </p>
+        <p>
+          <span class="nw">今のあなたに合う石へ</span><span class="nw">入れ替えたり、</span><br>
+          <span class="nw">新しく必要になった石を</span><span class="nw">加えたりして、</span><br>
+          <span class="nw">ブレスレットを</span><span class="nw">「今のあなた」に</span><span class="nw">アップデートする。</span><br>
+          <span class="nw">それが、</span><span class="nw"><span class="highlight">石バージョンアップ</span>です。</span>
+        </p>
+        <p>
+          <span class="nw">これまでの石を活かしながら、</span><span class="nw">次のステージへ。</span><br>
+          <span class="nw">まとって、</span><span class="nw">さあ行こう。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- お客様の声を見る -->
+  <div class="maint-voice-cta fade-in">
+    <p>実際にお使いいただいている方のご感想</p>
+    <button type="button" class="btn-outline" id="openVoiceModal">お客様の声を見る</button>
+  </div>
+
+  <!-- メンテナンス内容 -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-card fade-in">
+          <span class="feature-icon">🌿</span>
+          <h3>浄化</h3>
+          <p>身につけるうちに溜まった天然石のエネルギーをリセットし、本来の輝きを取り戻します。</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">📿</span>
+          <h3>ゴム交換</h3>
+          <p>新しいゴムに交換し、使いやすく整えます。サイズ直しもご相談いただけます。</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">💎</span>
+          <h3>石バージョンアップ</h3>
+          <p>ご希望や今の状態に合わせて、石をグレードアップいたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 料金 -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="maint-block-header fade-in">
+        <p class="section-label">Price</p>
+        <h2 class="section-title">メンテナンス・<br class="sp-only">バージョンアップ料金</h2>
+        <span class="gold-line"></span>
+      </div>
+
+      <div class="maint-price-box fade-in">
+        <ul class="maint-list">
+          <li class="maint-item">
+            <span class="maint-name">ゴム交換<span class="maint-desc">浄化＋新しいゴムに交換</span></span>
+            <span class="maint-price">¥3,000<small>（税込）</small></span>
+          </li>
+          <li class="maint-item">
+            <span class="maint-name">サイズ直し<span class="maint-desc">浄化＋ゴム交換＋サイズ調整</span></span>
+            <span class="maint-price">¥3,000〜<small>（要相談）</small></span>
+          </li>
+          <li class="maint-item">
+            <span class="maint-name">石バージョンアップ<span class="maint-desc">石代・ゴム交換代・浄化代込み</span></span>
+            <span class="maint-price">¥7,500〜<small>（税込）</small></span>
+            <span class="maint-sub">
+              <span class="maint-courses"><span>¥7,500</span><span>¥9,600</span><span>¥19,700</span></span>
+              <span class="maint-desc">の3コース（税込）からお選びいただけます。<br>それ以上をご希望の方はご相談ください。<br>新しくお作りするご提案をさせていただく場合もございます。</span>
+            </span>
+          </li>
+          <li class="maint-item">
+            <span class="maint-name">浄化のみ<span class="maint-desc">天然石のエネルギーをリセット</span></span>
+            <span class="maint-price">¥1,000<small>（税込）</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 流れ -->
+  <div class="maint-block">
+    <div class="container">
+      <div class="maint-block-header fade-in">
+        <p class="section-label">Flow</p>
+        <h2 class="section-title">ご利用の流れ</h2>
+        <span class="gold-line"></span>
+      </div>
+
+      <div class="flow-steps">
+        <div class="flow-step fade-in">
+          <div class="flow-num">01</div>
+          <div class="flow-content">
+            <h3>フォームからお申し込み</h3>
+            <p>このページ下部のメンテナンスフォームから、ご希望のメニューを選んでお申し込みください。</p>
+          </div>
+        </div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">02</div>
+          <div class="flow-content">
+            <h3>送り先のご案内</h3>
+            <p>お申し込み後、公式LINEまたはメールにて、ブレスレットの送り先をご案内いたします。</p>
+          </div>
+        </div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">03</div>
+          <div class="flow-content">
+            <h3>レターパックで発送</h3>
+            <p>ブレスレットを<span style="color:var(--gold-light)">レターパック（青）</span>でお送りください。<br>中に<span style="color:var(--gold-light)">返送用のレターパック（赤 または 青）</span>を同封してください。</p>
+          </div>
+        </div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">04</div>
+          <div class="flow-content">
+            <h3>メンテナンス・ご返送</h3>
+            <p>心を込めてメンテナンスし、同封のレターパックでご返送いたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フォーム -->
+  <div class="maint-block" id="maintenance-form">
+    <div class="container">
+      <div class="form-header fade-in">
+        <p class="section-label">Maintenance &amp; Version Up Form</p>
+        <h2 class="section-title">メンテナンス・<br class="sp-only">バージョンアップ<br>申込フォーム</h2>
+        <span class="gold-line wide"></span>
+      </div>
+
+      <div class="line-box line-open">
+        ご連絡は<strong>公式LINE</strong>で行います。<br>
+        LINEから申し込むと、その後のやり取りがスムーズです。
+        <div class="sp-show">
+          <a class="line-btn" href="https://liff.line.me/2012194750-JGB6I5an?form=maintenance">LINEで申し込む</a>
+        </div>
+        <div class="pc-show">
+          <img class="line-qr" src="images/qr-maintenance.png" alt="LINEで申し込むためのQRコード" width="156" height="156">
+          <p class="line-qr-note">スマホのLINEでQRコードを読み取ると、<br>LINEからお申し込みいただけます。</p>
+        </div>
+        <p class="line-alt">LINEをお使いでない方・パソコンの方は、このまま下のフォームからお申し込みください（メールでご連絡いたします）。</p>
+      </div>
+      <p class="line-box line-greeting is-hidden"></p>
+      <div class="line-box line-friend is-hidden">
+        ご連絡は公式LINEでお送りします。<br>
+        まだの方は友だち追加をお願いいたします。<br>
+        <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+      </div>
+
+      <div class="order-form">
+        <form id="maintForm" novalidate>
+
+          <p class="form-section-title">── ご希望のメニュー</p>
+
+          <div class="form-group">
+            <label>メニュー<span class="required">必須</span></label>
+            <div class="radio-group stack">
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="ゴム交換（浄化付き）¥3,000" data-key="rubber">
+                <span class="radio-dot"></span>
+                <span class="radio-text">ゴム交換<span class="radio-desc">浄化＋新しいゴムに交換</span></span>
+                <span class="radio-price">¥3,000<small>（税込）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="サイズ直し（浄化・ゴム交換付き）¥3,000〜 要相談" data-key="size">
+                <span class="radio-dot"></span>
+                <span class="radio-text">サイズ直し<span class="radio-desc">浄化＋ゴム交換＋サイズ調整</span></span>
+                <span class="radio-price">¥3,000〜<small>（要相談）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="石バージョンアップ" data-key="upgrade">
+                <span class="radio-dot"></span>
+                <span class="radio-text">石バージョンアップ<span class="radio-desc">石代・ゴム交換代・浄化代込み</span></span>
+                <span class="radio-price">¥7,500〜<small>（税込）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="浄化のみ ¥1,000" data-key="cleanse">
+                <span class="radio-dot"></span>
+                <span class="radio-text">浄化のみ<span class="radio-desc">天然石のエネルギーをリセット</span></span>
+                <span class="radio-price">¥1,000<small>（税込）</small></span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="menu" value="その他（要相談）" data-key="other">
+                <span class="radio-dot"></span>
+                <span class="radio-text">その他<span class="radio-desc">ご要望欄に内容をご記入ください</span></span>
+                <span class="radio-price">要相談</span>
+              </label>
+            </div>
+            <p class="field-error">メニューを選択してください</p>
+          </div>
+
+          <div class="form-group is-hidden" id="mCourseGroup">
+            <label>バージョンアップのコース<span class="required">必須</span></label>
+            <div class="radio-group stack">
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="¥7,500コース">
+                <span class="radio-dot"></span>
+                <span class="radio-text">¥7,500 コース</span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="¥9,600コース">
+                <span class="radio-dot"></span>
+                <span class="radio-text">¥9,600 コース</span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="¥19,700コース">
+                <span class="radio-dot"></span>
+                <span class="radio-text">¥19,700 コース</span>
+              </label>
+              <label class="radio-label menu-option">
+                <input type="radio" name="course" value="それ以上をご希望（要相談）">
+                <span class="radio-dot"></span>
+                <span class="radio-text">それ以上をご希望<span class="radio-desc">内容によっては、新しくお作りするご提案をさせていただく場合がございます</span></span>
+                <span class="radio-price">要相談</span>
+              </label>
+            </div>
+            <p class="form-hint">いずれも石代・ゴム交換代・浄化代込み（税込）です。</p>
+            <p class="field-error">コースを選択してください</p>
+          </div>
+
+          <div class="form-group is-hidden" id="mSizeGroup">
+            <label for="mWishSize">ご希望のサイズ<span class="required">必須</span></label>
+            <input type="text" id="mWishSize" placeholder="例）今より1cm大きく／内径16cm">
+            <p class="form-hint">分かる範囲で大丈夫です。手首まわりのサイズでもOKです。</p>
+            <p class="field-error">ご希望のサイズをご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mDetail">ご要望・ブレスレットの状態<span class="optional" id="mDetailBadge">任意</span></label>
+            <textarea id="mDetail" placeholder="例）ゴムが伸びてきました／石が欠けています など"></textarea>
+            <p class="field-error">ご要望をご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mPurchase">ご購入時期<span class="optional">任意</span></label>
+            <input type="text" id="mPurchase" placeholder="例）2025年春ごろ">
+          </div>
+
+          <p class="form-section-title">── お客様情報</p>
+
+          <div class="form-group">
+            <label for="mName">お名前<span class="required">必須</span></label>
+            <input type="text" id="mName" autocomplete="name" placeholder="例）山田 花子">
+            <p class="field-error">お名前をご記入ください</p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mPhone">電話番号<span class="required">必須</span></label>
+              <input type="tel" id="mPhone" autocomplete="tel" placeholder="例）090-0000-0000">
+              <p class="field-error">電話番号をご記入ください</p>
+            </div>
+            <div class="form-group">
+              <label for="mEmail">メールアドレス<span class="required" id="mEmailBadge">必須</span></label>
+              <input type="email" id="mEmail" autocomplete="email" placeholder="例）example@mail.com">
+              <p class="field-error">メールアドレスをご確認ください</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mReferrer">ご紹介者さまのお名前<span class="optional">任意</span></label>
+            <input type="text" id="mReferrer" placeholder="ご紹介でお申し込みの方はご記入ください">
+          </div>
+
+          <p class="form-section-title">── 返送先</p>
+
+          <div class="form-group">
+            <label class="check-label">
+              <input type="checkbox" id="mSameName" checked>
+              上記のお名前に返送する
+            </label>
+          </div>
+
+          <div class="form-group is-hidden" id="mShipNameGroup">
+            <label for="mShipName">返送先のお名前<span class="required">必須</span></label>
+            <input type="text" id="mShipName" placeholder="例）山田 花子">
+            <p class="field-error">返送先のお名前をご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mPostal">郵便番号<span class="required">必須</span></label>
+            <input type="text" id="mPostal" inputmode="numeric" autocomplete="postal-code" placeholder="例）123-4567">
+            <p class="form-hint">入力すると住所が自動で入ります</p>
+            <p class="field-error">郵便番号をご記入ください</p>
+          </div>
+
+          <div class="form-group">
+            <label for="mAddress">ご住所<span class="required">必須</span></label>
+            <input type="text" id="mAddress" autocomplete="street-address" placeholder="都道府県からご記入ください">
+            <p class="field-error">ご住所をご記入ください</p>
+          </div>
+
+          <p class="form-section-title">── お支払い方法</p>
+
+          <div class="form-group">
+            <label>お支払い方法<span class="required">必須</span></label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="mPayment" value="銀行振込">
+                <span class="radio-dot"></span>
+                銀行振込
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="mPayment" value="PayPay">
+                <span class="radio-dot"></span>
+                PayPay
+              </label>
+            </div>
+            <p class="field-error">お支払い方法を選択してください</p>
+          </div>
+
+          <div class="maint-howto">
+            <strong>ご利用方法</strong><br>
+            ブレスレットを<strong>レターパック（青）</strong>でお送りください。<br>
+            中に<strong>返送用のレターパック（赤 または 青）</strong>を入れてお送りください。<br>
+            送り先は、お申し込み後にご案内いたします。
+          </div>
+
+          <div class="form-group">
+            <label class="check-label">
+              <input type="checkbox" id="mAgree">
+              上記のご利用方法を確認しました
+            </label>
+            <p class="field-error">ご確認のうえチェックを入れてください</p>
+          </div>
+
+          <p class="form-note">
+            送信後、LINEからお申し込みの方は<strong class="note-strong">公式LINE</strong>へ、<br>
+            それ以外の方はご入力の<strong class="note-strong">メールアドレス</strong>へご連絡いたします。
+          </p>
+
+          <p class="form-consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>・<a href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a>をご確認のうえ、お申し込みください。</p>
+          <button type="submit" class="btn-submit">申し込む</button>
+        </form>
+
+        <div id="maintThanks">
+          <div class="thanks-icon">✦</div>
+          <h3>お申し込みありがとうございます</h3>
+          <p>
+            メンテナンスのお申し込みを受け付けました。<br>
+            ブレスレットの送り先など、今後のご案内を<br>
+            <span class="contact-line">公式LINEにて</span><span class="contact-mail is-hidden">メールにて</span>お送りいたしますので、しばらくお待ちください。<br>
+            <span class="contact-mail is-hidden">ご入力のメールアドレスに受付メールをお送りします。<br><small>※届かない場合は、迷惑メールフォルダもご確認ください。</small><br></span><br>
+            大切な天然石を、心を込めてメンテナンスいたします。
+          </p>
+          <div class="thanks-line is-hidden">
+            <p>公式LINEでのやり取りをご希望の方は、<br>友だち追加のうえ、お名前をメッセージでお送りください。</p>
+            <a class="line-btn" href="https://line.me/R/ti/p/@546copgu">友だち追加する</a>
+          </div>
+
+          <button type="button" class="btn-submit is-hidden" id="mCloseBtn">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- お客様の声（メンテナンスのボタンから開く） -->
+<div class="voice-modal" id="voiceModal" role="dialog" aria-modal="true" aria-labelledby="voiceModalTitle" hidden>
+  <div class="voice-modal-inner">
+    <button type="button" class="voice-modal-close" aria-label="閉じる">×</button>
+    <p class="section-label">Voice</p>
+    <h2 class="section-title" id="voiceModalTitle">お客様の声</h2>
+    <p class="voice-note">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+    <div class="voice-modal-list"></div>
+    <p class="voice-note">※個人の感想です。感じ方には個人差があり、効果を保証するものではありません。</p>
+    <div class="voice-modal-foot"><button type="button" class="btn-outline voice-modal-close2">閉じる</button></div>
+  </div>
+</div>
+
+<!-- 写真の拡大表示 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+  <button type="button" class="lightbox-close" aria-label="閉じる">×</button>
+  <img alt="">
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p class="footer-logo">WEAR IT &amp; ROLL<br><span class="footer-logo-sub">-奥の間-</span></p>
+  <p class="footer-tagline">まとって、さあ行こう</p>
+  <span class="gold-line" style="margin-bottom:28px;"></span>
+  <div class="footer-links">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  <p class="footer-company">運営：合同会社みにはな</p>
+  <p class="footer-copy">© 2026 WEAR IT &amp; ROLL -奥の間- All rights reserved.</p>
+</footer>
+
+<script>
+  // ═══ LINE（LIFF）連携：オーダー・メンテナンス共通 ═══
+  // LINE Developers の「LINEログイン」チャネルで作成した LIFF アプリの LIFF ID
+  // （LIFFのエンドポイントURLはこのページ https://satoko3287.github.io/wear-it-and-roll-oku/ ）
+  // LIFF URL に ?form=order でオーダーフォーム、?form=maintenance（またはLINE内で指定なし）でメンテナンスフォームを開く
+  const LIFF_ID = '2012194750-JGB6I5an';
+  const LINE_STATE = { ready: false, inClient: false, loggedIn: false };
+
+  // スマホ以外（パソコン）では「LINEで申し込む」ボタンの代わりにQRコードを表示する
+  // （パソコンでLIFFのリンクを開いてもLINEアプリが起動しないため）
+  const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+  if (!IS_MOBILE) document.documentElement.classList.add('is-pc');
+
+  // 完了画面：LINE以外から申し込んだ方にはメールで連絡する旨を表示
+  function showMailContact(selector) {
+    const box = document.querySelector(selector);
+    box.querySelectorAll('.contact-line').forEach(el => el.classList.add('is-hidden'));
+    box.querySelectorAll('.contact-mail').forEach(el => el.classList.remove('is-hidden'));
+    box.querySelector('.thanks-line').classList.remove('is-hidden');
+  }
+
+  // 選んだボタンに印を付ける（:has() に対応していない端末でも分かるように）
+  function syncRadioLabels() {
+    document.querySelectorAll('.radio-label').forEach(label => {
+      label.classList.toggle('is-checked', !!label.querySelector('input:checked'));
+    });
+  }
+  document.addEventListener('change', e => { if (e.target.type === 'radio') syncRadioLabels(); });
+
+  // ── 郵便番号から住所を自動入力（zipcloud） ──
+  function lookupZip(zip) {
+    return new Promise(resolve => {
+      const cb = 'zipcb_' + Date.now() + '_' + Math.floor(Math.random() * 1e6);
+      const script = document.createElement('script');
+      const timer = setTimeout(() => { cleanup(); resolve(null); }, 6000);
+      function cleanup() { clearTimeout(timer); delete window[cb]; script.remove(); }
+      window[cb] = res => {
+        cleanup();
+        const r = res && res.results && res.results[0];
+        resolve(r ? r.address1 + r.address2 + r.address3 : null);
+      };
+      script.onerror = () => { cleanup(); resolve(null); };
+      script.src = `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}&callback=${cb}`;
+      document.head.appendChild(script);
+    });
+  }
+  function setupZipAutofill(postalId, addressId) {
+    const postal = document.getElementById(postalId);
+    const address = document.getElementById(addressId);
+    let lastAuto = '';
+    postal.addEventListener('input', async () => {
+      const zip = postal.value
+        .replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0))
+        .replace(/[^0-9]/g, '');
+      if (zip.length !== 7) return;
+      const addr = await lookupZip(zip);
+      // 自分で入力した住所は上書きしない
+      if (addr && (address.value.trim() === '' || address.value === lastAuto)) {
+        address.value = addr;
+        lastAuto = addr;
+        address.closest('.form-group').classList.remove('has-error');
+      }
+    });
+  }
+  setupZipAutofill('postal', 'address');
+  setupZipAutofill('mPostal', 'mAddress');
+
+  function getLineIdToken() {
+    return LINE_STATE.loggedIn ? (liff.getIDToken() || '') : '';
+  }
+
+  // ?form=〇〇 を読み取る（LIFFの転送途中は liff.state の中に入っている）
+  function getFormParam() {
+    const params = new URLSearchParams(location.search);
+    if (params.get('form')) return params.get('form');
+    const state = params.get('liff.state');
+    if (state && state.includes('?')) return new URLSearchParams(state.split('?')[1]).get('form');
+    return null;
+  }
+
+  // LINEから開いたときはメールアドレスを任意にする（LINEで連絡できるため）
+  function setEmailOptional() {
+    const orderEmail = document.getElementById('email');
+    orderEmail.removeAttribute('required');
+    const badge = orderEmail.closest('.form-group').querySelector('label .required');
+    if (badge) { badge.textContent = '任意'; badge.className = 'optional'; }
+    const mBadge = document.getElementById('mEmailBadge');
+    mBadge.textContent = '任意';
+    mBadge.className = 'optional';
+  }
+
+  // フォームの見出しが上のメニューに隠れない位置までスクロールする
+  function scrollToElement(selector) {
+    const el = document.querySelector(selector);
+    const navH = document.querySelector('nav').offsetHeight;
+    const y = el.getBoundingClientRect().top + window.scrollY - navH - 16;
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, Math.max(0, y));
+    root.style.scrollBehavior = '';
+  }
+
+  // 文字や画像の読み込みで位置がずれるので、読み込み後にも合わせ直す
+  // （お客様が自分でスクロールし始めたら、それ以降は動かさない）
+  function alignToForm(selector) {
+    let userScrolled = false;
+    const stop = () => { userScrolled = true; };
+    ['touchstart', 'wheel', 'keydown'].forEach(ev => window.addEventListener(ev, stop, { once: true, passive: true }));
+    const align = () => { if (!userScrolled) scrollToElement(selector); };
+    align();
+    if (document.fonts) document.fonts.ready.then(align);
+    if (document.readyState !== 'complete') window.addEventListener('load', align, { once: true });
+    setTimeout(align, 800);
+    setTimeout(align, 2000);
+  }
+
+  const FORM_SELECTORS = {
+    order: '#order .form-header',
+    maintenance: '#maintenance-form .form-header',
+    // メンテナンス・バージョンアップのトップ（題名）
+    'maintenance-top': '#maintenance .maint-hero .section-label',
+  };
+  let formAligned = false;
+  function openForm(name) {
+    if (formAligned || !FORM_SELECTORS[name]) return;
+    formAligned = true;
+    alignToForm(FORM_SELECTORS[name]);
+  }
+
+  async function initLine() {
+    // ?form=order / ?form=maintenance / ?form=maintenance-top 付きで開いたときは、LINEの外（ブラウザ）でもその位置を表示
+    // #maintenance などのページ内リンクで開いたときも、読み込み後に位置を合わせ直す
+    openForm(getFormParam() || ({ '#maintenance': 'maintenance-top', '#maintenance-form': 'maintenance', '#order': 'order' })[location.hash]);
+    if (!LIFF_ID || !window.liff) return;
+    try {
+      await liff.init({ liffId: LIFF_ID });
+      LINE_STATE.ready = true;
+      LINE_STATE.inClient = liff.isInClient();
+      // LINEの中で開いたときは、指定がなければメンテナンスフォームを表示
+      if (LINE_STATE.inClient) openForm(getFormParam() || 'maintenance');
+      if (!liff.isLoggedIn()) return;
+      LINE_STATE.loggedIn = true;
+      document.querySelectorAll('.line-open').forEach(el => el.classList.add('is-hidden'));
+      setEmailOptional();
+
+      const profile = await liff.getProfile();
+      document.querySelectorAll('.line-greeting').forEach(el => {
+        el.textContent = `${profile.displayName} 様、ご利用ありがとうございます。`;
+        el.classList.remove('is-hidden');
+      });
+      const mName = document.getElementById('mName');
+      if (!mName.value) mName.value = profile.displayName;
+
+      const friendship = await liff.getFriendship();
+      if (!friendship.friendFlag) {
+        document.querySelectorAll('.line-friend').forEach(el => el.classList.remove('is-hidden'));
+      }
+    } catch (err) {
+      console.warn('LIFF init error:', err);
+    }
+  }
+  initLine();
+</script>
+
+<script>
+  // ── Intersection Observer for fade-in ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── ブランドストーリー：続きを読む ──
+  document.getElementById('storyMoreBtn').addEventListener('click', e => {
+    document.getElementById('storyMore').hidden = false;
+    e.target.closest('.story-more-wrap').remove();
+  });
+
+  // ── お客様の声：もっと見る ──
+  const voiceMoreBtn = document.getElementById('voiceMoreBtn');
+  voiceMoreBtn.addEventListener('click', () => {
+    document.querySelectorAll('.voice-more').forEach(el => {
+      el.classList.remove('is-hidden');
+      el.classList.add('visible');
+    });
+    voiceMoreBtn.parentElement.remove();
+  });
+
+  // ── メンテナンスの「お客様の声を見る」 ──
+  const voiceModal = document.getElementById('voiceModal');
+  const voiceModalList = voiceModal.querySelector('.voice-modal-list');
+  let voiceModalReturnFocus = null;
+  function openVoiceModal() {
+    if (!voiceModalList.children.length) {
+      document.querySelectorAll('#voice .voice-card').forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.remove('voice-more', 'is-hidden', 'fade-in');
+        voiceModalList.appendChild(clone);
+      });
+    }
+    voiceModalReturnFocus = document.activeElement;
+    voiceModal.hidden = false;
+    voiceModal.scrollTop = 0;
+    document.body.classList.add('modal-open');
+    voiceModal.querySelector('.voice-modal-close').focus();
+  }
+  function closeVoiceModal() {
+    voiceModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    if (voiceModalReturnFocus) voiceModalReturnFocus.focus();
+  }
+  document.getElementById('openVoiceModal').addEventListener('click', openVoiceModal);
+  voiceModal.querySelectorAll('.voice-modal-close, .voice-modal-close2').forEach(btn => btn.addEventListener('click', closeVoiceModal));
+  voiceModal.addEventListener('click', e => { if (e.target === voiceModal) closeVoiceModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !voiceModal.hidden) closeVoiceModal(); });
+
+  // ── 制作例の写真（ギャラリー・Exclusive）をタップで拡大 ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.exclusive-photos img, .gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  const closeLightbox = () => lightbox.classList.remove('open');
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ── Stagger cards ──
+  document.querySelectorAll('.feature-grid .feature-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.12}s`;
+  });
+  document.querySelectorAll('.flow-step').forEach((step, i) => {
+    step.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  // ── Form submit ──
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbypYcyZn3MXlnCaIjKRaNAeAQ-SerBT0H-wdRT5a0XG8OxXqxPBdfsIpCIqJxenPKl2/exec';
+
+  document.getElementById('orderForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // バリデーション：エラー表示をリセット
+    this.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+
+    const requiredFields = this.querySelectorAll('[required]');
+    let valid = true;
+    const checkedRadios = new Set();
+
+    requiredFields.forEach(field => {
+      if (field.type === 'radio') {
+        if (checkedRadios.has(field.name)) return;
+        checkedRadios.add(field.name);
+        const isChecked = !!this.querySelector(`[name="${field.name}"]:checked`);
+        if (!isChecked) {
+          valid = false;
+          field.closest('.form-group').classList.add('has-error');
+        }
+      } else {
+        const isEmpty = field.type === 'email'
+          ? !field.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)
+          : !field.value.trim();
+        if (isEmpty) {
+          valid = false;
+          field.closest('.form-group').classList.add('has-error');
+          field.addEventListener('input', () => field.closest('.form-group').classList.remove('has-error'), { once: true });
+          field.addEventListener('change', () => field.closest('.form-group').classList.remove('has-error'), { once: true });
+        }
+      }
+    });
+
+    if (!valid) {
+      // 最初のエラー項目にスクロール
+      const firstError = this.querySelector('.has-error');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = '送信中...';
+    btn.disabled = true;
+
+    const data = {
+      kana:     document.getElementById('kana').value,
+      birthday: document.getElementById('birthday').value,
+      email:    document.getElementById('email').value,
+      plan:     document.getElementById('plan').value,
+      size:     document.getElementById('size').value,
+      purpose:  document.getElementById('purpose').value,
+      stone:    document.getElementById('stone').value,
+      shipName: document.getElementById('shipName').value,
+      postal:   document.getElementById('postal').value,
+      phone:    document.getElementById('phone').value,
+      address:  document.getElementById('address').value,
+      payment:  (document.querySelector('[name="payment"]:checked') || {}).value || '',
+      referrer: document.getElementById('referrer').value.trim(),
+      // LINEのIDトークン（Apps Script側で本人確認し、受付メッセージを送るのに使う）
+      lineIdToken: getLineIdToken(),
+    };
+
+    try {
+      if (GAS_URL !== 'YOUR_APPS_SCRIPT_URL') {
+        await fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data),
+        });
+      }
+      this.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      if (!LINE_STATE.loggedIn) showMailContact('#thanks');
+      if (LINE_STATE.inClient) {
+        const closeBtn = document.getElementById('oCloseBtn');
+        closeBtn.classList.remove('is-hidden');
+        closeBtn.addEventListener('click', () => liff.closeWindow());
+      }
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      btn.textContent = 'オーダーを申し込む';
+      btn.disabled = false;
+      alert('送信に失敗しました。しばらくしてからもう一度お試しください。');
+    }
+  });
+</script>
+
+<script>
+  // ═══ メンテナンス申込フォーム ═══
+  (() => {
+    const form = document.getElementById('maintForm');
+    const $ = id => document.getElementById(id);
+
+    // ── メニューに応じて入力欄を切り替え ──
+    const detailPlaceholders = {
+      size:    '例）きつくなってきたので少し大きくしたいです',
+      upgrade: '例）恋愛運を高めたい／ピンク系の石を足したい など、ご希望をご記入ください',
+      other:   'ご希望の内容をご記入ください',
+    };
+    const menuKey = () => (form.querySelector('[name="menu"]:checked') || { dataset: {} }).dataset.key;
+
+    form.querySelectorAll('[name="menu"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const key = radio.dataset.key;
+        $('mSizeGroup').classList.toggle('is-hidden', key !== 'size');
+        $('mCourseGroup').classList.toggle('is-hidden', key !== 'upgrade');
+        const detailRequired = key === 'other';
+        $('mDetailBadge').textContent = detailRequired ? '必須' : '任意';
+        $('mDetailBadge').className = detailRequired ? 'required' : 'optional';
+        $('mDetail').placeholder = detailPlaceholders[key] || '例）ゴムが伸びてきました／石が欠けています など';
+      });
+    });
+
+    $('mSameName').addEventListener('change', e => {
+      $('mShipNameGroup').classList.toggle('is-hidden', e.target.checked);
+    });
+
+    form.addEventListener('input', e => {
+      const group = e.target.closest('.form-group');
+      if (group) group.classList.remove('has-error');
+    });
+
+    // ── バリデーション ──
+    function validate() {
+      form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+      const errors = [];
+      const fail = el => errors.push(el.closest('.form-group'));
+      const key = menuKey();
+
+      if (!key) fail(form.querySelector('[name="menu"]'));
+      if (key === 'upgrade' && !form.querySelector('[name="course"]:checked')) fail(form.querySelector('[name="course"]'));
+      if (key === 'size' && !$('mWishSize').value.trim()) fail($('mWishSize'));
+      if (key === 'other' && !$('mDetail').value.trim()) fail($('mDetail'));
+      ['mName', 'mPhone', 'mPostal', 'mAddress'].forEach(id => {
+        if (!$(id).value.trim()) fail($(id));
+      });
+      const email = $('mEmail').value.trim();
+      if ((!email && !LINE_STATE.loggedIn) || (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) fail($('mEmail'));
+      if (!$('mSameName').checked && !$('mShipName').value.trim()) fail($('mShipName'));
+      if (!form.querySelector('[name="mPayment"]:checked')) fail(form.querySelector('[name="mPayment"]'));
+      if (!$('mAgree').checked) fail($('mAgree'));
+
+      errors.forEach(g => g.classList.add('has-error'));
+      if (errors.length) errors[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return errors.length === 0;
+    }
+
+    // ── 送信 ──
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = '送信中...';
+      btn.disabled = true;
+
+      const key = menuKey();
+      let menu = form.querySelector('[name="menu"]:checked').value;
+      if (key === 'upgrade') {
+        menu += ' ' + form.querySelector('[name="course"]:checked').value + '（石代・ゴム交換代・浄化代込み）';
+      }
+      const data = {
+        formType: 'maintenance',
+        menu,
+        wishSize: key === 'size' ? $('mWishSize').value.trim() : '',
+        detail:   $('mDetail').value.trim(),
+        purchase: $('mPurchase').value.trim(),
+        name:     $('mName').value.trim(),
+        phone:    $('mPhone').value.trim(),
+        email:    $('mEmail').value.trim(),
+        shipName: $('mSameName').checked ? $('mName').value.trim() : $('mShipName').value.trim(),
+        postal:   $('mPostal').value.trim(),
+        address:  $('mAddress').value.trim(),
+        payment:  form.querySelector('[name="mPayment"]:checked').value,
+        referrer: $('mReferrer').value.trim(),
+        // LINEのIDトークン（Apps Script側で本人確認し、受付メッセージを送るのに使う）
+        lineIdToken: getLineIdToken(),
+      };
+
+      try {
+        await fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data),
+        });
+        form.style.display = 'none';
+        $('maintThanks').style.display = 'block';
+        if (!LINE_STATE.loggedIn) showMailContact('#maintThanks');
+        if (LINE_STATE.inClient) {
+          $('mCloseBtn').classList.remove('is-hidden');
+          $('mCloseBtn').addEventListener('click', () => liff.closeWindow());
+        }
+        document.getElementById('maintenance-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        btn.textContent = '申し込む';
+        btn.disabled = false;
+        alert('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
